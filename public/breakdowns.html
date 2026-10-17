@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9227690723872378" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ERDGNDJ01Q"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-ERDGNDJ01Q');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Daily video breakdowns and structural analysis for NYT Connections puzzles. Unpack overlapping red herrings, category traps, and lateral semantic patterns.">
+    <title>Daily Puzzle Breakdowns & Video Analysis | Connections Assistant</title>
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232d3436'/%3E%3Crect x='4' y='4' width='10' height='10' rx='2.5' fill='%23f9ca24'/%3E%3Crect x='18' y='4' width='10' height='10' rx='2.5' fill='%236ab04c'/%3E%3Crect x='4' y='18' width='10' height='10' rx='2.5' fill='%234834d4'/%3E%3Crect x='18' y='18' width='10' height='10' rx='2.5' fill='%23be2edd'/%3E%3C/svg%3E">
+
+    <style>
+        :root { --primary: #6c5ce7; --secondary: #00cec9; --dark: #2d3436; --light: #f4f4f9; }
+        * { box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--light); color: #333; margin: 0; padding: 0; line-height: 1.6; }
+        
+        nav { background: white; padding: 15px 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 22px; font-weight: bold; color: var(--primary); text-decoration: none; }
+        .nav-links a { margin-left: 20px; text-decoration: none; color: var(--dark); font-weight: 500; }
+        .nav-links a:hover { color: var(--primary); }
+
+        .container { max-width: 960px; margin: 40px auto; padding: 0 20px; }
+        h1 { text-align: center; color: var(--dark); font-size: 2.3em; margin-bottom: 8px; }
+        .subtitle { text-align: center; color: #64748b; font-size: 1.15em; margin-bottom: 35px; }
+
+        /* Featured Daily Video Player */
+        .featured-banner { background: white; border-radius: 12px; padding: 35px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 40px; display: flex; gap: 30px; align-items: center; flex-wrap: wrap; }
+        .video-wrapper { flex: 0 0 280px; max-width: 280px; aspect-ratio: 9/16; border-radius: 12px; overflow: hidden; background: #000; box-shadow: 0 6px 18px rgba(0,0,0,0.15); margin: 0 auto; }
+        .video-wrapper iframe { width: 100%; height: 100%; border: none; }
+        .featured-content { flex: 1; min-width: 280px; }
+        .badge { display: inline-block; background: #fee2e2; color: #dc2626; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 999px; text-transform: uppercase; margin-bottom: 12px; }
+        .featured-content h2 { color: var(--dark); margin-top: 0; margin-bottom: 12px; font-size: 1.6em; }
+        .featured-content p { color: #555; font-size: 1.05em; margin-bottom: 18px; }
+        
+        .btn-sub { display: inline-flex; align-items: center; gap: 8px; background: #ff0000; color: #ffffff; padding: 12px 24px; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 15px; box-shadow: 0 3px 8px rgba(255,0,0,0.25); transition: opacity 0.2s; }
+        .btn-sub:hover { opacity: 0.9; }
+
+        /* Grid of Analysis Notes */
+        .breakdowns-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; margin-bottom: 40px; }
+        .breakdown-card { background: white; border-radius: 12px; padding: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.04); border-top: 4px solid var(--primary); display: flex; flex-direction: column; justify-content: space-between; }
+        .card-tag { font-size: 12px; font-weight: 700; text-transform: uppercase; color: #64748b; margin-bottom: 6px; }
+        .breakdown-card h3 { color: var(--dark); font-size: 1.2em; margin-top: 0; margin-bottom: 10px; }
+        .breakdown-card p { color: #555; font-size: 0.95em; line-height: 1.5; margin-bottom: 15px; }
+        .card-link { font-weight: 600; color: var(--primary); text-decoration: none; font-size: 0.9em; }
+        .card-link:hover { text-decoration: underline; }
+
+        /* Editorial Strategy Explainer */
+        .article-section { background: white; padding: 35px; margin-bottom: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .article-section h2 { color: var(--primary); border-bottom: 2px solid var(--light); padding-bottom: 10px; margin-top: 0; }
+        .article-section p { font-size: 1.05em; color: #555; margin-bottom: 15px; }
+
+        footer { background: white; padding: 30px 20px; text-align: center; margin-top: 60px; border-top: 1px solid #ddd; }
+        footer p { color: #7f8c8d; font-size: 14px; margin: 5px 0; }
+        .footer-links a { color: var(--primary); text-decoration: none; margin: 0 10px; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">Connections Assistant</a>
+        <div class="nav-links">
+            <a href="index.html">Solver</a>
+            <a href="breakdowns.html" style="color: var(--primary);">Breakdowns</a>
+            <a href="nyt-connections-guide.html">Guide</a>
+            <a href="strategy.html">Strategy</a>
+            <a href="faq.html">FAQ</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Daily Connections Puzzle Breakdowns</h1>
+        <p class="subtitle">Video walkthroughs, linguistic breakdowns, and lateral pattern untangling.</p>
+
+        <!-- Featured Section With Direct Channel Uploads Auto-Feed -->
+        <div class="featured-banner">
+            <div class="video-wrapper">
+                <iframe 
+                    src="https://www.youtube-nocookie.com/embed?listType=playlist&list=UUjPi6k9i4viYPNFAwNXMC" 
+                    title="Daily Connections Breakdown" 
+                    loading="lazy" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="featured-content">
+                <span class="badge">Latest Video Breakdown</span>
+                <h2>Visualizing Board Red Herrings & Traps</h2>
+                <p>
+                    Every daily puzzle features overlapping decoys designed to bleed your 4 mistakes early. Our video shorts break down the board layout in real-time, highlighting why deceptive overlaps fail and how lateral associations unlock the Purple difficulty tier.
+                </p>
+                <a href="https://www.youtube.com/channel/UCjPi6k9i4viYPNFAwNXMC?sub_confirmation=1" target="_blank" rel="noopener noreferrer" class="btn-sub">
+                    ▶️ Subscribe on YouTube
+                </a>
+            </div>
+        </div>
+
+        <!-- Text-Rich Puzzle Breakdown Archive (Provides Critical SEO / AdSense Dwell Value) -->
+        <div class="breakdowns-grid">
+            <div class="breakdown-card" style="border-top-color: #be2edd;">
+                <div>
+                    <div class="card-tag">Trap Case Study</div>
+                    <h3>The DATE Trap: Calendar Days vs. Palm Fruits</h3>
+                    <p>When "DATE" shares the grid with calendar terms like "MAY" or "MARCH," players reflexively lock in months. We detail how semantic partitioners separate botanical fruits from temporal markers.</p>
+                </div>
+                <a href="strategy.html" class="card-link">Read Elimination Strategy →</a>
+            </div>
+
+            <div class="breakdown-card" style="border-top-color: #2980b9;">
+                <div>
+                    <div class="card-tag">Compound Words</div>
+                    <h3>The CHECK Trap: Financial Slips vs. Board Games</h3>
+                    <p>Evaluating "CHECK" alongside "BILL" and "TAB" triggers financial bias. We explore how hidden prefixes (Checkmate, Checkpoint, Checkers) redirect the grouping path.</p>
+                </div>
+                <a href="nyt-connections-guide.html" class="card-link">Review Color Tier Rules →</a>
+            </div>
+
+            <div class="breakdown-card" style="border-top-color: #27ae60;">
+                <div>
+                    <div class="card-tag">Polysemy & Double Meanings</div>
+                    <h3>The BANK Trap: Fluvial Edges vs. Financial Vaults</h3>
+                    <p>Words with distinct physical and institutional meanings represent classic Yellow-to-Blue bridge decoys. See how identifying noun-versus-verb roles solves the split.</p>
+                </div>
+                <a href="faq.html" class="card-link">Explore Linguistic FAQ →</a>
+            </div>
+        </div>
+
+        <!-- In-Depth Analytical Editorial Content -->
+        <section class="article-section">
+            <h2>Why Video Walkthroughs Improve Puzzle Pattern Recognition</h2>
+            <p>
+                Solving NYT Connections is not merely a test of vocabulary; it is an exercise in cognitive bias management. The puzzle editor constructs each 16-word board with intentional overlapping distractors (known as polysemes) that bait human pattern recognition into committing premature guesses.
+            </p>
+            <p>
+                Our video breakdown series deconstructs these grids systematically. By pairing visual group clustering with linguistic rule-checking, players learn to spot fill-in-the-blank homophones, palindromes, and missing prefixes before submitting their first selection.
+            </p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Connections Grouping Assistant. All rights reserved.</p>
+        <p>This independent helper utility is not affiliated with the New York Times Company.</p>
+        <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+    </footer>
+
+</body>
+</html>
