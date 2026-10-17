@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9227690723872378" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ERDGNDJ01Q"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-ERDGNDJ01Q');
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The ultimate semantic word puzzle solver. Analyze daily word grids, find hidden associations, and master categorical grouping games with our free assistant.">
+    <title>Connections Grouping Assistant | Word Puzzle Strategy & Solver</title>
+    
+    <style>
+        :root { --primary: #6c5ce7; --secondary: #00cec9; --dark: #2d3436; --light: #f4f4f9; }
+        * { box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--light); color: #333; margin: 0; padding: 0; line-height: 1.6; }
+        
+        /* Navigation */
+        nav { background: white; padding: 15px 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 22px; font-weight: bold; color: var(--primary); text-decoration: none; }
+        .nav-links a { margin-left: 20px; text-decoration: none; color: var(--dark); font-weight: 500; }
+        .nav-links a:hover { color: var(--primary); }
+
+        /* Main Container */
+        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+        h1 { text-align: center; color: var(--dark); font-size: 2.5em; margin-bottom: 10px; }
+        .subtitle { text-align: center; color: #666; font-size: 1.2em; margin-bottom: 30px; }
+        
+        /* Tool Card Container */
+        .tool-card { background: white; padding: 35px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 30px; }
+        
+        /* Tool Grid */
+        .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; width: 100%; }
+        input[type="text"] { width: 100%; padding: 15px 5px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; text-align: center; font-weight: 600; color: var(--dark); transition: all 0.2s ease; }
+        input[type="text"]:focus { border-color: var(--primary); outline: none; box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.15); }
+        
+        /* Action Row */
+        .action-row { display: flex; gap: 15px; margin-bottom: 15px; width: 100%; }
+        button { padding: 16px; border: none; border-radius: 8px; font-size: 17px; cursor: pointer; font-weight: bold; transition: transform 0.1s, opacity 0.2s; color: white; }
+        button:active { transform: scale(0.98); }
+        .btn-secondary { background-color: var(--secondary); flex: 1; }
+        .btn-primary { background-color: var(--primary); flex: 2; }
+        .btn-save { background-color: #fdcb6e; color: var(--dark); width: 100%; margin-top: 15px; display: none; }
+        
+        #results { margin-top: 20px; width: 100%; }
+
+        /* Tip / Support Jar */
+        .support-container {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 24px;
+            margin: 30px 0 40px 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        .support-container h4 {
+            margin: 0 0 8px 0;
+            color: var(--dark);
+            font-size: 1.15em;
+        }
+        .support-container p {
+            margin: 0 0 16px 0;
+            color: #64748b;
+            font-size: 0.95em;
+        }
+        .support-btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .btn-support {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 22px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+        .btn-support:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .btn-kofi {
+            background-color: #ff5e5b;
+            color: #ffffff;
+        }
+        .btn-paypal {
+            background-color: #0070ba;
+            color: #ffffff;
+        }
+        
+        /* Content Articles */
+        .article-section { background: white; padding: 35px; margin-bottom: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .article-section h2 { color: var(--primary); border-bottom: 2px solid var(--light); padding-bottom: 10px; margin-top: 0; }
+        .article-section h3 { color: var(--dark); margin-top: 25px; }
+        .article-section p { font-size: 1.05em; color: #555; margin-bottom: 15px; }
+        .article-section ul { color: #555; padding-left: 20px; }
+        .article-section li { margin-bottom: 8px; }
+        
+        /* Footer */
+        footer { background: white; padding: 30px 20px; text-align: center; margin-top: 60px; border-top: 1px solid #ddd; }
+        footer p { color: #7f8c8d; font-size: 14px; margin: 5px 0; }
+        .footer-links { margin-top: 15px; }
+        .footer-links a { color: var(--primary); text-decoration: none; margin: 0 10px; font-size: 14px; }
+        
+        @media (max-width: 600px) {
+            .grid { grid-template-columns: repeat(2, 1fr); }
+            .action-row { flex-direction: column; }
+            .support-btn-group { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="logo">Connections Assistant</a>
+        <div class="nav-links">
+            <a href="nyt-connections-guide.html">NYT Guide</a>
+            <a href="#features">Features</a>
+            <a href="strategy.html">Strategy</a>
+            <a href="faq.html">FAQ</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Connections Grouping Assistant</h1>
+        <p class="subtitle">The ultimate semantic utility for analyzing complex word puzzle grids.</p>
+
+        <!-- Tool Card -->
+        <div class="tool-card">
+            <div class="grid" id="inputGrid"></div>
+            <div class="action-row">
+                <button id="autoFillBtn" class="btn-secondary" onclick="autoFillGrid()">📋 Quick Paste</button>
+                <button id="findBtn" class="btn-primary" onclick="findConnections()">Analyze Associations</button>
+            </div>
+            <button id="saveBtn" class="btn-save" onclick="copyResults()">💾 Copy Results</button>
+            <div id="results"></div>
+        </div>
+
+        <!-- Immediate Monetization Support Module -->
+        <div class="support-container">
+            <h4>☕ Enjoying the Connections Assistant?</h4>
+            <p>We keep this solver free, fast, and server-backed. Tip a coffee to help cover API compute costs!</p>
+            <div class="support-btn-group">
+                <a href="https://ko-fi.com/connectionsassistant" target="_blank" rel="noopener noreferrer" class="btn-support btn-kofi">
+                    ☕ Tip $3 on Ko-fi
+                </a>
+                <a href="https://paypal.me/j1223aw/2" target="_blank" rel="noopener noreferrer" class="btn-support btn-paypal">
+                    🅿️ Tip $2 via PayPal
+                </a>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <section id="features" class="article-section">
+            <h2>Understanding the Core Features</h2>
+            <p>The Connections Grouping Assistant is designed for seamless, fast input and deep semantic analysis. Here is how our key features streamline your puzzle solving:</p>
+
+            <h3>📋 Quick Paste Feature</h3>
+            <p>Manually typing 16 individual words into separate boxes can be slow and tedious. The <strong>Quick Paste</strong> tool allows you to copy an entire daily word list directly from your clipboard or text message and paste it all at once. Our system automatically parses comma-separated lists, line breaks, or spaces, placing each word neatly into its designated grid position instantly.</p>
+
+            <h3>🔍 Analyze Associations Feature</h3>
+            <p>Once your grid is populated, clicking <strong>Analyze Associations</strong> triggers our automated linguistic mapping process. Rather than relying on simple dictionary lookup, the algorithm evaluates every word in relation to the other 15 inputs. It cross-references definitions, statistical word co-occurrences, and categorical groupings via the Datamuse API to highlight latent patterns, homophones, and hidden thematic links.</p>
+        </section>
+
+        <!-- Guide Section -->
+        <section id="guide" class="article-section">
+            <h2>How to Master Word Grouping Puzzles</h2>
+            <p>Word grouping puzzles challenge players to look at a 16-word grid and identify four distinct categories. While the concept sounds simple, game creators use advanced linguistic tricks to confuse players. The <strong>Connections Grouping Assistant</strong> was engineered to help you break down these mental roadblocks.</p>
+            
+            <h3>Understanding Red Herrings</h3>
+            <p>A "red herring" in a word puzzle is a word that intentionally fits into multiple categories to throw you off. For example, the word "BARK" could belong to a category about "Trees," a category about "Dogs," or a category about "Things that are rough." Our semantic analysis tool cross-references these definitions in real-time, helping you visualize overlapping definitions so you can isolate the red herrings.</p>
+            
+            <h3>The Four Common Grouping Strategies</h3>
+            <p>To successfully solve daily grids, train your brain to look for these specific linguistic patterns:</p>
+            <ul>
+                <li><strong>Synonyms and Definitions:</strong> Words that mean the same thing (e.g., Leap, Jump, Bound, Spring).</li>
+                <li><strong>Fill-in-the-Blanks:</strong> Words that share a common prefix or suffix (e.g., words preceding "Board": Key, Snow, Surf, Dash).</li>
+                <li><strong>Homophones:</strong> Words that sound identical with different spellings and meanings (e.g., Bear, Bare).</li>
+                <li><strong>Trivia and Categorical Domains:</strong> Specific categories like "Oscar Winning Movies" or "European Capitals."</li>
+            </ul>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="article-section">
+            <h2>Frequently Asked Questions (FAQ)</h2>
+            
+            <h3>How does the semantic API work?</h3>
+            <p>When you input your 16 words, our system queries the Datamuse API, a powerful linguistic engine. It compares every single word against the other 15 words to find hidden relationships, statistical word associations, and shared categories that the human eye might miss.</p>
+
+            <h3>Is this tool cheating?</h3>
+            <p>Not at all! We view the Connections Grouping Assistant as a learning utility and a hint system. Rather than giving you direct answers, it provides structural analysis and highlights potential relationships for when you are stuck.</p>
+
+            <h3>Are you affiliated with the New York Times?</h3>
+            <p>No. This website is a completely independent, free-to-use utility created by word puzzle enthusiasts. We have no affiliation, endorsement, or sponsorship with The New York Times Company or their daily games.</p>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Connections Grouping Assistant. All rights reserved.</p>
+        <p>This independent helper utility is not affiliated with the New York Times Company.</p>
+        <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+    </footer>
+
+    <script>
+        const grid = document.getElementById('inputGrid');
+        for (let i = 1; i <= 16; i++) {
+            const input = document.createElement('input');
+            input.type = 'text'; input.id = `word-${i}`; input.placeholder = `Word ${i}`;
+            grid.appendChild(input);
+        }
+
+        function autoFillGrid() { 
+            const pastedText = prompt("Paste your 16 words here (separated by spaces or commas):");
+            if (!pastedText) return;
+            const wordsArray = pastedText.split(/[\s,]+/).filter(w => w.trim().length > 0);
+            for (let i = 0; i < 16; i++) {
+                const inputField = document.getElementById(`word-${i+1}`);
+                if (inputField) inputField.value = wordsArray[i] ? wordsArray[i].trim() : '';
+            }
+        }
+
+        function copyResults() {
+            const resultsDiv = document.getElementById('results');
+            if (!resultsDiv || resultsDiv.innerText.trim() === '') return;
+
+            let shareText = "Connections Grouping Assistant Results\nhttps://connectionsassistant.com\n\n";
+            const cards = resultsDiv.querySelectorAll('div[style*="border-left"]');
+
+            if (cards.length > 0) {
+                cards.forEach(card => {
+                    const title = card.querySelector('strong').innerText;
+                    const tier = card.querySelector('span').innerText;
+                    const words = card.querySelector('div[style*="font-weight: 600"]').innerText;
+                    
+                    let emoji = "🟨";
+                    if (tier.includes("Green")) emoji = "🟩";
+                    if (tier.includes("Blue")) emoji = "🟦";
+                    if (tier.includes("Purple")) emoji = "🟪";
+
+                    shareText += `${emoji} ${tier}: ${title}\n${words}\n\n`;
+                });
+            } else {
+                shareText += resultsDiv.innerText;
+            }
+
+            navigator.clipboard.writeText(shareText.trim()).then(() => {
+                alert("Results copied to clipboard!");
+            });
+        }
+async function findConnections() {
+            const findBtn = document.getElementById('findBtn');
+            const resultsDiv = document.getElementById('results');
+            const saveBtn = document.getElementById('saveBtn');
+
+            // 1. Gather Words
+            const words = [];
+            for (let i = 1; i <= 16; i++) {
+                const val = document.getElementById(`word-${i}`).value.trim().toUpperCase();
+                if (val) words.push(val);
+            }
+
+            if (words.length !== 16) {
+                alert("Please enter all 16 words to run the full group analyzer.");
+                return;
+            }
+
+            findBtn.disabled = true;
+            resultsDiv.innerHTML = '<p style="text-align: center; color: #6c5ce7; font-weight: 600;">⚡ Running Gemini 2.5 Flash semantic partitioning...</p>';
+
+            try {
+                // 2. Query the Firebase Cloud Function backend
+                const response = await fetch('/api/solve', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ words })
+                });
+
+                if (!response.ok) throw new Error('Solver API request failed');
+                const data = await response.json();
+
+                // 3. Render 4 Color-Coded Category Cards
+                let outputHtml = '<div style="margin-top: 20px;">';
+                data.groups.forEach(g => {
+                    let color = '#d4ac0d'; // Yellow
+                    if (g.difficulty_tier.startsWith('Green')) color = '#27ae60';
+                    if (g.difficulty_tier.startsWith('Blue')) color = '#2980b9';
+                    if (g.difficulty_tier.startsWith('Purple')) color = '#8e44ad';
+
+                    outputHtml += `
+                        <div style="background: white; border-left: 6px solid ${color}; border-radius: 8px; padding: 16px; margin-bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); text-align: left;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                <strong style="color: ${color}; font-size: 1.05em;">${g.theme}</strong>
+                                <span style="font-size: 0.85em; background: #f1f5f9; padding: 2px 8px; border-radius: 4px; color: #475569; font-weight: 600;">${g.difficulty_tier.split(' ')[0]}</span>
+                            </div>
+                            <div style="font-weight: 600; color: #1e293b; font-size: 1.05em;">${g.words.join(' • ')}</div>
+                        </div>
+                    `;
+                });
+                outputHtml += '</div>';
+
+                resultsDiv.innerHTML = outputHtml;
+                saveBtn.style.display = 'block';
+            } catch (err) {
+                resultsDiv.innerHTML = '<p style="color: #ef4444; text-align: center; font-weight: 600;">Error analyzing board. Please verify your inputs and try again.</p>';
+            } finally {
+                findBtn.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>
