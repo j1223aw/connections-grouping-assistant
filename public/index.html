@@ -171,7 +171,7 @@
             <p>Manually typing 16 individual words into separate boxes can be slow and tedious. The <strong>Quick Paste</strong> tool allows you to copy an entire daily word list directly from your clipboard or text message and paste it all at once. Our system automatically parses comma-separated lists, line breaks, or spaces, placing each word neatly into its designated grid position instantly.</p>
 
             <h3>🔍 Analyze Associations Feature</h3>
-            <p>Once your grid is populated, clicking <strong>Analyze Associations</strong> triggers our automated linguistic mapping process. Rather than relying on simple dictionary lookup, the algorithm evaluates every word in relation to the other 15 inputs. It cross-references definitions, statistical word co-occurrences, and categorical groupings via the Datamuse API to highlight latent patterns, homophones, and hidden thematic links.</p>
+            <p>Once your grid is populated, clicking <strong>Analyze Associations</strong> triggers our server-backed neural semantic partitioner. Rather than relying on rigid dictionary lookups, our backend evaluates every word in contextual relation to the other 15 inputs. It analyzes definitions, multi-tier wordplay, slang associations, and category sets to resolve the optimal 4-tier partition into Yellow, Green, Blue, and Purple groupings.</p>
         </section>
 
         <!-- Guide Section -->
@@ -190,14 +190,21 @@
                 <li><strong>Homophones:</strong> Words that sound identical with different spellings and meanings (e.g., Bear, Bare).</li>
                 <li><strong>Trivia and Categorical Domains:</strong> Specific categories like "Oscar Winning Movies" or "European Capitals."</li>
             </ul>
+
+            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px; margin-top: 20px;">
+                <h4 style="margin: 0 0 8px 0; color: var(--primary);">Explore In-Depth Strategy & Solving Guides</h4>
+                <p style="margin: 0; font-size: 0.95em; color: #475569;">
+                    Master grid patterns and trap avoidance with our comprehensive guides: read the complete <a href="nyt-connections-guide.html" style="color: var(--primary); font-weight: 600;">Daily Connections Gameplay Guide</a>, explore <a href="strategy.html" style="color: var(--primary); font-weight: 600;">Advanced Elimination Strategies</a>, or check our <a href="faq.html" style="color: var(--primary); font-weight: 600;">Frequently Asked Questions</a>.
+                </p>
+            </div>
         </section>
 
         <!-- FAQ Section -->
         <section id="faq" class="article-section">
             <h2>Frequently Asked Questions (FAQ)</h2>
             
-            <h3>How does the semantic API work?</h3>
-            <p>When you input your 16 words, our system queries the Datamuse API, a powerful linguistic engine. It compares every single word against the other 15 words to find hidden relationships, statistical word associations, and shared categories that the human eye might miss.</p>
+            <h3>How does the semantic solver work?</h3>
+            <p>When you input your 16 words, our secure Cloud Function analyzes all possible four-word combinations using advanced semantic inference. It evaluates contextual associations, compound word patterns, homophones, and lateral traps to deliver structured hints and difficulty-ranked solutions without exposing game secrets early.</p>
 
             <h3>Is this tool cheating?</h3>
             <p>Not at all! We view the Connections Grouping Assistant as a learning utility and a hint system. Rather than giving you direct answers, it provides structural analysis and highlights potential relationships for when you are stuck.</p>
@@ -264,7 +271,8 @@
                 alert("Results copied to clipboard!");
             });
         }
-async function findConnections() {
+
+        async function findConnections() {
             const findBtn = document.getElementById('findBtn');
             const resultsDiv = document.getElementById('results');
             const saveBtn = document.getElementById('saveBtn');
