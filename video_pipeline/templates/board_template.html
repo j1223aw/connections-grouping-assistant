@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@600;700&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1080px; height: 1920px;
+    background: radial-gradient(circle at 50% 20%, #1e293b 0%, #0f172a 100%);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #ffffff;
+    display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+    padding: 140px 60px 100px 60px;
+  }
+  .header { text-align: center; width: 100%; }
+  .tag {
+    display: inline-block; padding: 12px 28px; border-radius: 999px;
+    background: rgba(108, 92, 231, 0.2); border: 2px solid #6c5ce7;
+    color: #a29bfe; font-size: 28px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; margin-bottom: 24px;
+  }
+  .hook {
+    font-size: 64px; font-weight: 800; line-height: 1.15;
+    background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    text-shadow: 0 8px 30px rgba(0,0,0,0.5);
+  }
+  .badge {
+    margin-top: 24px; display: inline-block; padding: 14px 36px; border-radius: 16px;
+    font-size: 34px; font-weight: 800; letter-spacing: 1.5px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  }
+  .badge.purple { background: #be2edd; color: #fff; }
+  .badge.blue { background: #4834d4; color: #fff; }
+  .badge.green { background: #6ab04c; color: #fff; }
+  .badge.yellow { background: #f9ca24; color: #2d3436; }
+
+  .grid {
+    width: 960px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+    margin: 40px 0;
+  }
+  .tile {
+    aspect-ratio: 1; background: #334155; border-radius: 20px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Inter', sans-serif; font-size: 30px; font-weight: 700;
+    letter-spacing: 1px; text-align: center; padding: 10px;
+    box-shadow: 0 8px 0 #1e293b, 0 15px 25px rgba(0,0,0,0.3);
+    border: 2px solid rgba(255,255,255,0.08);
+  }
+  .tile.highlighted {
+    background: #e2e8f0; color: #0f172a; transform: translateY(-4px);
+    box-shadow: 0 12px 0 #94a3b8, 0 20px 30px rgba(0,0,0,0.4);
+  }
+  .tile.solved-purple {
+    background: #be2edd; color: #ffffff; border-color: #e056fd;
+    box-shadow: 0 12px 0 #6c1285, 0 20px 30px rgba(190,46,221,0.4);
+  }
+  .tile.solved-blue {
+    background: #4834d4; color: #ffffff; border-color: #686de0;
+    box-shadow: 0 12px 0 #2c1b96, 0 20px 30px rgba(72,52,212,0.4);
+  }
+  .footer {
+    text-align: center; width: 100%;
+    background: rgba(15, 23, 42, 0.7); border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 24px; padding: 24px; backdrop-filter: blur(10px);
+  }
+  .footer-logo { font-size: 32px; color: #64748b; font-weight: 700; }
+  .footer-url { font-size: 42px; font-weight: 800; color: #00cec9; letter-spacing: 1px; }
+</style>
+</head>
+<body>
+  <div class="header">
+    <div class="tag">Daily Trap Breakdown</div>
+    <div class="hook">{{HOOK}}</div>
+    {{BADGE_HTML}}
+  </div>
+  <div class="grid">
+    {{GRID_ITEMS}}
+  </div>
+  <div class="footer">
+    <div class="footer-logo">Solve & Group Instantly</div>
+    <div class="footer-url">connectionsassistant.com</div>
+  </div>
+</body>
+</html>

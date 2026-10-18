@@ -4,3 +4,9 @@ functions/node_modules/
 firebase-debug.*.log
 .firebase/
 .env*
+
+# Video Pipeline Outputs
+video_pipeline/output/
+*.mp4
+*.mp3
+*.wav

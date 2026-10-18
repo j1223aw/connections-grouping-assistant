@@ -1,0 +1,3 @@
+file 'C:\Users\Infinite\Documents\Connections Grouping Assistant\video_pipeline\pipeline_output\02_the_speed_trap_why_swift_and_fleet_\clip_1.mp4'
+file 'C:\Users\Infinite\Documents\Connections Grouping Assistant\video_pipeline\pipeline_output\02_the_speed_trap_why_swift_and_fleet_\clip_2.mp4'
+file 'C:\Users\Infinite\Documents\Connections Grouping Assistant\video_pipeline\pipeline_output\02_the_speed_trap_why_swift_and_fleet_\clip_3.mp4'
