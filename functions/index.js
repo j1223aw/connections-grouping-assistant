@@ -44,7 +44,7 @@ exports.solve = onRequest(
   {
     cors: true,
     memory: "512MiB",
-    timeoutSeconds: 60,
+    timeoutSeconds: 120,
     secrets: ["GEMINI_API_KEY"]
   },
   async (req, res) => {
@@ -60,10 +60,11 @@ exports.solve = onRequest(
 
       const apiKey = process.env.GEMINI_API_KEY;
       if (!apiKey) {
-        console.error("Missing GEMINI_API_KEY secret in environment.");
-        return res.status(500).json({ error: "API configuration error." });
+        console.error("FATAL: Missing GEMINI_API_KEY environment variable.");
+        return res.status(500).json({ error: "API key not configured." });
       }
 
+      console.log("Starting solver inference for words:", words.join(", "));
       const ai = new GoogleGenAI({ apiKey });
 
       const prompt = `You are an elite solver for the NYT Connections 16-word grouping puzzle.
@@ -81,27 +82,41 @@ Strict Rules:
    - "Purple (Wordplay/Abstract)"
 No two groups may share the same difficulty tier.`;
 
-      const response = await ai.models.generateContent({
-        model: "gemini-2.5-flash",
-        contents: prompt,
-        config: {
-          responseMimeType: "application/json",
-          responseSchema: solveSchema,
-          temperature: 0.1
-        }
-      });
+      let response;
+      try {
+        response = await ai.models.generateContent({
+          model: "gemini-2.0-flash",
+          contents: prompt,
+          config: {
+            responseMimeType: "application/json",
+            responseSchema: solveSchema,
+            temperature: 0.1
+          }
+        });
+      } catch (modelErr) {
+        console.warn("gemini-2.0-flash failed, falling back to gemini-1.5-flash:", modelErr.message);
+        response = await ai.models.generateContent({
+          model: "gemini-1.5-flash",
+          contents: prompt,
+          config: {
+            responseMimeType: "application/json",
+            responseSchema: solveSchema,
+            temperature: 0.1
+          }
+        });
+      }
 
-      // Handle both string property and function method variants across SDK versions
       const rawText = typeof response.text === "function" ? response.text() : response.text;
       const cleanJson = (rawText || "").replace(/```json/g, "").replace(/```/g, "").trim();
       const parsed = JSON.parse(cleanJson);
 
+      console.log("Solver inference successful.");
       return res.status(200).json(parsed);
     } catch (error) {
       console.error("Inference Error:", error);
-      return res.status(500).json({ 
+      return res.status(500).json({
         error: "Failed to solve grouping grid.",
-        details: error.message 
+        details: error.message
       });
     }
   }
