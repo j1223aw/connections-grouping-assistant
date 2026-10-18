@@ -10,22 +10,22 @@ const solveSchema = {
       items: {
         type: Type.OBJECT,
         properties: {
-          theme: { 
-            type: Type.STRING, 
-            description: "The underlying category, rule, or lateral wordplay theme" 
+          theme: {
+            type: Type.STRING,
+            description: "The underlying category, rule, or lateral wordplay theme"
           },
-          difficulty_tier: { 
-            type: Type.STRING, 
+          difficulty_tier: {
+            type: Type.STRING,
             enum: [
-              "Yellow (Straightforward)", 
-              "Green (Moderate)", 
-              "Blue (Trivia/Subset)", 
+              "Yellow (Straightforward)",
+              "Green (Moderate)",
+              "Blue (Trivia/Subset)",
               "Purple (Wordplay/Abstract)"
-            ] 
+            ]
           },
-          confidence: { 
-            type: Type.NUMBER, 
-            description: "Confidence score between 0.0 and 1.0" 
+          confidence: {
+            type: Type.NUMBER,
+            description: "Confidence score between 0.0 and 1.0"
           },
           words: {
             type: Type.ARRAY,
@@ -41,21 +41,13 @@ const solveSchema = {
 };
 
 exports.solve = onRequest(
-  { 
-    cors: true, 
-    memory: "512MiB", 
-    secrets: ["GEMINI_API_KEY"] 
+  {
+    cors: true,
+    memory: "512MiB",
+    timeoutSeconds: 60,
+    secrets: ["GEMINI_API_KEY"]
   },
   async (req, res) => {
-    // Enable CORS headers directly
-    res.set("Access-Control-Allow-Origin", "*");
-    res.set("Access-Control-Allow-Methods", "POST, OPTIONS");
-    res.set("Access-Control-Allow-Headers", "Content-Type");
-
-    if (req.method === "OPTIONS") {
-      return res.status(204).send("");
-    }
-
     if (req.method !== "POST") {
       return res.status(405).json({ error: "Method not allowed. Use POST." });
     }
@@ -66,11 +58,15 @@ exports.solve = onRequest(
         return res.status(400).json({ error: "Exactly 16 words are required." });
       }
 
-      const ai = new GoogleGenAI();
+      const apiKey = process.env.GEMINI_API_KEY;
+      if (!apiKey) {
+        console.error("Missing GEMINI_API_KEY secret in environment.");
+        return res.status(500).json({ error: "API configuration error." });
+      }
 
-      const response = await ai.models.generateContent({
-        model: "gemini-2.5-flash",
-       contents: `You are an elite solver for the NYT Connections 16-word grouping puzzle.
+      const ai = new GoogleGenAI({ apiKey });
+
+      const prompt = `You are an elite solver for the NYT Connections 16-word grouping puzzle.
 Analyze these 16 words and partition them into exactly four disjoint groups of four:
 Words: ${words.join(", ")}
 
@@ -83,7 +79,11 @@ Strict Rules:
    - "Green (Moderate)"
    - "Blue (Trivia/Subset)"
    - "Purple (Wordplay/Abstract)"
-   No two groups may share the same difficulty tier.`,
+No two groups may share the same difficulty tier.`;
+
+      const response = await ai.models.generateContent({
+        model: "gemini-2.5-flash",
+        contents: prompt,
         config: {
           responseMimeType: "application/json",
           responseSchema: solveSchema,
@@ -91,11 +91,18 @@ Strict Rules:
         }
       });
 
-      const parsed = JSON.parse(response.text);
+      // Handle both string property and function method variants across SDK versions
+      const rawText = typeof response.text === "function" ? response.text() : response.text;
+      const cleanJson = (rawText || "").replace(/```json/g, "").replace(/```/g, "").trim();
+      const parsed = JSON.parse(cleanJson);
+
       return res.status(200).json(parsed);
     } catch (error) {
       console.error("Inference Error:", error);
-      return res.status(500).json({ error: "Failed to solve grouping grid." });
+      return res.status(500).json({ 
+        error: "Failed to solve grouping grid.",
+        details: error.message 
+      });
     }
   }
 );
