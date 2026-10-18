@@ -2,87 +2,150 @@
 <html lang="en">
 <head>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9227690723872378" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ERDGNDJ01Q"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-ERDGNDJ01Q');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Master daily word grouping puzzles. An in-depth strategy guide breaking down color tiers, red herrings, and semantic association patterns.">
     <title>Daily Word Puzzle Strategy & Color Tier Guide | Connections Assistant</title>
-	<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232d3436'/%3E%3Crect x='4' y='4' width='10' height='10' rx='2.5' fill='%23f9ca24'/%3E%3Crect x='18' y='4' width='10' height='10' rx='2.5' fill='%236ab04c'/%3E%3Crect x='4' y='18' width='10' height='10' rx='2.5' fill='%234834d4'/%3E%3Crect x='18' y='18' width='10' height='10' rx='2.5' fill='%23be2edd'/%3E%3C/svg%3E">
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232d3436'/%3E%3Crect x='4' y='4' width='10' height='10' rx='2.5' fill='%23f9ca24'/%3E%3Crect x='18' y='4' width='10' height='10' rx='2.5' fill='%236ab04c'/%3E%3Crect x='4' y='18' width='10' height='10' rx='2.5' fill='%234834d4'/%3E%3Crect x='18' y='18' width='10' height='10' rx='2.5' fill='%23be2edd'/%3E%3C/svg%3E">
+
+    <!-- Editorial Fonts & Master Stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
     <style>
-        :root { --primary: #6c5ce7; --secondary: #00cec9; --dark: #2d3436; --light: #f4f4f9; --yellow: #f1c40f; --green: #2ecc71; --blue: #3498db; --purple: #9b59b6; }
-        * { box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--light); color: #333; line-height: 1.7; margin: 0; padding: 0; }
-        nav { background: white; padding: 15px 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 20px; font-weight: bold; color: var(--primary); text-decoration: none; }
-        .nav-links a { margin-left: 15px; text-decoration: none; color: #333; font-weight: 500; }
-        .nav-links a:hover { color: var(--primary); }
-        .container { max-width: 850px; margin: 40px auto; padding: 40px; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        h1 { color: var(--dark); font-size: 2.2em; margin-bottom: 10px; }
-        h2 { color: var(--primary); margin-top: 35px; border-bottom: 2px solid var(--light); padding-bottom: 8px; }
-        h3 { color: var(--dark); margin-top: 25px; }
-        .tier-box { padding: 15px 20px; margin: 15px 0; border-radius: 8px; color: white; font-weight: 500; }
-        .tier-yellow { background-color: #d4ac0d; }
-        .tier-green { background-color: #27ae60; }
-        .tier-blue { background-color: #2980b9; }
-        .tier-purple { background-color: #8e44ad; }
-        .pro-tip { background-color: #f8f9fa; border-left: 4px solid var(--primary); padding: 15px 20px; margin: 20px 0; border-radius: 4px; }
-        footer { text-align: center; margin-top: 40px; padding: 25px; color: #7f8c8d; font-size: 14px; background: white; border-top: 1px solid #ddd; }
-        footer a { color: var(--primary); text-decoration: none; margin: 0 10px; }
+        .pro-tip-bento {
+            background: #FEF9C3;
+            border: 2px solid var(--border-lip);
+            border-left: 8px solid #CA8A04;
+            border-radius: var(--radius-tile);
+            box-shadow: 3px 3px 0px var(--border-lip);
+            padding: 16px 20px;
+            margin: 20px 0;
+            color: #141413;
+            font-size: 14px;
+        }
+        .pattern-list li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
     </style>
 </head>
 <body>
-    <nav>
-        <a href="index.html" class="logo">? Connections Assistant</a>
-        <div class="nav-links">
-            <a href="breakdowns.html">Breakdowns</a>
-            <a href="index.html">Tool</a>
-            <a href="strategy.html">Strategy</a>
-            <a href="faq.html">FAQ</a>
+
+    <!-- Unified Sticky Header with Solver Streak -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="brand-group">
+                <span class="brand-title">Connections Assistant</span>
+            </a>
+            <div class="nav-right">
+                <a href="index.html" class="streak-pill" id="streakPill" title="Daily Solver Streak">
+                    🔥 <span id="streakCount">1</span> Day Streak
+                </a>
+                <div class="nav-links">
+                    <a href="index.html">Solver</a>
+                    <a href="breakdowns.html">Breakdowns</a>
+                    <a href="nyt-connections-guide.html" class="active">Guide</a>
+                    <a href="strategy.html">Strategy</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </div>
         </div>
-    </nav>
+    </header>
 
     <div class="container">
-        <h1>The Definitive Guide to Solving 16-Word Grouping Grids</h1>
-        <p>Daily word grouping puzzles challenge players to sort 16 shuffled words into four distinct sets of four. While the premise is straightforward, success requires a combination of lateral thinking, semantic analysis, and disciplined elimination.</p>
+        <main class="content-bento">
+            <h1>The Definitive Guide to Solving 16-Word Grouping Grids</h1>
+            <p>Daily word grouping puzzles challenge players to sort 16 shuffled words into four distinct sets of four. While the premise is straightforward, success requires a combination of lateral thinking, semantic analysis, and disciplined elimination.</p>
 
-        <h2>Understanding the 4-Tier Difficulty Hierarchy</h2>
-        <p>Most curated 16-word games follow a standardized four-color progression, arranging groups from most straightforward to most abstract:</p>
+            <h2 style="margin-top: 28px;">Understanding the 4-Tier Difficulty Hierarchy</h2>
+            <p>Most curated 16-word games follow a standardized four-color progression, arranging groups from most straightforward to most abstract:</p>
 
-        <div class="tier-box tier-yellow">
-            <strong>Yellow Tier (Straightforward):</strong> Direct synonyms or standard physical object groupings that require minimal lateral interpretation.
-        </div>
-        <div class="tier-box tier-green">
-            <strong>Green Tier (Moderate):</strong> Well-defined categories that may involve colloquialisms, parts of speech, or everyday associations.
-        </div>
-        <div class="tier-box tier-blue">
-            <strong>Blue Tier (Challenging):</strong> Trivia-based subsets, compound phrases, or specific cultural and geographic domains.
-        </div>
-        <div class="tier-box tier-purple">
-            <strong>Purple Tier (Tricky / Abstract):</strong> Wordplay, homophones, letter substitutions, palindromes, or words sharing unconventional prefixes/suffixes.
-        </div>
+            <!-- Tactile Bento Tier Cards -->
+            <div class="tier-card-bento yellow">
+                <span class="tier-badge badge-yellow">YELLOW TIER • STRAIGHTFORWARD</span>
+                <p style="margin: 0; color: var(--ink);">Direct synonyms or standard physical object groupings that require minimal lateral interpretation.</p>
+            </div>
 
-        <h2>Deconstructing Red Herrings and Overlapping Categories</h2>
-        <p>The primary mechanic puzzle editors use to induce errors is the <em>overlapping candidate trap</em>. When an initial scan reveals five or six words that match a single theme (e.g., animals or colors), locking in four immediately often causes a failed attempt. The correct strategy involves identifying which candidate words possess secondary definitions that fit alternative sets.</p>
+            <div class="tier-card-bento green">
+                <span class="tier-badge badge-green">GREEN TIER • MODERATE</span>
+                <p style="margin: 0; color: var(--ink);">Well-defined categories that may involve colloquialisms, parts of speech, or everyday associations.</p>
+            </div>
 
-        <div class="pro-tip">
-            <strong>Rule of Thumb:</strong> If you spot five words that seem to belong to the same category, do not guess. Set that group aside and search for an isolated set of four that shares zero overlap with the rest of the board.
-        </div>
+            <div class="tier-card-bento blue">
+                <span class="tier-badge badge-blue">BLUE TIER • CHALLENGING</span>
+                <p style="margin: 0; color: var(--ink);">Trivia-based subsets, compound phrases, or specific cultural and geographic domains.</p>
+            </div>
 
-        <h2>Linguistic Patterns to Look For Every Session</h2>
-        <ul>
-            <li><strong>Fill-in-the-Blank Roots:</strong> Look for words that can precede or follow a common term (e.g., <em>Fire, Water, Pin, Wind</em> before "Wheel").</li>
-            <li><strong>Phonetic Matches:</strong> Say words aloud to check for shared sounds regardless of spelling variations (e.g., homophones like <em>Thyme</em> and <em>Time</em>).</li>
-            <li><strong>Syntactic Shifts:</strong> Check whether ambiguous words function as nouns, verbs, or adjectives in different contexts (e.g., <em>Train</em> as a locomotive vs. <em>Train</em> as coaching).</li>
-            <li><strong>Contained Words & Anagrams:</strong> Examine words for embedded subsets or anagram arrangements.</li>
-        </ul>
+            <div class="tier-card-bento purple">
+                <span class="tier-badge badge-purple">PURPLE TIER • TRICKY / ABSTRACT</span>
+                <p style="margin: 0; color: var(--ink);">Wordplay, homophones, letter substitutions, palindromes, or words sharing unconventional prefixes/suffixes.</p>
+            </div>
 
-        <h2>How Semantic Analysis Speeds Up Elimination</h2>
-        <p>When down to the final eight words, manual analysis can hit mental fatigue. By utilizing computational linguistic tools like the <strong>Connections Grouping Assistant</strong>, players can query statistical word associations and co-occurrence vectors to surface latent thematic links that human memory might temporarily overlook.</p>
+            <h2 style="margin-top: 32px;">Deconstructing Red Herrings and Overlapping Categories</h2>
+            <p>The primary mechanic puzzle editors use to induce errors is the <em>overlapping candidate trap</em>. When an initial scan reveals five or six words that match a single theme (e.g., animals or colors), locking in four immediately often causes a failed attempt. The correct strategy involves identifying which candidate words possess secondary definitions that fit alternative sets.</p>
+
+            <div class="pro-tip-bento">
+                <strong>Rule of Thumb:</strong> If you spot five words that seem to belong to the same category, do not guess. Set that group aside and search for an isolated set of four that shares zero overlap with the rest of the board.
+            </div>
+
+            <h2 style="margin-top: 32px;">Linguistic Patterns to Look For Every Session</h2>
+            <ul class="pattern-list">
+                <li><strong>Fill-in-the-Blank Roots:</strong> Look for words that can precede or follow a common term (e.g., <em>Fire, Water, Pin, Wind</em> before "Wheel").</li>
+                <li><strong>Phonetic Matches:</strong> Say words aloud to check for shared sounds regardless of spelling variations (e.g., homophones like <em>Thyme</em> and <em>Time</em>).</li>
+                <li><strong>Syntactic Shifts:</strong> Check whether ambiguous words function as nouns, verbs, or adjectives in different contexts (e.g., <em>Train</em> as a locomotive vs. <em>Train</em> as coaching).</li>
+                <li><strong>Contained Words & Anagrams:</strong> Examine words for embedded subsets or anagram arrangements.</li>
+            </ul>
+
+            <h2 style="margin-top: 32px;">How Semantic Analysis Speeds Up Elimination</h2>
+            <p>When down to the final eight words, manual analysis can hit mental fatigue. By utilizing computational linguistic tools like the <strong>Connections Grouping Assistant</strong>, players can query statistical word associations and co-occurrence vectors to surface latent thematic links that human memory might temporarily overlook.</p>
+
+            <div style="text-align: center; margin-top: 28px;">
+                <a href="index.html" class="btn-tactile btn-primary">Try the Interactive Solver</a>
+            </div>
+        </main>
+
+        <!-- Contextual Support Banner -->
+        <section class="support-banner">
+            <h4>☕ Keep Our Neural Solver Fast & Ad-Light</h4>
+            <p>Every analysis runs server-side AI reasoning across lexical databases. If our hints saved your streak today, consider fueling the compute!</p>
+            <div class="support-btn-group">
+                <a href="https://ko-fi.com/connectionsassistant" target="_blank" rel="noopener noreferrer" class="btn-support btn-kofi">
+                    ☕ Tip $3 on Ko-fi
+                </a>
+                <a href="https://paypal.me/j1223aw/2" target="_blank" rel="noopener noreferrer" class="btn-support btn-paypal">
+                    🅿️ Tip $2 via PayPal
+                </a>
+            </div>
+        </section>
     </div>
 
+    <!-- Global Footer -->
     <footer>
         <p>&copy; 2026 Connections Grouping Assistant. All rights reserved.</p>
-        <p>This independent helper utility is not affiliated with the New York Times Company.</p>
-        <p><a href="index.html">Home</a> | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a> | <a href="contact.html">Contact Us</a></p>
+        <p style="margin: 4px 0 12px 0;">This independent helper utility is not affiliated with the New York Times Company.</p>
+        <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
     </footer>
+
+    <script>
+        const streak = localStorage.getItem('ca_streak_count') || '1';
+        const streakEl = document.getElementById('streakCount');
+        if (streakEl) streakEl.innerText = streak;
+    </script>
 </body>
 </html>
