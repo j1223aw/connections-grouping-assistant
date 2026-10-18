@@ -70,6 +70,12 @@ exports.solve = onRequest(
       const prompt = `You are an elite solver for the NYT Connections 16-word grouping puzzle.
 Analyze these 16 words and partition them into exactly four disjoint groups of four:
 Words: ${words.join(", ")}
+console.log("Starting solver inference for words:", words.join(", "));
+      const ai = new GoogleGenAI({ apiKey });
+
+      const prompt = `You are an elite solver for the NYT Connections 16-word grouping puzzle.
+Analyze these 16 words and partition them into exactly four disjoint groups of four:
+Words: ${words.join(", ")}
 
 Strict Rules:
 1. Every word must appear exactly once across the four categories.
@@ -82,25 +88,22 @@ Strict Rules:
    - "Purple (Wordplay/Abstract)"
 No two groups may share the same difficulty tier.`;
 
-      let response;
-      try {
-        response = await ai.models.generateContent({
-          model: "gemini-2.0-flash",
-          contents: prompt,
-          config: {
-            responseMimeType: "application/json",
-            responseSchema: solveSchema,
-            temperature: 0.1
-          }
-        });
-      } catch (modelErr) {
-        console.warn("gemini-2.0-flash failed, falling back to gemini-1.5-flash:", modelErr.message);
-        response = await ai.models.generateContent({
-          model: "gemini-1.5-flash",
-          contents: prompt,
-          config: {
-            responseMimeType: "application/json",
-            responseSchema: solveSchema,
+      const response = await ai.models.generateContent({
+        model: "gemini-2.5-flash",
+        contents: prompt,
+        config: {
+          responseMimeType: "application/json",
+          responseSchema: solveSchema,
+          temperature: 0.1
+        }
+      });
+
+      const rawText = typeof response.text === "function" ? response.text() : response.text;
+      const cleanJson = (rawText || "").replace(/```json/g, "").replace(/```/g, "").trim();
+      const parsed = JSON.parse(cleanJson);
+
+      console.log("Solver inference successful.");
+      return res.status(200).json(parsed);
             temperature: 0.1
           }
         });
