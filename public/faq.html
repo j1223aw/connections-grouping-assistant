@@ -2,59 +2,95 @@
 <html lang="en">
 <head>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9227690723872378" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ERDGNDJ01Q"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-ERDGNDJ01Q');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Frequently asked questions about Connections Grouping Assistant, semantic solver methodology, privacy, and hints.">
     <title>Frequently Asked Questions | Connections Assistant</title>
+    
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232d3436'/%3E%3Crect x='4' y='4' width='10' height='10' rx='2.5' fill='%23f9ca24'/%3E%3Crect x='18' y='4' width='10' height='10' rx='2.5' fill='%236ab04c'/%3E%3Crect x='4' y='18' width='10' height='10' rx='2.5' fill='%234834d4'/%3E%3Crect x='18' y='18' width='10' height='10' rx='2.5' fill='%23be2edd'/%3E%3C/svg%3E">
+
+    <!-- Editorial Fonts & Master Stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f9; color: #333; line-height: 1.6; margin: 0; padding: 0; }
-        nav { background: white; padding: 15px 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 20px; font-weight: bold; color: #6c5ce7; text-decoration: none; }
-        .nav-links a { margin-left: 15px; text-decoration: none; color: #333; font-weight: 500; }
-        .container { max-width: 800px; margin: 40px auto; padding: 35px; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        h1 { color: #2d3436; }
-        .faq-item { margin-bottom: 30px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
-        .faq-item h3 { color: #6c5ce7; margin-bottom: 10px; }
-        footer { text-align: center; margin-top: 40px; padding: 25px; color: #7f8c8d; font-size: 14px; background: white; border-top: 1px solid #ddd; }
-        footer a { color: #6c5ce7; text-decoration: none; margin: 0 10px; }
+        .faq-item-bento {
+            background: var(--surface);
+            border: 2px solid var(--border-lip);
+            border-radius: var(--radius-tile);
+            box-shadow: 3px 3px 0px var(--border-lip);
+            padding: 20px;
+            margin-bottom: 18px;
+        }
+        .faq-item-bento h3 {
+            margin: 0 0 8px 0;
+            font-size: 16px;
+            color: var(--ink);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+        }
+        .faq-item-bento p {
+            margin: 0;
+            color: var(--ink-muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
     </style>
 </head>
 <body>
-    <nav>
-        <a href="index.html" class="logo">? Connections Assistant</a>
-        <div class="nav-links">
-            <a href="breakdowns.html">Breakdowns</a>
-            <a href="index.html">Tool</a>
-            <a href="strategy.html">Strategy Guide</a>
-            <a href="contact.html">Contact Support</a>
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="brand-group">
+                <span class="brand-title">Connections Assistant</span>
+            </a>
+            <div class="nav-right">
+                <a href="index.html" class="streak-pill" id="streakPill" title="Daily Solver Streak">
+                    🔥 <span id="streakCount">1</span> Day Streak
+                </a>
+                <div class="nav-links">
+                    <a href="index.html">Solver</a>
+                    <a href="breakdowns.html">Breakdowns</a>
+                    <a href="nyt-connections-guide.html">Guide</a>
+                    <a href="strategy.html">Strategy</a>
+                    <a href="faq.html" class="active">FAQ</a>
+                </div>
+            </div>
         </div>
-    </nav>
+    </header>
+
     <div class="container">
-        <h1>Frequently Asked Questions</h1>
+        <main class="content-bento">
+            <h1>Frequently Asked Questions</h1>
+            <p style="margin-bottom: 24px;">Everything you need to know about how Connections Grouping Assistant works, our linguistic analysis methodology, and data privacy.</p>
 
-        <div class="faq-item">
-            <h3>How does the semantic API work?</h3>
-            <p>When you input 16 words, our system queries the Datamuse linguistic engine. The algorithm executes pairwise comparisons across all inputs, assessing semantic co-occurrence, shared dictionary definitions, and latent categorical linkages.</p>
-        </div>
+            <div class="faq-item-bento">
+                <h3>How does the semantic API work?</h3>
+                <p>When you input 16 words, our system queries the Datamuse linguistic engine. The algorithm executes pairwise comparisons across all inputs, assessing semantic co-occurrence, shared dictionary definitions, and latent categorical linkages.</p>
+            </div>
 
-        <div class="faq-item">
-            <h3>What is the Quick Paste feature?</h3>
-            <p>Quick Paste parses unstructured text strings pasted directly from clipboards. It automatically strips out commas, spaces, or line breaks to populate all 16 input grid slots simultaneously without requiring manual entry.</p>
-        </div>
+            <div class="faq-item-bento">
+                <h3>What is the Quick Paste feature?</h3>
+                <p>Quick Paste parses unstructured text strings pasted directly from clipboards. It automatically strips out commas, spaces, or line breaks to populate all 16 input grid slots simultaneously without requiring manual entry.</p>
+            </div>
 
-        <div class="faq-item">
-            <h3>Is this tool affiliated with the New York Times?</h3>
-            <p>No. Connections Grouping Assistant is an entirely independent linguistic utility designed for educational analysis and word puzzle assistance. It holds no affiliation, endorsement, or sponsorship with The New York Times Company.</p>
-        </div>
+            <div class="faq-item-bento">
+                <h3>Is this tool affiliated with the New York Times?</h3>
+                <p>No. Connections Grouping Assistant is an entirely independent linguistic utility designed for educational analysis and word puzzle assistance. It holds no affiliation, endorsement, or sponsorship with The New York Times Company.</p>
+            </div>
 
-        <div class="faq-item">
-            <h3>Are input words stored on your servers?</h3>
-            <p>No. Words submitted into the grouping tool are processed dynamically in real-time within your web browser session and are never recorded or stored in persistent databases.</p>
-        </div>
-    </div>
-    <footer>
-        <p>&copy; 2026 Connections Grouping Assistant. All rights reserved.</p>
-        <p><a href="index.html">Home</a> | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a> | <a href="contact.html">Contact Us</a></p>
-    </footer>
-</body>
-</html>
+            <div class="faq-item-bento">
+                <h3>Are input words stored on your servers?</h3>
+                <p>No. Words submitted into the grouping tool are processed dynamically in real-time within your web browser session and are never recorded or stored in persistent databases.</p>
+            </div>
+
+            <div style="text-
