@@ -11,64 +11,489 @@
     </script>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="The ultimate semantic word puzzle solver. Analyze daily word grids, find hidden associations, and master categorical grouping games with our free assistant.">
-	<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232d3436'/%3E%3Crect x='4' y='4' width='10' height='10' rx='2.5' fill='%23f9ca24'/%3E%3Crect x='18' y='4' width='10' height='10' rx='2.5' fill='%236ab04c'/%3E%3Crect x='4' y='18' width='10' height='10' rx='2.5' fill='%234834d4'/%3E%3Crect x='18' y='18' width='10' height='10' rx='2.5' fill='%23be2edd'/%3E%3C/svg%3E">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="The ultimate semantic word puzzle solver & strategy companion. Analyze daily word grids, discover lateral associations, and master NYT Connections color tiers.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232d3436'/%3E%3Crect x='4' y='4' width='10' height='10' rx='2.5' fill='%23f9ca24'/%3E%3Crect x='18' y='4' width='10' height='10' rx='2.5' fill='%236ab04c'/%3E%3Crect x='4' y='18' width='10' height='10' rx='2.5' fill='%234834d4'/%3E%3Crect x='18' y='18' width='10' height='10' rx='2.5' fill='%23be2edd'/%3E%3C/svg%3E">
     <title>Connections Grouping Assistant | Word Puzzle Strategy & Solver</title>
     
+    <!-- Google Fonts for Editorial Neo-Brutalism -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
     <style>
-        :root { --primary: #6c5ce7; --secondary: #00cec9; --dark: #2d3436; --light: #f4f4f9; }
-        * { box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--light); color: #333; margin: 0; padding: 0; line-height: 1.6; }
-        
-        /* Navigation */
-        nav { background: white; padding: 15px 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 22px; font-weight: bold; color: var(--primary); text-decoration: none; }
-        .nav-links a { margin-left: 20px; text-decoration: none; color: var(--dark); font-weight: 500; }
-        .nav-links a:hover { color: var(--primary); }
+        :root {
+            --canvas: #FAF8F5;
+            --surface: #FFFFFF;
+            --stone: #EFECE6;
+            --stone-border: #D8D3C8;
+            --ink: #141413;
+            --ink-muted: #5C5850;
+            --border-lip: #141413;
 
-        /* Main Container */
-        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
-        h1 { text-align: center; color: var(--dark); font-size: 2.5em; margin-bottom: 10px; }
-        .subtitle { text-align: center; color: #666; font-size: 1.2em; margin-bottom: 30px; }
-        
-        /* Tool Card Container */
-        .tool-card { background: white; padding: 35px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 30px; }
-        
-        /* Tool Grid */
-        .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; width: 100%; }
-        input[type="text"] { width: 100%; padding: 15px 5px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; text-align: center; font-weight: 600; color: var(--dark); transition: all 0.2s ease; }
-        input[type="text"]:focus { border-color: var(--primary); outline: none; box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.15); }
-        
-        /* Action Row */
-        .action-row { display: flex; gap: 15px; margin-bottom: 15px; width: 100%; }
-        button { padding: 16px; border: none; border-radius: 8px; font-size: 17px; cursor: pointer; font-weight: bold; transition: transform 0.1s, opacity 0.2s; color: white; }
-        button:active { transform: scale(0.98); }
-        .btn-secondary { background-color: var(--secondary); flex: 1; }
-        .btn-primary { background-color: var(--primary); flex: 2; }
-        .btn-save { background-color: #fdcb6e; color: var(--dark); width: 100%; margin-top: 15px; display: none; }
-        
-        #results { margin-top: 20px; width: 100%; }
+            /* Exact Connections Color Tiers */
+            --tier-yellow: #F9DF6D;
+            --tier-green: #A0C35A;
+            --tier-blue: #B0C4EF;
+            --tier-purple: #BA81C5;
+            --tier-purple-shimmer: linear-gradient(135deg, #BA81C5, #795290, #BA81C5);
 
-        /* Tip / Support Jar */
-        .support-container {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
+            --radius-tile: 8px;
+            --radius-card: 16px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+        body {
+            background-color: var(--canvas);
+            color: var(--ink);
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.5;
+            padding-bottom: 60px;
+        }
+
+        /* Top Bar & Streak Counter */
+        header {
+            background: var(--surface);
+            border-bottom: 2px solid var(--border-lip);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 12px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .brand-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        .brand-title {
+            font-family: 'Fraunces', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--ink);
+            letter-spacing: -0.02em;
+        }
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .streak-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: #FFF1E5;
+            border: 1.5px solid #FF8C38;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #C04B00;
+            cursor: pointer;
+            user-select: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--ink);
+            font-size: 13px;
+            font-weight: 600;
+            margin-left: 14px;
+            transition: color 0.15s;
+        }
+        .nav-links a:hover { color: #523ee8; }
+
+        /* Mobile Layout Constraints */
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 16px;
+        }
+
+        /* Daily Warmup Micro-Drawer */
+        .warmup-drawer {
+            background: #F3EFF9;
+            border: 1.5px dashed var(--tier-purple);
             border-radius: 12px;
-            padding: 24px;
-            margin: 30px 0 40px 0;
+            padding: 10px 14px;
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: var(--ink);
+        }
+        .warmup-btn {
+            background: var(--tier-purple);
+            color: white;
+            border: 1.5px solid var(--border-lip);
+            box-shadow: 0 2px 0 var(--border-lip);
+            font-weight: 700;
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        /* Solver Bento Container */
+        .solver-bento {
+            background: var(--surface);
+            border: 2px solid var(--border-lip);
+            border-radius: var(--radius-card);
+            box-shadow: 4px 4px 0px var(--border-lip);
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+
+        .hero-text {
             text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            margin-bottom: 16px;
+        }
+        .hero-text h1 {
+            font-family: 'Fraunces', serif;
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 4px;
+        }
+        .hero-text p {
+            color: var(--ink-muted);
+            font-size: 13px;
+        }
+
+        /* Tier Pill Legend / Cognitive Filter Bar */
+        .tier-spectrum-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 6px;
+            margin-bottom: 16px;
+        }
+        .tier-pill {
+            padding: 7px 4px;
+            border-radius: 8px;
+            border: 1.5px solid var(--border-lip);
+            text-align: center;
+            font-size: 11px;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 2px 0px var(--border-lip);
+            transition: all 0.1s ease;
+            user-select: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+        }
+        .tier-pill:active, .tier-pill.active {
+            transform: translateY(2px);
+            box-shadow: 0 0 0 var(--border-lip);
+        }
+        .tier-pill-yellow { background: var(--tier-yellow); color: #1A1A1A; }
+        .tier-pill-green  { background: var(--tier-green); color: #1A1A1A; }
+        .tier-pill-blue   { background: var(--tier-blue); color: #1A1A1A; }
+        .tier-pill-purple {
+            background: var(--tier-purple);
+            color: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+        }
+        .tier-pill-purple::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(60deg, transparent, rgba(255,255,255,0.35), transparent);
+            transform: rotate(30deg);
+            animation: shimmer 3.5s infinite;
+        }
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) rotate(30deg); }
+            100% { transform: translateX(100%) rotate(30deg); }
+        }
+
+        /* Explainer Popover (Dynamic) */
+        .tier-rule-explainer {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            background: #F4F1EA;
+            border: 1px solid var(--stone-border);
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-bottom: 16px;
+            display: none;
+            color: var(--ink);
+        }
+
+        /* 4x4 Grid - Mobile Compact, Tactile Neo-Brutal */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-bottom: 16px;
+            width: 100%;
+        }
+        input[type="text"] {
+            width: 100%;
+            aspect-ratio: 1.6 / 1;
+            background: var(--stone);
+            border: 2px solid var(--border-lip);
+            border-radius: var(--radius-tile);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            text-align: center;
+            color: var(--ink);
+            box-shadow: 0 2px 0 var(--border-lip);
+            transition: all 0.12s ease;
+            padding: 2px 4px;
+        }
+        input[type="text"]:focus {
+            background: #FFFFFF;
+            outline: none;
+            border-color: #523ee8;
+            box-shadow: 0 3px 0 #523ee8;
+            transform: translateY(-1px);
+        }
+        input[type="text"].filled {
+            background: #FFFFFF;
+        }
+
+        /* Action Buttons Row */
+        .action-row {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+        .btn-tactile {
+            padding: 12px 14px;
+            border-radius: 10px;
+            border: 2px solid var(--border-lip);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: 13px;
+            cursor: pointer;
+            box-shadow: 0 3px 0 var(--border-lip);
+            transition: all 0.1s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            user-select: none;
+        }
+        .btn-tactile:active {
+            transform: translateY(3px);
+            box-shadow: 0 0 0 var(--border-lip);
+        }
+        .btn-secondary {
+            background: #EFECE6;
+            color: var(--ink);
+            flex: 1;
+            min-width: 130px;
+        }
+        .btn-practice {
+            background: #EBF8FF;
+            color: #0369A1;
+            border-color: #0369A1;
+            box-shadow: 0 3px 0 #0369A1;
+            font-size: 12px;
+            padding: 12px 10px;
+        }
+        .btn-primary {
+            background: #141413;
+            color: #FFFFFF;
+            flex: 2;
+            min-width: 160px;
+        }
+        .btn-primary:disabled {
+            background: #8E8A82;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: 0 3px 0 var(--border-lip);
+        }
+
+        /* Results & Progressive Disclosure Section */
+        #results { margin-top: 14px; width: 100%; }
+
+        .results-header-bar {
+            background: #F4F1EA;
+            border: 1.5px solid var(--border-lip);
+            border-radius: 10px;
+            padding: 8px 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .toggle-switch-container {
+            display: flex;
+            background: var(--surface);
+            border: 1.5px solid var(--border-lip);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .toggle-opt {
+            padding: 5px 10px;
+            font-size: 11px;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            color: var(--ink);
+        }
+        .toggle-opt.active {
+            background: var(--ink);
+            color: #FFFFFF;
+        }
+
+        /* Interactive Tier Solution Cards */
+        .tier-result-card {
+            border: 2px solid var(--border-lip);
+            border-radius: 12px;
+            box-shadow: 0 3px 0 var(--border-lip);
+            margin-bottom: 12px;
+            overflow: hidden;
+            background: #FFFFFF;
+            transition: all 0.2s ease;
+        }
+        .card-header-band {
+            padding: 10px 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1.5px solid var(--border-lip);
+        }
+        .band-yellow { background: var(--tier-yellow); color: #1A1A1A; }
+        .band-green  { background: var(--tier-green); color: #1A1A1A; }
+        .band-blue   { background: var(--tier-blue); color: #1A1A1A; }
+        .band-purple { background: var(--tier-purple); color: #FFFFFF; }
+
+        .band-title {
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .band-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            font-weight: 700;
+            background: rgba(0,0,0,0.15);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        .band-purple .band-badge { background: rgba(255,255,255,0.25); }
+
+        .card-body {
+            padding: 14px;
+        }
+        .nudge-text {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 10px;
+        }
+        .card-action-bar {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .btn-card-action {
+            padding: 6px 12px;
+            font-size: 11px;
+            font-weight: 700;
+            border-radius: 6px;
+            border: 1.5px solid var(--border-lip);
+            cursor: pointer;
+            box-shadow: 0 2px 0 var(--border-lip);
+            background: #FAF8F5;
+            color: var(--ink);
+        }
+        .btn-card-action:active { transform: translateY(2px); box-shadow: 0 0 0; }
+
+        .anchor-words-reveal {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            background: #F3F1EC;
+            border-left: 3px solid var(--border-lip);
+            padding: 6px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin: 8px 0;
+            display: none;
+        }
+        .full-group-reveal {
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px dashed var(--stone-border);
+            display: none;
+        }
+        .full-words-list {
+            font-size: 15px;
+            font-weight: 800;
+            letter-spacing: 0.02em;
+            margin-bottom: 4px;
+        }
+        .full-semantic-exp {
+            font-size: 12px;
+            color: var(--ink-muted);
+        }
+
+        /* Red Herring Banner */
+        .red-herring-alert {
+            background: #FEF3C7;
+            border: 1.5px solid #D97706;
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 12px;
+            color: #92400E;
+            font-weight: 700;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Upgraded Viral Share Modal / Trigger */
+        .btn-save {
+            background: #F9DF6D;
+            color: #1A1A1A;
+            width: 100%;
+            margin-top: 14px;
+            display: none;
+        }
+
+        /* Celebration & Contextual Tipping Card */
+        .support-container {
+            background: var(--surface);
+            border: 2px solid var(--border-lip);
+            border-radius: var(--radius-card);
+            box-shadow: 4px 4px 0px var(--border-lip);
+            padding: 20px;
+            margin: 28px 0;
+            text-align: center;
         }
         .support-container h4 {
-            margin: 0 0 8px 0;
-            color: var(--dark);
-            font-size: 1.15em;
+            font-family: 'Fraunces', serif;
+            font-size: 18px;
+            margin-bottom: 6px;
         }
         .support-container p {
-            margin: 0 0 16px 0;
-            color: #64748b;
-            font-size: 0.95em;
+            color: var(--ink-muted);
+            font-size: 13px;
+            max-width: 480px;
+            margin: 0 auto 16px auto;
         }
         .support-btn-group {
             display: flex;
@@ -79,81 +504,165 @@
         .btn-support {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 10px 22px;
+            gap: 6px;
+            padding: 10px 20px;
             border-radius: 8px;
-            font-weight: 600;
-            font-size: 14px;
+            font-weight: 800;
+            font-size: 13px;
             text-decoration: none;
-            transition: transform 0.15s ease, box-shadow 0.15s ease;
+            border: 1.5px solid var(--border-lip);
+            box-shadow: 0 3px 0 var(--border-lip);
+            transition: all 0.1s ease;
         }
-        .btn-support:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        .btn-support:active { transform: translateY(3px); box-shadow: 0 0 0; }
+        .btn-kofi { background: #FF5E5B; color: #FFFFFF; }
+        .btn-paypal { background: #0070BA; color: #FFFFFF; }
+
+        /* SEO Editorial Clusters */
+        .article-section {
+            background: var(--surface);
+            border: 2px solid var(--border-lip);
+            border-radius: var(--radius-card);
+            box-shadow: 4px 4px 0px var(--border-lip);
+            padding: 24px;
+            margin-bottom: 24px;
         }
-        .btn-kofi {
-            background-color: #ff5e5b;
-            color: #ffffff;
+        .article-section h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 22px;
+            margin-bottom: 12px;
+            border-bottom: 2px solid var(--stone);
+            padding-bottom: 8px;
         }
-        .btn-paypal {
-            background-color: #0070ba;
-            color: #ffffff;
+        .article-section h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin: 18px 0 6px 0;
         }
-        
-        /* Content Articles */
-        .article-section { background: white; padding: 35px; margin-bottom: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .article-section h2 { color: var(--primary); border-bottom: 2px solid var(--light); padding-bottom: 10px; margin-top: 0; }
-        .article-section h3 { color: var(--dark); margin-top: 25px; }
-        .article-section p { font-size: 1.05em; color: #555; margin-bottom: 15px; }
-        .article-section ul { color: #555; padding-left: 20px; }
-        .article-section li { margin-bottom: 8px; }
-        
-        /* Footer */
-        footer { background: white; padding: 30px 20px; text-align: center; margin-top: 60px; border-top: 1px solid #ddd; }
-        footer p { color: #7f8c8d; font-size: 14px; margin: 5px 0; }
-        .footer-links { margin-top: 15px; }
-        .footer-links a { color: var(--primary); text-decoration: none; margin: 0 10px; font-size: 14px; }
-        
+        .article-section p {
+            font-size: 14px;
+            color: var(--ink-muted);
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+        .article-section ul { padding-left: 20px; color: var(--ink-muted); font-size: 14px; margin-bottom: 12px; }
+        .article-section li { margin-bottom: 6px; }
+
+        footer {
+            text-align: center;
+            padding: 24px 16px;
+            font-size: 12px;
+            color: var(--ink-muted);
+        }
+        .footer-links a {
+            color: var(--ink);
+            text-decoration: underline;
+            margin: 0 8px;
+            font-weight: 600;
+        }
+
+        /* Mobile Adjustments for 390x844 Rule */
         @media (max-width: 600px) {
-            .grid { grid-template-columns: repeat(2, 1fr); }
+            .container { padding: 10px; }
+            .solver-bento { padding: 14px; }
+            .hero-text h1 { font-size: 20px; }
+            .hero-text p { display: none; }
+            input[type="text"] { font-size: 11px; padding: 0; }
+            .tier-pill { padding: 5px 2px; font-size: 9px; }
             .action-row { flex-direction: column; }
-            .support-btn-group { flex-direction: column; }
+            .btn-tactile { width: 100%; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav>
-        <a href="index.html" class="logo">Connections Assistant</a>
-        <div class="nav-links">
-            <a href="breakdowns.html">Breakdowns</a>
-            <a href="nyt-connections-guide.html">NYT Guide</a>
-            <a href="#features">Features</a>
-            <a href="strategy.html">Strategy</a>
-            <a href="faq.html">FAQ</a>
+    <!-- Header Navigation with Local Streak Counter -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="brand-group">
+                <span class="brand-title">Connections Assistant</span>
+            </a>
+            <div class="nav-right">
+                <div class="streak-pill" id="streakPill" title="Daily Solver Streak">
+                    🔥 <span id="streakCount">1</span> Day Streak
+                </div>
+                <div class="nav-links">
+                    <a href="breakdowns.html">Breakdowns</a>
+                    <a href="nyt-connections-guide.html">Guide</a>
+                    <a href="strategy.html">Strategy</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </div>
         </div>
-    </nav>
+    </header>
 
     <div class="container">
-        <h1>Connections Grouping Assistant</h1>
-        <p class="subtitle">The ultimate semantic utility for analyzing complex word puzzle grids.</p>
-
-        <!-- Tool Card -->
-        <div class="tool-card">
-            <div class="grid" id="inputGrid"></div>
-            <div class="action-row">
-                <button id="autoFillBtn" class="btn-secondary" onclick="autoFillGrid()">📋 Quick Paste</button>
-                <button id="findBtn" class="btn-primary" onclick="findConnections()">Analyze Associations</button>
-            </div>
-            <button id="saveBtn" class="btn-save" onclick="copyResults()">💾 Copy Results</button>
-            <div id="results"></div>
+        
+        <!-- Daily Warmup Purple Teaser -->
+        <div class="warmup-drawer">
+            <span><strong>Brain Warmup:</strong> Spot today's lateral wordplay trick?</span>
+            <button class="warmup-btn" onclick="revealWarmup()">✨ Test Purple Sense</button>
         </div>
 
-        <!-- Immediate Monetization Support Module -->
-        <div class="support-container">
-            <h4>☕ Enjoying the Connections Assistant?</h4>
-            <p>We keep this solver free, fast, and server-backed. Tip a coffee to help cover API compute costs!</p>
+        <!-- Main Solver Bento Box -->
+        <main class="solver-bento">
+            <div class="hero-text">
+                <h1>Master the Grid</h1>
+                <p>Untangle lateral links, semantic overlap, and four-tier category traps.</p>
+            </div>
+
+            <!-- Cognitive Tier Spectrum (Interactive 4-Pill Legend) -->
+            <div class="tier-spectrum-bar">
+                <div class="tier-pill tier-pill-yellow" onclick="showTierInfo('yellow')">
+                    <span>🟨 YELLOW</span>
+                    <span style="font-size: 8px; opacity: 0.85;">SYNONYMS</span>
+                </div>
+                <div class="tier-pill tier-pill-green" onclick="showTierInfo('green')">
+                    <span>🟩 GREEN</span>
+                    <span style="font-size: 8px; opacity: 0.85;">CONTEXT</span>
+                </div>
+                <div class="tier-pill tier-pill-blue" onclick="showTierInfo('blue')">
+                    <span>🟦 BLUE</span>
+                    <span style="font-size: 8px; opacity: 0.85;">TRIVIA</span>
+                </div>
+                <div class="tier-pill tier-pill-purple" onclick="showTierInfo('purple')">
+                    <span>🟪 PURPLE ✨</span>
+                    <span style="font-size: 8px; opacity: 0.95;">WORDPLAY</span>
+                </div>
+            </div>
+
+            <!-- Interactive Tier Rule Explainer Drawer -->
+            <div id="tierExplainer" class="tier-rule-explainer"></div>
+
+            <!-- 16 Tactile Puzzle Input Tiles -->
+            <div class="grid" id="inputGrid"></div>
+
+            <!-- Frictionless Action Row -->
+            <div class="action-row">
+                <button id="autoFillBtn" class="btn-tactile btn-secondary" onclick="autoFillGrid()">
+                    📋 Quick Paste
+                </button>
+                <button class="btn-tactile btn-practice" onclick="loadSampleGrid()">
+                    🎲 Practice Grid
+                </button>
+                <button id="findBtn" class="btn-tactile btn-primary" onclick="findConnections()">
+                    Analyze Associations
+                </button>
+            </div>
+
+            <!-- Upgraded Viral Share Action -->
+            <button id="saveBtn" class="btn-tactile btn-save" onclick="shareResultsModal()">
+                💾 Share / Copy Results
+            </button>
+
+            <!-- Progressive Results Section -->
+            <div id="results"></div>
+        </main>
+
+        <!-- Contextual Support / Buy AI a Coffee Module -->
+        <section class="support-container" id="tippingCard">
+            <h4>☕ Keep Our Neural Solver Fast & Ad-Light</h4>
+            <p>Every analysis runs server-side AI reasoning across lexical databases. If our hints saved your streak today, consider fueling the compute!</p>
             <div class="support-btn-group">
                 <a href="https://ko-fi.com/connectionsassistant" target="_blank" rel="noopener noreferrer" class="btn-support btn-kofi">
                     ☕ Tip $3 on Ko-fi
@@ -162,9 +671,9 @@
                     🅿️ Tip $2 via PayPal
                 </a>
             </div>
-        </div>
+        </section>
 
-        <!-- Features Section -->
+        <!-- SEO Editorial Content: Core Features -->
         <section id="features" class="article-section">
             <h2>Understanding the Core Features</h2>
             <p>The Connections Grouping Assistant is designed for seamless, fast input and deep semantic analysis. Here is how our key features streamline your puzzle solving:</p>
@@ -176,7 +685,7 @@
             <p>Once your grid is populated, clicking <strong>Analyze Associations</strong> triggers our server-backed neural semantic partitioner. Rather than relying on rigid dictionary lookups, our backend evaluates every word in contextual relation to the other 15 inputs. It analyzes definitions, multi-tier wordplay, slang associations, and category sets to resolve the optimal 4-tier partition into Yellow, Green, Blue, and Purple groupings.</p>
         </section>
 
-        <!-- Guide Section -->
+        <!-- SEO Editorial Content: Gameplay Strategy -->
         <section id="guide" class="article-section">
             <h2>How to Master Word Grouping Puzzles</h2>
             <p>Word grouping puzzles challenge players to look at a 16-word grid and identify four distinct categories. While the concept sounds simple, game creators use advanced linguistic tricks to confuse players. The <strong>Connections Grouping Assistant</strong> was engineered to help you break down these mental roadblocks.</p>
@@ -193,15 +702,15 @@
                 <li><strong>Trivia and Categorical Domains:</strong> Specific categories like "Oscar Winning Movies" or "European Capitals."</li>
             </ul>
 
-            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px; margin-top: 20px;">
-                <h4 style="margin: 0 0 8px 0; color: var(--primary);">Explore In-Depth Strategy & Solving Guides</h4>
-                <p style="margin: 0; font-size: 0.95em; color: #475569;">
-                    Master grid patterns and trap avoidance with our comprehensive guides: read the complete <a href="nyt-connections-guide.html" style="color: var(--primary); font-weight: 600;">Daily Connections Gameplay Guide</a>, explore <a href="strategy.html" style="color: var(--primary); font-weight: 600;">Advanced Elimination Strategies</a>, or check our <a href="faq.html" style="color: var(--primary); font-weight: 600;">Frequently Asked Questions</a>.
+            <div style="background: var(--stone); border: 1.5px solid var(--border-lip); border-radius: 8px; padding: 16px; margin-top: 16px;">
+                <h4 style="margin: 0 0 6px 0;">Explore In-Depth Strategy & Solving Guides</h4>
+                <p style="margin: 0; font-size: 13px;">
+                    Master grid patterns and trap avoidance with our comprehensive guides: read the complete <a href="nyt-connections-guide.html" style="color: #523ee8; font-weight: 700;">Daily Connections Gameplay Guide</a>, explore <a href="strategy.html" style="color: #523ee8; font-weight: 700;">Advanced Elimination Strategies</a>, or check our <a href="faq.html" style="color: #523ee8; font-weight: 700;">Frequently Asked Questions</a>.
                 </p>
             </div>
         </section>
 
-        <!-- FAQ Section -->
+        <!-- SEO Editorial Content: FAQ -->
         <section id="faq" class="article-section">
             <h2>Frequently Asked Questions (FAQ)</h2>
             
@@ -219,7 +728,7 @@
     <!-- Footer -->
     <footer>
         <p>&copy; 2026 Connections Grouping Assistant. All rights reserved.</p>
-        <p>This independent helper utility is not affiliated with the New York Times Company.</p>
+        <p style="margin: 4px 0 12px 0;">This independent helper utility is not affiliated with the New York Times Company.</p>
         <div class="footer-links">
             <a href="privacy.html">Privacy Policy</a>
             <a href="terms.html">Terms of Service</a>
@@ -228,58 +737,104 @@
     </footer>
 
     <script>
+        // 1. Initialize 16 Tactile Input Tiles with State Detection
         const grid = document.getElementById('inputGrid');
         for (let i = 1; i <= 16; i++) {
             const input = document.createElement('input');
-            input.type = 'text'; input.id = `word-${i}`; input.placeholder = `Word ${i}`;
+            input.type = 'text';
+            input.id = `word-${i}`;
+            input.placeholder = `${i}`;
+            input.autocomplete = "off";
+            input.spellcheck = false;
+            input.addEventListener('input', () => {
+                if (input.value.trim().length > 0) {
+                    input.classList.add('filled');
+                } else {
+                    input.classList.remove('filled');
+                }
+            });
             grid.appendChild(input);
         }
 
+        // 2. Solver Streak Mechanics (localStorage)
+        function updateSolverStreak() {
+            const today = new Date().toISOString().slice(0, 10);
+            const lastSolved = localStorage.getItem('ca_last_solve_date');
+            let streak = parseInt(localStorage.getItem('ca_streak_count') || '1', 10);
+
+            if (lastSolved) {
+                const diffDays = Math.round((new Date(today) - new Date(lastSolved)) / (1000 * 60 * 60 * 24));
+                if (diffDays === 1) {
+                    streak += 1;
+                } else if (diffDays > 1) {
+                    streak = 1;
+                }
+            }
+            localStorage.setItem('ca_last_solve_date', today);
+            localStorage.setItem('ca_streak_count', streak);
+            document.getElementById('streakCount').innerText = streak;
+        }
+
+        (function initStreakDisplay() {
+            const currentStreak = localStorage.getItem('ca_streak_count') || '1';
+            document.getElementById('streakCount').innerText = currentStreak;
+        })();
+
+        // 3. Cognitive Tier Spectrum Dynamic Rules
+        const tierDetails = {
+            yellow: "🟨 YELLOW TIER: Direct synonyms, identical categories, or immediate functional links (Easiest).",
+            green:  "🟩 GREEN TIER: Contextual relationships, shared environments, or secondary associations (Moderate).",
+            blue:   "🟦 BLUE TIER: Trivia, slang terms, phrases, or fill-in-the-blank structures (Challenging).",
+            purple: "🟪 PURPLE TIER: Lateral wordplay, homophones, palindromes, or hidden letter shifts (Trickiest ✨)."
+        };
+
+        function showTierInfo(tier) {
+            const el = document.getElementById('tierExplainer');
+            el.style.display = 'block';
+            el.innerText = tierDetails[tier];
+        }
+
+        // 4. Daily Brain Warmup
+        function revealWarmup() {
+            alert("✨ Purple Wordplay Teaser:\n\nWords: CRICKET, SQUASH, TENNIS, BADMINTON\nTrick: Remove the first letter to reveal common household items!");
+        }
+
+        // 5. Practice Sample Grid Loader
+        function loadSampleGrid() {
+            const sample = ["FLEET", "SWIFT", "PROMPT", "FAST", "SAILOR", "CAPTAIN", "CREW", "SKIPPER", "YACHT", "BARGE", "KAYAK", "CANOE", "TAYLOR", "NIMBLE", "CHUCK", "BALL"];
+            for (let i = 0; i < 16; i++) {
+                const f = document.getElementById(`word-${i+1}`);
+                if (f) {
+                    f.value = sample[i];
+                    f.classList.add('filled');
+                }
+            }
+        }
+
+        // 6. Quick Paste Parser
         function autoFillGrid() { 
-            const pastedText = prompt("Paste your 16 words here (separated by spaces or commas):");
+            const pastedText = prompt("Paste your 16 words here (separated by spaces, commas, or line breaks):");
             if (!pastedText) return;
             const wordsArray = pastedText.split(/[\s,]+/).filter(w => w.trim().length > 0);
             for (let i = 0; i < 16; i++) {
                 const inputField = document.getElementById(`word-${i+1}`);
-                if (inputField) inputField.value = wordsArray[i] ? wordsArray[i].trim() : '';
+                if (inputField) {
+                    inputField.value = wordsArray[i] ? wordsArray[i].trim().toUpperCase() : '';
+                    if (inputField.value) inputField.classList.add('filled');
+                }
             }
         }
 
-        function copyResults() {
-            const resultsDiv = document.getElementById('results');
-            if (!resultsDiv || resultsDiv.innerText.trim() === '') return;
+        // Global State for Solution Cache
+        let currentSolutionData = null;
+        let hintsRevealedCount = 0;
 
-            let shareText = "Connections Grouping Assistant Results\nhttps://connectionsassistant.com\n\n";
-            const cards = resultsDiv.querySelectorAll('div[style*="border-left"]');
-
-            if (cards.length > 0) {
-                cards.forEach(card => {
-                    const title = card.querySelector('strong').innerText;
-                    const tier = card.querySelector('span').innerText;
-                    const words = card.querySelector('div[style*="font-weight: 600"]').innerText;
-                    
-                    let emoji = "🟨";
-                    if (tier.includes("Green")) emoji = "🟩";
-                    if (tier.includes("Blue")) emoji = "🟦";
-                    if (tier.includes("Purple")) emoji = "🟪";
-
-                    shareText += `${emoji} ${tier}: ${title}\n${words}\n\n`;
-                });
-            } else {
-                shareText += resultsDiv.innerText;
-            }
-
-            navigator.clipboard.writeText(shareText.trim()).then(() => {
-                alert("Results copied to clipboard!");
-            });
-        }
-
+        // 7. Analyze Associations with Anti-Spoiler Progressive Disclosure
         async function findConnections() {
             const findBtn = document.getElementById('findBtn');
             const resultsDiv = document.getElementById('results');
             const saveBtn = document.getElementById('saveBtn');
 
-            // 1. Gather Words
             const words = [];
             for (let i = 1; i <= 16; i++) {
                 const val = document.getElementById(`word-${i}`).value.trim().toUpperCase();
@@ -292,10 +847,9 @@
             }
 
             findBtn.disabled = true;
-            resultsDiv.innerHTML = '<p style="text-align: center; color: #6c5ce7; font-weight: 600;">🧩 Analyzing lateral links & untangling red herrings...</p>';
+            resultsDiv.innerHTML = '<p style="text-align: center; color: var(--ink); font-weight: 700; padding: 20px;">🧩 Untangling lateral links & category traps...</p>';
 
             try {
-                // 2. Query the Firebase Cloud Function backend
                 const response = await fetch('/api/solve', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -304,33 +858,132 @@
 
                 if (!response.ok) throw new Error('Solver API request failed');
                 const data = await response.json();
+                currentSolutionData = data;
+                hintsRevealedCount = 0;
 
-                // 3. Render 4 Color-Coded Category Cards
-                let outputHtml = '<div style="margin-top: 20px;">';
-                data.groups.forEach(g => {
-                    let color = '#d4ac0d'; // Yellow
-                    if (g.difficulty_tier.startsWith('Green')) color = '#27ae60';
-                    if (g.difficulty_tier.startsWith('Blue')) color = '#2980b9';
-                    if (g.difficulty_tier.startsWith('Purple')) color = '#8e44ad';
-
-                    outputHtml += `
-                        <div style="background: white; border-left: 6px solid ${color}; border-radius: 8px; padding: 16px; margin-bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); text-align: left;">
-                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                                <strong style="color: ${color}; font-size: 1.05em;">${g.theme}</strong>
-                                <span style="font-size: 0.85em; background: #f1f5f9; padding: 2px 8px; border-radius: 4px; color: #475569; font-weight: 600;">${g.difficulty_tier.split(' ')[0]}</span>
-                            </div>
-                            <div style="font-weight: 600; color: #1e293b; font-size: 1.05em;">${g.words.join(' • ')}</div>
-                        </div>
-                    `;
-                });
-                outputHtml += '</div>';
-
-                resultsDiv.innerHTML = outputHtml;
+                renderProgressiveResults(data, true);
                 saveBtn.style.display = 'block';
+                updateSolverStreak();
+
+                // Smooth scroll to results
+                resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
             } catch (err) {
-                resultsDiv.innerHTML = '<p style="color: #ef4444; text-align: center; font-weight: 600;">Error analyzing board. Please verify your inputs and try again.</p>';
+                resultsDiv.innerHTML = '<p style="color: #DC2626; text-align: center; font-weight: 700; padding: 14px;">Error analyzing board. Please verify your 16 words and try again.</p>';
             } finally {
                 findBtn.disabled = false;
+            }
+        }
+
+        function renderProgressiveResults(data, isHintMode) {
+            const resultsDiv = document.getElementById('results');
+            let html = `
+                <div class="results-header-bar">
+                    <span style="font-size: 12px; font-weight: 800;">🛡️ SPOILER SHIELD</span>
+                    <div class="toggle-switch-container">
+                        <button class="toggle-opt ${isHintMode ? 'active' : ''}" onclick="toggleMode(true)">Hint Mode</button>
+                        <button class="toggle-opt ${!isHintMode ? 'active' : ''}" onclick="toggleMode(false)">Reveal All</button>
+                    </div>
+                </div>
+            `;
+
+            data.groups.forEach((g, idx) => {
+                let tierKey = 'yellow';
+                let bandClass = 'band-yellow';
+                let tierBadge = 'TIER 1 • EASIEST';
+                
+                if (g.difficulty_tier.includes('Green')) {
+                    tierKey = 'green'; bandClass = 'band-green'; tierBadge = 'TIER 2 • MODERATE';
+                } else if (g.difficulty_tier.includes('Blue')) {
+                    tierKey = 'blue'; bandClass = 'band-blue'; tierBadge = 'TIER 3 • CHALLENGING';
+                } else if (g.difficulty_tier.includes('Purple')) {
+                    tierKey = 'purple'; bandClass = 'band-purple'; tierBadge = 'TIER 4 • TRICKIEST ✨';
+                }
+
+                const anchorWords = g.words.slice(0, 2).join(' • ');
+                const allWords = g.words.join(' • ');
+
+                html += `
+                    <div class="tier-result-card" id="card-${idx}">
+                        <div class="card-header-band ${bandClass}">
+                            <span class="band-title">${g.difficulty_tier.toUpperCase()}</span>
+                            <span class="band-badge">${tierBadge}</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="nudge-text" id="nudge-${idx}">
+                                <strong>Linguistic Category:</strong> ${isHintMode ? g.theme.replace(/[A-Za-z0-9]/g, (c, i) => i % 2 === 0 ? c : '•') : g.theme}
+                            </div>
+                            
+                            <div class="anchor-words-reveal" id="anchor-${idx}" style="display: ${!isHintMode ? 'none' : 'none'};">
+                                💡 Anchor Clues: <strong>${anchorWords}</strong> + [2 hidden words]
+                            </div>
+
+                            <div class="full-group-reveal" id="full-${idx}" style="display: ${!isHintMode ? 'block' : 'none'};">
+                                <div class="full-words-list">${allWords}</div>
+                                <div class="full-semantic-exp">${g.theme}</div>
+                            </div>
+
+                            ${isHintMode ? `
+                                <div class="card-action-bar" id="actions-${idx}">
+                                    <button class="btn-card-action" onclick="revealAnchor(${idx})">👀 Nudge Me (2 Words)</button>
+                                    <button class="btn-card-action" onclick="revealFull(${idx})">⚡ Reveal Group</button>
+                                </div>
+                            ` : ''}
+                        </div>
+                    </div>
+                `;
+            });
+
+            // Simulated Red Herring bridge detector
+            html += `
+                <div class="red-herring-alert">
+                    <span>⚠️</span>
+                    <span><strong>Red Herring Advisory:</strong> Be cautious of bridge words that share definitions across both the Green and Purple tiers.</span>
+                </div>
+            `;
+
+            resultsDiv.innerHTML = html;
+        }
+
+        function toggleMode(hintMode) {
+            if (!currentSolutionData) return;
+            renderProgressiveResults(currentSolutionData, hintMode);
+        }
+
+        function revealAnchor(idx) {
+            hintsRevealedCount++;
+            const anchor = document.getElementById(`anchor-${idx}`);
+            if (anchor) anchor.style.display = 'block';
+        }
+
+        function revealFull(idx) {
+            const anchor = document.getElementById(`anchor-${idx}`);
+            const full = document.getElementById(`full-${idx}`);
+            const actions = document.getElementById(`actions-${idx}`);
+            if (anchor) anchor.style.display = 'none';
+            if (full) full.style.display = 'block';
+            if (actions) actions.style.display = 'none';
+        }
+
+        // 8. Dual-Mode Social Share Flow
+        function shareResultsModal() {
+            if (!currentSolutionData) return;
+            const choice = confirm("Click OK to copy the Full Category Breakdown, or Cancel to copy your Spoiler-Free Assist Score for social sharing!");
+            if (choice) {
+                // Full Breakdown
+                let shareText = "Connections Grouping Assistant Results\nhttps://connectionsassistant.com\n\n";
+                currentSolutionData.groups.forEach(g => {
+                    let emoji = "🟨";
+                    if (g.difficulty_tier.includes("Green")) emoji = "🟩";
+                    if (g.difficulty_tier.includes("Blue")) emoji = "🟦";
+                    if (g.difficulty_tier.includes("Purple")) emoji = "🟪";
+                    shareText += `${emoji} ${g.difficulty_tier}: ${g.theme}\n${g.words.join(' • ')}\n\n`;
+                });
+                navigator.clipboard.writeText(shareText.trim()).then(() => alert("Full breakdown copied to clipboard!"));
+            } else {
+                // Assist Score
+                const streak = localStorage.getItem('ca_streak_count') || '1';
+                const scoreText = `🟨🟩🟦🟪 Connections Assistant\nSolved today's grid with a ${streak}-day streak!\nCheck your board: https://connectionsassistant.com`;
+                navigator.clipboard.writeText(scoreText).then(() => alert("Spoiler-free Assist Score copied to clipboard!"));
             }
         }
     </script>
