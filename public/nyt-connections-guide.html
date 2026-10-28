@@ -12,8 +12,8 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Master daily word grouping puzzles. An in-depth strategy guide breaking down color tiers, red herrings, and semantic association patterns.">
-    <title>Daily Word Puzzle Strategy & Color Tier Guide | Connections Assistant</title>
+    <meta name="description" content="The definitive 4-color tier guide for NYT Connections. Explore lexical hierarchy, phonetic wordplay rules, and test categories with the interactive cognitive tier decoder.">
+    <title>The Definitive 4-Color Tier Guide | Connections Assistant</title>
     
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232d3436'/%3E%3Crect x='4' y='4' width='10' height='10' rx='2.5' fill='%23f9ca24'/%3E%3Crect x='18' y='4' width='10' height='10' rx='2.5' fill='%236ab04c'/%3E%3Crect x='4' y='18' width='10' height='10' rx='2.5' fill='%234834d4'/%3E%3Crect x='18' y='18' width='10' height='10' rx='2.5' fill='%23be2edd'/%3E%3C/svg%3E">
 
@@ -24,6 +24,65 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
+        .interactive-artifact {
+            background: #FFFFFF;
+            border: 2px solid var(--border-lip);
+            border-radius: var(--radius-card);
+            box-shadow: 4px 4px 0px var(--border-lip);
+            padding: 24px;
+            margin: 28px 0;
+        }
+        .tier-tab-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        .tier-tab-btn {
+            padding: 10px 4px;
+            border-radius: 8px;
+            border: 2px solid var(--border-lip);
+            font-size: 11px;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 2px 0 var(--border-lip);
+            text-align: center;
+            transition: all 0.1s ease;
+            user-select: none;
+        }
+        .tier-tab-btn:active, .tier-tab-btn.active {
+            transform: translateY(2px);
+            box-shadow: 0 0 0;
+        }
+        .tab-yellow { background: var(--tier-yellow); color: #141413; }
+        .tab-green  { background: var(--tier-green); color: #141413; }
+        .tab-blue   { background: var(--tier-blue); color: #141413; }
+        .tab-purple { background: var(--tier-purple); color: #FFFFFF; }
+
+        .tier-display-box {
+            background: var(--surface);
+            border: 2px solid var(--border-lip);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 2px 2px 0 var(--border-lip);
+            transition: border 0.2s ease;
+        }
+        .word-pill-group {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin: 14px 0;
+        }
+        .word-pill {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            background: #F4F1EA;
+            border: 1.5px solid var(--border-lip);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            letter-spacing: 0.03em;
+        }
         .pro-tip-bento {
             background: #FEF9C3;
             border: 2px solid var(--border-lip);
@@ -35,10 +94,18 @@
             color: #141413;
             font-size: 14px;
         }
-        .pattern-list li {
-            margin-bottom: 10px;
-            line-height: 1.6;
+        .deep-dive-card {
+            background: var(--surface);
+            border: 2px solid var(--border-lip);
+            border-radius: 12px;
+            box-shadow: 3px 3px 0px var(--border-lip);
+            padding: 20px;
+            margin-bottom: 20px;
         }
+        .deep-dive-card.yellow { border-left: 8px solid var(--tier-yellow); }
+        .deep-dive-card.green  { border-left: 8px solid var(--tier-green); }
+        .deep-dive-card.blue   { border-left: 8px solid var(--tier-blue); }
+        .deep-dive-card.purple { border-left: 8px solid var(--tier-purple); }
     </style>
 </head>
 <body>
@@ -67,52 +134,107 @@
     <div class="container">
         <main class="content-bento">
             <h1>The Definitive Guide to Solving 16-Word Grouping Grids</h1>
-            <p>Daily word grouping puzzles challenge players to sort 16 shuffled words into four distinct sets of four. While the premise is straightforward, success requires a combination of lateral thinking, semantic analysis, and disciplined elimination.</p>
+            <p>Mastering daily 16-word grids requires moving past basic word recognition. It demands a structured understanding of cognitive tier hierarchies, semantic distance, and the linguistic trickery editors deploy across each color tier.</p>
 
-            <h2 style="margin-top: 28px;">Understanding the 4-Tier Difficulty Hierarchy</h2>
-            <p>Most curated 16-word games follow a standardized four-color progression, arranging groups from most straightforward to most abstract:</p>
+            <!-- INTERACTIVE COGNITIVE TIER LAB (Karpathy Artifact Principle) -->
+            <section class="interactive-artifact">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+                    <div>
+                        <span class="tier-badge badge-purple">COGNITIVE COMPONENT</span>
+                        <h3 style="margin: 4px 0 0 0; font-size: 18px;">Interactive Tier Decoder: Inspect Editorial Mechanisms</h3>
+                    </div>
+                </div>
+                <p style="font-size: 13px; color: var(--ink-muted); margin-top: 8px;">
+                    Select any difficulty tier below to deconstruct how game editors assemble the connection—from tangible synonyms up to phonetic wordplay:
+                </p>
 
-            <!-- Tactile Bento Tier Cards -->
-            <div class="tier-card-bento yellow">
+                <div class="tier-tab-bar">
+                    <button class="tier-tab-btn tab-yellow active" onclick="selectTierView('yellow', this)">🟨 YELLOW</button>
+                    <button class="tier-tab-btn tab-green" onclick="selectTierView('green', this)">🟩 GREEN</button>
+                    <button class="tier-tab-btn tab-blue" onclick="selectTierView('blue', this)">🟦 BLUE</button>
+                    <button class="tier-tab-btn tab-purple" onclick="selectTierView('purple', this)">🟪 PURPLE</button>
+                </div>
+
+                <div id="tierContentBox" class="tier-display-box">
+                    <!-- Populated dynamically via JavaScript -->
+                </div>
+            </section>
+
+            <h2 style="margin-top: 32px;">The Lexical Hierarchy: How Difficulty Is Manufactured</h2>
+            <p>
+                In the New York Times Connections puzzle, difficulty is never based on vocabulary complexity. The editors rarely select obscure words found only in medical journals or specialized lexicons. Instead, difficulty is created through <strong>polysemy</strong>—the ability of common words to hold several unrelated definitions across syntax lines—and <strong>conceptual distance</strong>.
+            </p>
+            <p>
+                As you move from Yellow to Purple, the associative link shifts from the physical, denotative world into phonetic, structural, and lateral manipulation.
+            </p>
+
+            <div class="deep-dive-card yellow">
                 <span class="tier-badge badge-yellow">YELLOW TIER • STRAIGHTFORWARD</span>
-                <p style="margin: 0; color: var(--ink);">Direct synonyms or standard physical object groupings that require minimal lateral interpretation.</p>
+                <h3 style="margin: 6px 0;">Direct Synonyms & Explicit Physical Sets</h3>
+                <p style="font-size: 14px; color: var(--ink-muted); line-height: 1.6; margin-bottom: 8px;">
+                    Yellow groups share direct, literal definitions. All four words typically function as the exact same part of speech—such as four verbs indicating movement (<em>RUN, DASH, SPRINT, BOLT</em>) or four nouns naming tangible items (<em>CHAIR, SOFA, STOOL, BENCH</em>).
+                </p>
+                <p style="font-size: 13px; color: var(--ink-muted); line-height: 1.6; margin: 0;">
+                    <strong>The Hidden Danger:</strong> Yellow candidates are frequently used as "Trojan Horses." An editor will place five words that mean "fast," but one of them (such as <em>BOLT</em>) belongs to an unrevealed Purple group ("Things that have nuts"). Always scan for the 5th candidate before submitting.
+                </p>
             </div>
 
-            <div class="tier-card-bento green">
+            <div class="deep-dive-card green">
                 <span class="tier-badge badge-green">GREEN TIER • MODERATE</span>
-                <p style="margin: 0; color: var(--ink);">Well-defined categories that may involve colloquialisms, parts of speech, or everyday associations.</p>
+                <h3 style="margin: 6px 0;">Contextual Habitats & Semantic Domains</h3>
+                <p style="font-size: 14px; color: var(--ink-muted); line-height: 1.6; margin-bottom: 8px;">
+                    Green steps beyond literal synonymy into contextual associations. The words do not mean the same thing, but they naturally co-exist within a shared workspace, ecological habitat, or hobby.
+                </p>
+                <p style="font-size: 13px; color: var(--ink-muted); line-height: 1.6; margin: 0;">
+                    <strong>Examples:</strong> Marine navigation equipment (<em>COMPASS, RADAR, SEXTANT, SONAR</em>) or pieces of woodworking hardware (<em>CHISEL, PLANE, ROUTER, VISE</em>). Spotting Green requires visualizing environments rather than matching dictionary definitions.
+                </p>
             </div>
 
-            <div class="tier-card-bento blue">
+            <div class="deep-dive-card blue">
                 <span class="tier-badge badge-blue">BLUE TIER • CHALLENGING</span>
-                <p style="margin: 0; color: var(--ink);">Trivia-based subsets, compound phrases, or specific cultural and geographic domains.</p>
+                <h3 style="margin: 6px 0;">Compound Words, Cultural Trivia & Missing Affixes</h3>
+                <p style="font-size: 14px; color: var(--ink-muted); line-height: 1.6; margin-bottom: 8px;">
+                    Blue tests trivia knowledge, pop-culture subsets, and compound word structures. A signature Blue structure is the "fill-in-the-blank" or affix challenge.
+                </p>
+                <p style="font-size: 13px; color: var(--ink-muted); line-height: 1.6; margin: 0;">
+                    <strong>Signature Pattern:</strong> Words preceding or following a common noun (e.g., words before "JACK": <em>APPLE, BLACK, CRACKER, LUMBER</em>). To unlock Blue, read each board candidate alongside common modifiers, prefixes, and suffixes.
+                </p>
             </div>
 
-            <div class="tier-card-bento purple">
-                <span class="tier-badge badge-purple">PURPLE TIER • TRICKY / ABSTRACT</span>
-                <p style="margin: 0; color: var(--ink);">Wordplay, homophones, letter substitutions, palindromes, or words sharing unconventional prefixes/suffixes.</p>
+            <div class="deep-dive-card purple">
+                <span class="tier-badge badge-purple">PURPLE TIER • TRICKIEST / WORDPLAY</span>
+                <h3 style="margin: 6px 0;">Lateral Wordplay, Phonetics & Cryptic Transforms</h3>
+                <p style="font-size: 14px; color: var(--ink-muted); line-height: 1.6; margin-bottom: 8px;">
+                    Purple completely abandons semantic meaning. The tiles are treated purely as phonetic sounds, letter sequences, or anagram puzzles.
+                </p>
+                <ul style="padding-left: 20px; font-size: 13px; color: var(--ink-muted); line-height: 1.7; margin: 0;">
+                    <li><strong>Homophones:</strong> Words pronounced identically to common things (e.g., <em>CENT / SCENT / SENT</em>).</li>
+                    <li><strong>Letter Manipulations:</strong> Words that become a new category when the first/last letter is dropped (e.g., words that become US states minus one letter).</li>
+                    <li><strong>Palindromic Pairs:</strong> Reversible spelling sequences.</li>
+                    <li><strong>Cross-Language Bridges:</strong> Words that translate into numbers or colors in Spanish, French, or Latin.</li>
+                </ul>
             </div>
 
-            <h2 style="margin-top: 32px;">Deconstructing Red Herrings and Overlapping Categories</h2>
-            <p>The primary mechanic puzzle editors use to induce errors is the <em>overlapping candidate trap</em>. When an initial scan reveals five or six words that match a single theme (e.g., animals or colors), locking in four immediately often causes a failed attempt. The correct strategy involves identifying which candidate words possess secondary definitions that fit alternative sets.</p>
+            <h2 style="margin-top: 32px;">Deconstructing Red Herrings and Overlapping Candidates</h2>
+            <p>
+                The primary mechanism puzzle editors use to force errors is the <strong>overlapping candidate trap</strong>. An initial scan often reveals five or six words matching a single theme (e.g., types of birds or units of measurement). Locking in four immediately results in a 20% failure rate that rapidly exhausts your 4 allotted mistakes.
+            </p>
 
             <div class="pro-tip-bento">
-                <strong>Rule of Thumb:</strong> If you spot five words that seem to belong to the same category, do not guess. Set that group aside and search for an isolated set of four that shares zero overlap with the rest of the board.
+                <strong>Rule of Thumb:</strong> If you spot five words that seem to fit the same group, set that entire cluster aside. Search for a clean, isolated set of four elsewhere on the board that shares zero candidates with the rest of the grid.
             </div>
 
-            <h2 style="margin-top: 32px;">Linguistic Patterns to Look For Every Session</h2>
-            <ul class="pattern-list">
-                <li><strong>Fill-in-the-Blank Roots:</strong> Look for words that can precede or follow a common term (e.g., <em>Fire, Water, Pin, Wind</em> before "Wheel").</li>
-                <li><strong>Phonetic Matches:</strong> Say words aloud to check for shared sounds regardless of spelling variations (e.g., homophones like <em>Thyme</em> and <em>Time</em>).</li>
-                <li><strong>Syntactic Shifts:</strong> Check whether ambiguous words function as nouns, verbs, or adjectives in different contexts (e.g., <em>Train</em> as a locomotive vs. <em>Train</em> as coaching).</li>
-                <li><strong>Contained Words & Anagrams:</strong> Examine words for embedded subsets or anagram arrangements.</li>
-            </ul>
+            <h2 style="margin-top: 32px;">The 4-Step Systematic Solving Algorithm</h2>
+            <ol style="padding-left: 20px; line-height: 1.8; color: var(--ink-muted); font-size: 14px; margin-bottom: 24px;">
+                <li><strong style="color: var(--ink);">The 16-Tile Cold Scan:</strong> Read through all 16 words out loud. Identify tiles that can switch parts of speech (e.g., <em>DATE</em> as fruit, calendar day, romantic outing, or historical era).</li>
+                <li><strong style="color: var(--ink);">Identify Narrow Anchors:</strong> Words with narrow, singular meanings frequently anchor the board. Isolate these early before testing broader synonyms.</li>
+                <li><strong style="color: var(--ink);">Flag 5-Word Decoys:</strong> Mark clusters with 5 potential candidates. Determine which candidate possesses a secondary meaning that satisfies an intersecting category.</li>
+                <li><strong style="color: var(--ink);">Solve Inward:</strong> Submit the most certain, unique category first. Removing 4 words reduces the combination possibilities from $\binom{16}{4} = 1,820$ down to $\binom{12}{4} = 495$.</li>
+            </ol>
 
-            <h2 style="margin-top: 32px;">How Semantic Analysis Speeds Up Elimination</h2>
-            <p>When down to the final eight words, manual analysis can hit mental fatigue. By utilizing computational linguistic tools like the <strong>Connections Grouping Assistant</strong>, players can query statistical word associations and co-occurrence vectors to surface latent thematic links that human memory might temporarily overlook.</p>
-
-            <div style="text-align: center; margin-top: 28px;">
-                <a href="index.html" class="btn-tactile btn-primary">Try the Interactive Solver</a>
+            <div style="text-align: center; margin-top: 32px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+                <a href="strategy.html" class="btn-tactile btn-secondary">Explore 5-Word Trap Strategy &rarr;</a>
+                <a href="index.html" class="btn-tactile btn-primary">Run the Neural Board Solver &rarr;</a>
             </div>
         </main>
 
@@ -146,6 +268,67 @@
         const streak = localStorage.getItem('ca_streak_count') || '1';
         const streakEl = document.getElementById('streakCount');
         if (streakEl) streakEl.innerText = streak;
+
+        const TIER_DATA = {
+            yellow: {
+                title: "YELLOW • TIER 1 (EASIEST)",
+                theme: "Words Indicating Rapid Motion or Speed",
+                words: ["BOLT", "DART", "FLEET", "SPRINT"],
+                difficulty: "Direct Synonymy",
+                explanation: "Every word functions as an active verb or adjective denoting high velocity. There are no secondary linguistic puns or affixes involved.",
+                border: "var(--tier-yellow)"
+            },
+            green: {
+                title: "GREEN • TIER 2 (MODERATE)",
+                theme: "Pieces of Traditional Woodworking Equipment",
+                words: ["CHISEL", "PLANE", "ROUTER", "VISE"],
+                difficulty: "Contextual Habitat & Domain",
+                explanation: "Notice the polysemy: 'PLANE' could mean an aircraft, and 'ROUTER' could mean a network device. Green tests your ability to spot their shared woodworking domain.",
+                border: "var(--tier-green)"
+            },
+            blue: {
+                title: "BLUE • TIER 3 (CHALLENGING)",
+                theme: "Compound Nouns Preceding the Word 'LIGHT'",
+                words: ["FLASH", "FLOOD", "MOON", "TRAFFIC"],
+                difficulty: "Compound Phrasal Association",
+                explanation: "These words share no intrinsic definition. Their association is purely structural: each forms a common compound term when placed immediately before 'LIGHT'.",
+                border: "var(--tier-blue)"
+            },
+            purple: {
+                title: "PURPLE • TIER 4 (TRICKIEST ✨)",
+                theme: "Exact Homophones of Common US Coins",
+                words: ["BILL", "CENT", "DIME", "PENNY"],
+                difficulty: "Phonetic Cryptic Transform",
+                explanation: "The connection completely bypasses standard definitions. 'CENT' sounds like 'SCENT' and 'SENT'. Purple requires treating words as sonic phonetic units rather than vocabulary.",
+                border: "var(--tier-purple)"
+            }
+        };
+
+        function selectTierView(tier, btnElement) {
+            document.querySelectorAll('.tier-tab-btn').forEach(btn => btn.classList.remove('active'));
+            if (btnElement) {
+                btnElement.classList.add('active');
+            }
+
+            const data = TIER_DATA[tier];
+            const box = document.getElementById('tierContentBox');
+            box.style.borderTop = `6px solid ${data.border}`;
+            
+            box.innerHTML = `
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px;">
+                    <h4 style="margin: 0; font-size: 15px; font-weight: 800;">${data.title}</h4>
+                    <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-muted); font-weight: 700;">Mechanism: ${data.difficulty}</span>
+                </div>
+                <div style="font-size: 13px; font-weight: 700; margin-top: 8px; color: var(--ink);">Exemplar Theme: <em>${data.theme}</em></div>
+                <div class="word-pill-group">
+                    ${data.words.map(w => `<span class="word-pill">${w}</span>`).join('')}
+                </div>
+                <p style="font-size: 13px; color: var(--ink-muted); margin: 0; line-height: 1.6;">${data.explanation}</p>
+            `;
+        }
+
+        // Initialize default view
+        selectTierView('yellow', document.querySelector('.tab-yellow'));
     </script>
 </body>
 </html>
