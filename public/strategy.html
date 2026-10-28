@@ -9,42 +9,108 @@
         gtag('js', new Date());
         gtag('config', 'G-ERDGNDJ01Q');
     </script>
-    
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Learn advanced elimination techniques, red herring detection, and quad-group deduction for daily word puzzles.">
-    <title>Word Grouping Strategy Guide | Connections Assistant</title>
+    <meta name="description" content="Advanced NYT Connections strategy guide. Master lateral deduction, eliminate 5-word polysemic traps, and test pattern recognition with interactive cognitive drills.">
+    <title>Master Strategy Guide & Cognitive Practice | Connections Assistant</title>
     
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232d3436'/%3E%3Crect x='4' y='4' width='10' height='10' rx='2.5' fill='%23f9ca24'/%3E%3Crect x='18' y='4' width='10' height='10' rx='2.5' fill='%236ab04c'/%3E%3Crect x='4' y='18' width='10' height='10' rx='2.5' fill='%234834d4'/%3E%3Crect x='18' y='18' width='10' height='10' rx='2.5' fill='%23be2edd'/%3E%3C/svg%3E">
 
-    <!-- Editorial Fonts & Master Stylesheet -->
+    <!-- Editorial Fonts & Tactile Stylesheet -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
     <style>
-        .strategy-step-card {
-            background: var(--surface);
+        .interactive-artifact {
+            background: #FFFFFF;
+            border: 2px solid var(--border-lip);
+            border-radius: var(--radius-card);
+            box-shadow: 4px 4px 0px var(--border-lip);
+            padding: 24px;
+            margin: 28px 0;
+        }
+        .drill-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin: 18px 0;
+        }
+        .drill-tile {
+            background: var(--stone);
             border: 2px solid var(--border-lip);
             border-radius: var(--radius-tile);
+            padding: 14px 4px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 0 3px 0 var(--border-lip);
+            transition: all 0.1s ease;
+            user-select: none;
+        }
+        .drill-tile:active {
+            transform: translateY(2px);
+            box-shadow: 0 1px 0 var(--border-lip);
+        }
+        .drill-tile.selected {
+            background: #141413;
+            color: #FFFFFF;
+        }
+        .drill-tile.correct {
+            background: var(--tier-green);
+            color: #141413;
+            border-color: #141413;
+        }
+        .drill-tile.trap {
+            background: #FF5E5B;
+            color: #FFFFFF;
+        }
+        .drill-feedback {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: 1.5px solid var(--border-lip);
+            display: none;
+            margin-top: 14px;
+        }
+        .feedback-success { background: #DCFCE7; color: #166534; }
+        .feedback-error   { background: #FEE2E2; color: #991B1B; }
+
+        .taxonomy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin: 24px 0;
+        }
+        .taxonomy-card {
+            background: var(--surface);
+            border: 2px solid var(--border-lip);
+            border-radius: 12px;
             box-shadow: 3px 3px 0px var(--border-lip);
             padding: 20px;
-            margin-bottom: 20px;
         }
-        .strategy-num-badge {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 28px;
-            height: 28px;
-            background: var(--ink);
-            color: #FFFFFF;
-            font-weight: 800;
-            font-size: 14px;
-            border-radius: 6px;
-            margin-right: 10px;
-            flex-shrink: 0;
+        .taxonomy-card.yellow { border-top: 6px solid var(--tier-yellow); }
+        .taxonomy-card.green  { border-top: 6px solid var(--tier-green); }
+        .taxonomy-card.blue   { border-top: 6px solid var(--tier-blue); }
+        .taxonomy-card.purple { border-top: 6px solid var(--tier-purple); }
+
+        .pro-tip-box {
+            background: #FEF3C7;
+            border-left: 4px solid #D97706;
+            border-top: 1.5px solid var(--border-lip);
+            border-right: 1.5px solid var(--border-lip);
+            border-bottom: 1.5px solid var(--border-lip);
+            padding: 14px 18px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-size: 13px;
+            color: #92400E;
         }
     </style>
 </head>
@@ -71,38 +137,102 @@
 
     <div class="container">
         <main class="content-bento">
-            <h1>Mastering 16-Word Grouping Puzzles</h1>
-            <p>Word grouping puzzles require players to analyze a 16-word grid and isolate four distinct quad-groups based on overlapping associations. Game designers intentionally engineer overlapping meanings to lead players down incorrect paths.</p>
-            
-            <div class="strategy-step-card" style="margin-top: 24px;">
-                <h2 style="border-bottom: none; padding-bottom: 0; display: flex; align-items: center; margin-bottom: 10px;">
-                    <span class="strategy-num-badge">1</span> Spotting Red Herrings
-                </h2>
-                <p style="margin-bottom: 0;">A red herring occurs when a word seamlessly fits into multiple logical categories. For example, the word <strong>"BARK"</strong> can function as a canine vocalization, the outer layer of a tree trunk, or the process of calling out orders. Successful players defer locking in obvious trios until the fourth qualifying word eliminates alternate placements.</p>
+            <h1>Advanced Deduction & Trap Avoidance Strategy</h1>
+            <p>A mathematical and linguistic guide to solving the NYT Connections puzzle systematically, isolating red herrings, and mastering lateral purple-tier categories.</p>
+
+            <!-- INTERACTIVE COGNITIVE ARTIFACT (Karpathy In-Browser App Principle) -->
+            <section class="interactive-artifact">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+                    <div>
+                        <span class="tier-badge badge-purple">COGNITIVE LAB</span>
+                        <h3 style="margin: 4px 0 0 0; font-size: 18px;">Interactive Trap Simulator: The 5-Word Dilemma</h3>
+                    </div>
+                    <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; background: var(--stone); padding: 4px 8px; border-radius: 4px; border: 1px solid var(--stone-border);">Selected: <span id="drillCount">0</span>/4</span>
+                </div>
+                
+                <p style="font-size: 13px; color: var(--ink-muted); margin-top: 8px;">
+                    Below are 8 words from an editorial trap scenario. Five words fit the apparent category <em>"Things with Wings"</em>, but one is a deliberate decoy belonging to a hidden Purple tier category. Find the true 4-word grouping without triggering the trap!
+                </p>
+
+                <div class="drill-grid" id="drillGrid">
+                    <div class="drill-tile" onclick="toggleDrillTile(this, 'BAT')">BAT</div>
+                    <div class="drill-tile" onclick="toggleDrillTile(this, 'AIRPLANE')">AIRPLANE</div>
+                    <div class="drill-tile" onclick="toggleDrillTile(this, 'STAGE')">STAGE</div>
+                    <div class="drill-tile" onclick="toggleDrillTile(this, 'BIRD')">BIRD</div>
+                    <div class="drill-tile" onclick="toggleDrillTile(this, 'HOSPITAL')">HOSPITAL</div>
+                    <div class="drill-tile" onclick="toggleDrillTile(this, 'BUTTERFLY')">BUTTERFLY</div>
+                    <div class="drill-tile" onclick="toggleDrillTile(this, 'ANGEL')">ANGEL</div>
+                    <div class="drill-tile" onclick="toggleDrillTile(this, 'THEATER')">THEATER</div>
+                </div>
+
+                <div style="display: flex; gap: 8px;">
+                    <button class="btn-tactile btn-primary" onclick="verifyDrillSubmission()" style="padding: 8px 16px; font-size: 12px;">Submit Hypothesis</button>
+                    <button class="btn-tactile btn-secondary" onclick="resetDrill()" style="padding: 8px 16px; font-size: 12px;">Reset Grid</button>
+                </div>
+
+                <div id="drillFeedback" class="drill-feedback"></div>
+            </section>
+
+            <!-- SUBSTANTIVE EDITORIAL CURATION (Dhanbadi / AdSense Compliance Rails) -->
+            <h2>The Mechanics of Linguistic Misdirection</h2>
+            <p>
+                The New York Times Connections grid is rarely a straightforward categorization test. It is an adversarial game designed by lexicographers who weaponize polysemy—the capacity for a single word to carry multiple distinct meanings—against human intuition.
+            </p>
+            <p>
+                When an amateur solver opens a board, the brain instinctively scans for high-frequency direct synonyms. This is precisely what puzzle editors anticipate. By deliberately placing 5 words that share a superficial context (such as <em>BAT, AIRPLANE, BIRD, BUTTERFLY, ANGEL</em> all having wings), the editor creates a <strong>5-Word Polysemic Trap</strong>. Guessing prematurely forces a 20% failure rate that drains your 4 allotted mistakes.
+            </p>
+
+            <div class="pro-tip-box">
+                <strong>Strategic Golden Rule:</strong> Never submit a category the moment you see 4 matching words. Systematically inspect all 16 tiles to ensure there is not a 5th candidate hiding in plain sight. If a 5th word exists, pause and look for an intersecting category.
             </div>
 
-            <div class="strategy-step-card">
-                <h2 style="border-bottom: none; padding-bottom: 0; display: flex; align-items: center; margin-bottom: 10px;">
-                    <span class="strategy-num-badge">2</span> Core Pattern Recognition
-                </h2>
-                <p>Train your analysis to spot these four primary category frameworks during every daily session:</p>
-                <ul style="margin-bottom: 0;">
-                    <li><strong>Direct Synonyms:</strong> Words sharing identical core definitions (e.g., Leap, Bound, Jump, Vault).</li>
-                    <li><strong>Compound Prefixes & Suffixes:</strong> Terms that precede or follow a shared root word (e.g., Key, Snow, Surf, Dash before "Board").</li>
-                    <li><strong>Homophones & Wordplay:</strong> Phonetic matches with divergent spellings and meanings (e.g., Bear, Bare).</li>
-                    <li><strong>Categorical Knowledge:</strong> Curated subsets from trivia, pop culture, or geographic domains (e.g., Oscar Winning Directors, Capital Cities).</li>
-                </ul>
+            <h2>Comprehensive Category Taxonomy</h2>
+            <p>Understanding the mathematical and structural blueprint of how daily tiers are constructed allows you to anticipate which words must be preserved for harder categories:</p>
+
+            <div class="taxonomy-grid">
+                <div class="taxonomy-card yellow">
+                    <span class="tier-badge badge-yellow">TIER 1 • YELLOW</span>
+                    <h3 style="margin-top: 6px;">Direct Synonyms & Functional Units</h3>
+                    <p style="font-size: 13px; color: var(--ink-muted);">
+                        The most direct tier. Words belong to the same grammatical class and share near-identical dictionary definitions (e.g., <em>LEAP, BOUND, SPRING, HOP</em>). Yellow categories rarely rely on wordplay, but editors frequently place an overt Yellow candidate that secretly serves as a double-agent for Purple.
+                    </p>
+                </div>
+
+                <div class="taxonomy-card green">
+                    <span class="tier-badge badge-green">TIER 2 • GREEN</span>
+                    <h3 style="margin-top: 6px;">Contextual Environments & Domains</h3>
+                    <p style="font-size: 13px; color: var(--ink-muted);">
+                        Words linked by thematic domain or shared workspace rather than direct synonymy (e.g., <em>CAPTAIN, CREW, SKIPPER, MATE</em> on a vessel). Green categories require broader contextual thinking, often incorporating toolkits, sports positions, or architectural features.
+                    </p>
+                </div>
+
+                <div class="taxonomy-card blue">
+                    <span class="tier-badge badge-blue">TIER 3 • BLUE</span>
+                    <h3 style="margin-top: 6px;">Compound Phrases & Lexical Subsets</h3>
+                    <p style="font-size: 13px; color: var(--ink-muted);">
+                        Blue tests cultural trivia, compound word fragments, and missing affixes. Common structures include words that precede a common noun (e.g., words before "BOARD": <em>DASH, KEY, SURF, SNOW</em>) or members of distinct cultural lists (e.g., Monopoly tokens, planet moons).
+                    </p>
+                </div>
+
+                <div class="taxonomy-card purple">
+                    <span class="tier-badge badge-purple">TIER 4 • PURPLE</span>
+                    <h3 style="margin-top: 6px;">Lateral Wordplay & Cryptic Manipulations</h3>
+                    <p style="font-size: 13px; color: var(--ink-muted);">
+                        The highest difficulty tier. Purple ignores dictionary definitions entirely, manipulating spelling, phonetics, and cryptic transforms. Frequent mechanisms include homophones (<em>BARE / BEAR</em>), words that spell another word backward, letter subtractions, or rhyming compounds.
+                    </p>
+                </div>
             </div>
 
-            <div class="strategy-step-card">
-                <h2 style="border-bottom: none; padding-bottom: 0; display: flex; align-items: center; margin-bottom: 10px;">
-                    <span class="strategy-num-badge">3</span> Systematic Elimination Workflows
-                </h2>
-                <p style="margin-bottom: 0;">When down to eight remaining words, isolate terms with single strict definitions first. By solving the most rigid categories early, you reduce the candidate pool for flexible words that could otherwise trigger false matches.</p>
-            </div>
+            <h2>The 4-Step Elimination Workflow</h2>
+            <ol style="padding-left: 20px; line-height: 1.8; color: var(--ink-muted); font-size: 14px; margin-bottom: 24px;">
+                <li><strong style="color: var(--ink);">The 16-Tile Cold Scan:</strong> Read every tile once without grouping. Identify all words that can function as multiple parts of speech (e.g., <em>DATE</em> as fruit, calendar day, romantic partner, or historical epoch).</li>
+                <li><strong style="color: var(--ink);">Identify the Outlier Candidates:</strong> Words with narrow, highly specific meanings often anchor the puzzle. If you see a word like <em>OUNCE</em> or <em>POUND</em>, determine whether it belongs to units of mass or dog shelter shelters before committing.</li>
+                <li><strong style="color: var(--ink);">Isolate the 5-Word Clusters:</strong> When you find 5 words matching a single theme, mark the group as "Contested." Do not guess. Look for which of the 5 has a lateral secondary association with another pair on the board.</li>
+                <li><strong style="color: var(--ink);">Solve Inward:</strong> Always solve the most distinct category first to remove 4 tiles from the board, reducing the combinatorial search space from $\binom{16}{4} = 1,820$ possibilities to just $\binom{12}{4} = 495$.</li>
+            </ol>
 
-            <div style="text-align: center; margin-top: 28px;">
-                <a href="index.html" class="btn-tactile btn-primary">Practice on Today's Grid</a>
+            <div style="text-align: center; margin: 32px 0;">
+                <a href="index.html" class="btn-tactile btn-primary">Open Neural Solver & Test A Board</a>
             </div>
         </main>
 
@@ -131,9 +261,71 @@
     </footer>
 
     <script>
+        // Streak synchronization
         const streak = localStorage.getItem('ca_streak_count') || '1';
         const streakEl = document.getElementById('streakCount');
         if (streakEl) streakEl.innerText = streak;
+
+        // Interactive Cognitive Drill Logic (Karpathy Artifact Principle)
+        const selectedWords = new Set();
+        const TRUE_CATEGORY = new Set(["AIRPLANE", "BIRD", "BUTTERFLY", "ANGEL"]); // Things with wings (BAT is the red herring belonging to Baseball/Cave/Halloween)
+        const PURPLE_HERRING = "BAT";
+
+        function toggleDrillTile(el, word) {
+            if (selectedWords.has(word)) {
+                selectedWords.delete(word);
+                el.classList.remove('selected');
+            } else {
+                if (selectedWords.size >= 4) return;
+                selectedWords.add(word);
+                el.classList.add('selected');
+            }
+            document.getElementById('drillCount').innerText = selectedWords.size;
+        }
+
+        function verifyDrillSubmission() {
+            const feedback = document.getElementById('drillFeedback');
+            feedback.style.display = 'block';
+
+            if (selectedWords.size !== 4) {
+                feedback.className = 'drill-feedback feedback-error';
+                feedback.innerText = '⚠️ Please select exactly 4 words to submit a hypothesis.';
+                return;
+            }
+
+            if (selectedWords.has(PURPLE_HERRING) && (selectedWords.has('STAGE') || selectedWords.has('HOSPITAL') || selectedWords.has('THEATER'))) {
+                feedback.className = 'drill-feedback feedback-error';
+                feedback.innerText = '🧩 Interesting connection! But BAT + STAGE + HOSPITAL + THEATER are parts of buildings/venues or compound words. Re-evaluate the wings category!';
+                return;
+            }
+
+            if (selectedWords.has(PURPLE_HERRING) && selectedWords.has('AIRPLANE') && selectedWords.has('BIRD')) {
+                feedback.className = 'drill-feedback feedback-error';
+                feedback.innerText = '🚨 TRAP TRIGGERED! "BAT" has wings, but it also belongs to an intersecting category. In the actual board, BAT is the 5th wheel decoy!';
+                return;
+            }
+
+            let correctCount = 0;
+            selectedWords.forEach(w => {
+                if (TRUE_CATEGORY.has(w)) correctCount++;
+            });
+
+            if (correctCount === 4) {
+                feedback.className = 'drill-feedback feedback-success';
+                feedback.innerText = '🎯 MASTER LEVEL DEDUCTION! You isolated AIRPLANE, BIRD, BUTTERFLY, and ANGEL, successfully dodging the BAT polysemic trap!';
+            } else {
+                feedback.className = 'drill-feedback feedback-error';
+                feedback.innerText = '❌ Not quite. Look for the four purest entities that physically possess wings without alternate category overlap.';
+            }
+        }
+
+        function resetDrill() {
+            selectedWords.clear();
+            document.querySelectorAll('.drill-tile').forEach(t => t.classList.remove('selected'));
+            document.getElementById('drillCount').innerText = '0';
+            const feedback = document.getElementById('drillFeedback');
+            feedback.style.display = 'none';
+        }
     </script>
 </body>
 </html>
