@@ -289,6 +289,7 @@
             justify-content: center;
             gap: 6px;
             user-select: none;
+            text-decoration: none;
         }
         .btn-tactile:active {
             transform: translateY(3px);
@@ -518,6 +519,40 @@
         .btn-kofi { background: #FF5E5B; color: #FFFFFF; }
         .btn-paypal { background: #0070BA; color: #FFFFFF; }
 
+        /* Bento Tier Link Cards */
+        .tier-card-bento {
+            border: 2px solid var(--border-lip);
+            border-radius: 12px;
+            box-shadow: 0 3px 0 var(--border-lip);
+            padding: 16px;
+            margin-bottom: 14px;
+            background: var(--surface);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .tier-card-bento.yellow { border-top: 6px solid var(--tier-yellow); }
+        .tier-card-bento.green  { border-top: 6px solid var(--tier-green); }
+        .tier-card-bento.blue   { border-top: 6px solid var(--tier-blue); }
+        .tier-card-bento.purple { border-top: 6px solid var(--tier-purple); }
+
+        .tier-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 6px;
+            border: 1.5px solid var(--border-lip);
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 8px;
+            width: fit-content;
+        }
+        .badge-yellow { background: var(--tier-yellow); color: #1A1A1A; }
+        .badge-green  { background: var(--tier-green); color: #1A1A1A; }
+        .badge-blue   { background: var(--tier-blue); color: #1A1A1A; }
+        .badge-purple { background: var(--tier-purple); color: #FFFFFF; }
+
         /* SEO Editorial Clusters */
         .article-section {
             background: var(--surface);
@@ -561,7 +596,7 @@
             font-weight: 600;
         }
 
-        /* Mobile Adjustments for 390x844 Rule */
+        /* Mobile Adjustments */
         @media (max-width: 600px) {
             .container { padding: 10px; }
             .solver-bento { padding: 14px; }
@@ -637,7 +672,7 @@
             <!-- 16 Tactile Puzzle Input Tiles -->
             <div class="grid" id="inputGrid"></div>
 
-            <!-- Frictionless Action Row -->
+            <!-- Action Row -->
             <div class="action-row">
                 <button id="autoFillBtn" class="btn-tactile btn-secondary" onclick="autoFillGrid()">
                     📋 Quick Paste
@@ -650,7 +685,7 @@
                 </button>
             </div>
 
-            <!-- Upgraded Viral Share Action -->
+            <!-- Viral Share Action -->
             <button id="saveBtn" class="btn-tactile btn-save" onclick="shareResultsModal()">
                 💾 Share / Copy Results
             </button>
@@ -659,7 +694,7 @@
             <div id="results"></div>
         </main>
 
-        <!-- Contextual Support / Buy AI a Coffee Module -->
+        <!-- Contextual Support / Coffee Module -->
         <section class="support-container" id="tippingCard">
             <h4>☕ Keep Our Neural Solver Fast & Ad-Light</h4>
             <p>Every analysis runs server-side AI reasoning across lexical databases. If our hints saved your streak today, consider fueling the compute!</p>
@@ -670,6 +705,54 @@
                 <a href="https://paypal.me/j1223aw/2" target="_blank" rel="noopener noreferrer" class="btn-support btn-paypal">
                     🅿️ Tip $2 via PayPal
                 </a>
+            </div>
+        </section>
+
+        <!-- Editorial Discovery & Learning Hub (Crawl Depth & Content Quality for AdSense) -->
+        <section class="article-section" style="margin-top: 24px;">
+            <h2>Connections Strategy & Linguistic Breakdowns</h2>
+            <p>Master daily 16-word grouping puzzles using pattern deduction, elimination logic, and difficulty tier breakdowns.</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; margin-top: 18px;">
+                <!-- Card 1: Guide -->
+                <div class="tier-card-bento yellow">
+                    <div>
+                        <span class="tier-badge badge-yellow">COLOR TIERS</span>
+                        <h3 style="margin-top: 4px;">4-Tier Difficulty Guide</h3>
+                        <p style="font-size: 13px;">Understand Yellow, Green, Blue, and Purple category hierarchies and how puzzle editors construct daily difficulty.</p>
+                    </div>
+                    <a href="nyt-connections-guide.html" style="font-weight: 700; color: var(--ink); text-decoration: underline; font-size: 13px; margin-top: 12px; display: inline-block;">Read Full Guide &rarr;</a>
+                </div>
+
+                <!-- Card 2: Breakdowns -->
+                <div class="tier-card-bento purple">
+                    <div>
+                        <span class="tier-badge badge-purple">VIDEO WALKTHROUGHS</span>
+                        <h3 style="margin-top: 4px;">Daily Board Breakdowns</h3>
+                        <p style="font-size: 13px;">Watch real-time video analyses untangling polysemic traps like DATE, CHECK, and BANK across board grids.</p>
+                    </div>
+                    <a href="breakdowns.html" style="font-weight: 700; color: var(--ink); text-decoration: underline; font-size: 13px; margin-top: 12px; display: inline-block;">Watch Breakdowns &rarr;</a>
+                </div>
+
+                <!-- Card 3: Strategy -->
+                <div class="tier-card-bento blue">
+                    <div>
+                        <span class="tier-badge badge-blue">DEDUCTION</span>
+                        <h3 style="margin-top: 4px;">The 5-Word Trap & Rules</h3>
+                        <p style="font-size: 13px;">Learn systematic workflows to avoid red herrings, isolate anchor words, and prevent wasted guesses.</p>
+                    </div>
+                    <a href="strategy.html" style="font-weight: 700; color: var(--ink); text-decoration: underline; font-size: 13px; margin-top: 12px; display: inline-block;">Explore Strategy &rarr;</a>
+                </div>
+
+                <!-- Card 4: FAQ -->
+                <div class="tier-card-bento green">
+                    <div>
+                        <span class="tier-badge badge-green">METHODOLOGY</span>
+                        <h3 style="margin-top: 4px;">Linguistic Engine & Hints</h3>
+                        <p style="font-size: 13px;">Discover how our semantic API performs pairwise word analysis and how progressive hints protect your streak.</p>
+                    </div>
+                    <a href="faq.html" style="font-weight: 700; color: var(--ink); text-decoration: underline; font-size: 13px; margin-top: 12px; display: inline-block;">View FAQ &rarr;</a>
+                </div>
             </div>
         </section>
 
@@ -701,13 +784,6 @@
                 <li><strong>Homophones:</strong> Words that sound identical with different spellings and meanings (e.g., Bear, Bare).</li>
                 <li><strong>Trivia and Categorical Domains:</strong> Specific categories like "Oscar Winning Movies" or "European Capitals."</li>
             </ul>
-
-            <div style="background: var(--stone); border: 1.5px solid var(--border-lip); border-radius: 8px; padding: 16px; margin-top: 16px;">
-                <h4 style="margin: 0 0 6px 0;">Explore In-Depth Strategy & Solving Guides</h4>
-                <p style="margin: 0; font-size: 13px;">
-                    Master grid patterns and trap avoidance with our comprehensive guides: read the complete <a href="nyt-connections-guide.html" style="color: #523ee8; font-weight: 700;">Daily Connections Gameplay Guide</a>, explore <a href="strategy.html" style="color: #523ee8; font-weight: 700;">Advanced Elimination Strategies</a>, or check our <a href="faq.html" style="color: #523ee8; font-weight: 700;">Frequently Asked Questions</a>.
-                </p>
-            </div>
         </section>
 
         <!-- SEO Editorial Content: FAQ -->
