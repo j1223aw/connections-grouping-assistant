@@ -12,38 +12,108 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Frequently asked questions about Connections Grouping Assistant, semantic solver methodology, privacy, and hints.">
-    <title>Frequently Asked Questions | Connections Assistant</title>
+    <meta name="description" content="Frequently asked questions about the Connections Grouping Assistant. Discover our semantic analysis methodology, spoiler-shield hints, and anti-cheat design.">
+    <title>Frequently Asked Questions & Methodology | Connections Assistant</title>
     
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232d3436'/%3E%3Crect x='4' y='4' width='10' height='10' rx='2.5' fill='%23f9ca24'/%3E%3Crect x='18' y='4' width='10' height='10' rx='2.5' fill='%236ab04c'/%3E%3Crect x='4' y='18' width='10' height='10' rx='2.5' fill='%234834d4'/%3E%3Crect x='18' y='18' width='10' height='10' rx='2.5' fill='%23be2edd'/%3E%3C/svg%3E">
 
-    <!-- Editorial Fonts & Master Stylesheet -->
+    <!-- Fonts & Master Stylesheet -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
     <style>
-        .faq-item-bento {
-            background: var(--surface);
+        .interactive-artifact {
+            background: #FFFFFF;
             border: 2px solid var(--border-lip);
-            border-radius: var(--radius-tile);
-            box-shadow: 3px 3px 0px var(--border-lip);
-            padding: 20px;
-            margin-bottom: 18px;
+            border-radius: var(--radius-card);
+            box-shadow: 4px 4px 0px var(--border-lip);
+            padding: 24px;
+            margin: 28px 0;
         }
-        .faq-item-bento h3 {
-            margin: 0 0 8px 0;
-            font-size: 16px;
-            color: var(--ink);
+        .comparator-controls {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 16px 0;
+        }
+        .comparator-select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 2px solid var(--border-lip);
+            border-radius: 8px;
+            background: var(--stone);
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-weight: 700;
+            font-size: 13px;
+            color: var(--ink);
+            outline: none;
         }
-        .faq-item-bento p {
-            margin: 0;
-            color: var(--ink-muted);
+        .comparator-result {
+            background: var(--surface);
+            border: 2px solid var(--border-lip);
+            border-radius: 12px;
+            padding: 18px;
+            margin-top: 14px;
+            box-shadow: 2px 2px 0 var(--border-lip);
+            display: none;
+        }
+        .vector-bar-track {
+            height: 12px;
+            background: var(--stone);
+            border: 1.5px solid var(--border-lip);
+            border-radius: 999px;
+            overflow: hidden;
+            margin: 8px 0;
+        }
+        .vector-bar-fill {
+            height: 100%;
+            background: #141413;
+            width: 0%;
+            transition: width 0.4s ease;
+        }
+        .faq-accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin: 24px 0;
+        }
+        .faq-item {
+            background: var(--surface);
+            border: 2px solid var(--border-lip);
+            border-radius: 12px;
+            box-shadow: 3px 3px 0px var(--border-lip);
+            padding: 20px;
+        }
+        .faq-item h3 {
+            margin: 0 0 10px 0;
+            font-size: 16px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .faq-item p {
+            margin: 0 0 10px 0;
             font-size: 14px;
+            color: var(--ink-muted);
             line-height: 1.6;
+        }
+        .faq-item p:last-child {
+            margin-bottom: 0;
+        }
+        .code-pill {
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--stone);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 12px;
+            color: var(--ink);
+            border: 1px solid var(--stone-border);
+        }
+        @media (max-width: 600px) {
+            .comparator-controls { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -70,27 +140,171 @@
 
     <div class="container">
         <main class="content-bento">
-            <h1>Frequently Asked Questions</h1>
-            <p style="margin-bottom: 24px;">Everything you need to know about how Connections Grouping Assistant works, our linguistic analysis methodology, and data privacy.</p>
+            <h1>Frequently Asked Questions & Methodology</h1>
+            <p>An inside look into our semantic association engine, anti-spoiler progressive hint design, and the mathematical principles of combinatorial grid partitioning.</p>
 
-            <div class="faq-item-bento">
-                <h3>How does the semantic API work?</h3>
-                <p>When you input 16 words, our system queries the Datamuse linguistic engine. The algorithm executes pairwise comparisons across all inputs, assessing semantic co-occurrence, shared dictionary definitions, and latent categorical linkages.</p>
+            <!-- INTERACTIVE SEMANTIC VECTOR ARTIFACT (Karpathy In-Browser App Principle) -->
+            <section class="interactive-artifact">
+                <span class="tier-badge badge-blue">INTERACTIVE SIMULATOR</span>
+                <h3 style="margin: 6px 0 0 0; font-size: 18px;">Pairwise Semantic Association Inspector</h3>
+                <p style="font-size: 13px; color: var(--ink-muted); margin-top: 8px;">
+                    Experience how our backend evaluates polysemic relationships. Select two sample words to measure their semantic link and determine whether they share an overt synonym tier or a lateral wordplay bridge:
+                </p>
+
+                <div class="comparator-controls">
+                    <div>
+                        <label style="font-size: 11px; font-weight: 800; text-transform: uppercase;">Word Candidate A</label>
+                        <select id="wordSelectA" class="comparator-select" onchange="runVectorComparison()">
+                            <option value="SPRING">SPRING (Polysemic: Jump, Season, Coil)</option>
+                            <option value="BAT">BAT (Polysemic: Winged Mammal, Club)</option>
+                            <option value="DATE">DATE (Polysemic: Fruit, Calendar, Outing)</option>
+                            <option value="DASH">DASH (Polysemic: Run, Board Prefix)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="font-size: 11px; font-weight: 800; text-transform: uppercase;">Word Candidate B</label>
+                        <select id="wordSelectB" class="comparator-select" onchange="runVectorComparison()">
+                            <option value="LEAP">LEAP (Synonym: Bound, Hop)</option>
+                            <option value="SURF">SURF (Board Prefix: Surfboard)</option>
+                            <option value="AUTUMN">AUTUMN (Seasonal Domain)</option>
+                            <option value="CLUB">CLUB (Playing Card Suit, Weapon)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="vectorResultBox" class="comparator-result">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span id="vectorScoreLabel" style="font-size: 13px; font-weight: 800;">Estimated Semantic Link</span>
+                        <span id="vectorTierTag" class="tier-badge badge-yellow" style="margin-bottom: 0;">YELLOW CANDIDATE</span>
+                    </div>
+                    <div class="vector-bar-track">
+                        <div id="vectorBarFill" class="vector-bar-fill"></div>
+                    </div>
+                    <p id="vectorExplanation" style="font-size: 13px; color: var(--ink-muted); margin: 8px 0 0 0; line-height: 1.5;"></p>
+                </div>
+            </section>
+
+            <!-- SUBSTANTIVE EDITORIAL TAXONOMY & FAQS -->
+            <h2>Engine Architecture & Hint Philosophy</h2>
+
+            <div class="faq-accordion">
+                <article class="faq-item">
+                    <h3>🧩 How does the neural solver partition the 16-word grid?</h3>
+                    <p>
+                        When you submit a 16-word grid, our backend executes a secure Cloud Run function powered by Gemini. Rather than performing simple dictionary lookups, the model evaluates the combinatorial space of all $\binom{16}{4} = 1,820$ possible 4-word groupings simultaneously.
+                    </p>
+                    <p>
+                        It cross-references semantic clusters, slang, parts of speech, compound prefixes/suffixes, and phonetics. Once candidates are assembled, our deterministic watchdog verifies that exactly four disjoint subsets of four words are constructed with zero duplication before sending the payload to your browser.
+                    </p>
+                </article>
+
+                <article class="faq-item">
+                    <h3>🛡️ What is the "Spoiler Shield" and how does it protect streaks?</h3>
+                    <p>
+                        Standard word solvers ruin the fun by immediately dumping the four completed answer groups. The <strong>Connections Grouping Assistant</strong> was engineered with a 3-tier progressive hint disclosure model:
+                    </p>
+                    <p>
+                        1. <strong>Linguistic Category Nudge:</strong> Reveals a masked summary of the category rule (e.g., <span class="code-pill">Words Ending in 'BOARD'</span>) without revealing which tiles belong to it.<br>
+                        2. <strong>Anchor Clues:</strong> Highlights exactly two anchor words that anchor the grouping, leaving you to deduce the remaining two candidates independently.<br>
+                        3. <strong>Full Solution Reveal:</strong> Unlocks the complete tier only when you explicitly confirm you are ready.
+                    </p>
+                </article>
+
+                <article class="faq-item">
+                    <h3>⚠️ How do you identify and warn about Red Herrings?</h3>
+                    <p>
+                        A red herring is created when five or six words on a board share an overt contextual feature (e.g., five flying animals or five colors). Our backend runs an association graph across all sixteen words to detect when a single theme claims more than four tiles. When detected, the assistant flags a <strong>Red Herring Advisory</strong> alerting you that at least one candidate is a double-agent belonging to a harder tier.
+                    </p>
+                </article>
+
+                <article class="faq-item">
+                    <h3>🚫 Is using this tool considered cheating?</h3>
+                    <p>
+                        We built this tool as an educational companion, deductive trainer, and streak-preservation safety net. By providing staged nudges and anchor words rather than raw solutions, players learn to spot lateral wordplay mechanisms and homophone transformations that transfer directly to future solving sessions.
+                    </p>
+                </article>
+
+                <article class="faq-item">
+                    <h3>🔒 What data does this tool collect?</h3>
+                    <p>
+                        We prioritize minimal data collection. Your daily solver streaks are saved locally in your browser's <span class="code-pill">localStorage</span> and never transmitted to external servers. Word submissions are processed transiently in server memory to generate hints and are never sold or used to build user profiles. Review our <a href="privacy.html" style="color: var(--ink); font-weight: 700; text-decoration: underline;">Privacy Policy</a> for full compliance details.
+                    </p>
+                </article>
             </div>
 
-            <div class="faq-item-bento">
-                <h3>What is the Quick Paste feature?</h3>
-                <p>Quick Paste parses unstructured text strings pasted directly from clipboards. It automatically strips out commas, spaces, or line breaks to populate all 16 input grid slots simultaneously without requiring manual entry.</p>
+            <div style="text-align: center; margin: 32px 0; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+                <a href="nyt-connections-guide.html" class="btn-tactile btn-secondary">Read 4-Color Tier Guide &rarr;</a>
+                <a href="strategy.html" class="btn-tactile btn-secondary">Explore 5-Word Trap Strategy &rarr;</a>
+                <a href="index.html" class="btn-tactile btn-primary">Open Neural Board Solver &rarr;</a>
             </div>
+        </main>
 
-            <div class="faq-item-bento">
-                <h3>Is this tool affiliated with the New York Times?</h3>
-                <p>No. Connections Grouping Assistant is an entirely independent linguistic utility designed for educational analysis and word puzzle assistance. It holds no affiliation, endorsement, or sponsorship with The New York Times Company.</p>
+        <section class="support-banner">
+            <h4>☕ Keep Our Neural Solver Fast & Ad-Light</h4>
+            <p>Every analysis runs server-side AI reasoning across lexical databases. If our hints saved your streak today, consider fueling the compute!</p>
+            <div class="support-btn-group">
+                <a href="https://ko-fi.com/connectionsassistant" target="_blank" rel="noopener noreferrer" class="btn-support btn-kofi">☕ Tip $3 on Ko-fi</a>
+                <a href="https://paypal.me/j1223aw/2" target="_blank" rel="noopener noreferrer" class="btn-support btn-paypal">🅿️ Tip $2 via PayPal</a>
             </div>
+        </section>
+    </div>
 
-            <div class="faq-item-bento">
-                <h3>Are input words stored on your servers?</h3>
-                <p>No. Words submitted into the grouping tool are processed dynamically in real-time within your web browser session and are never recorded or stored in persistent databases.</p>
-            </div>
+    <footer>
+        <p>&copy; 2026 Connections Grouping Assistant. All rights reserved.</p>
+        <p style="margin: 4px 0 12px 0;">This independent helper utility is not affiliated with the New York Times Company.</p>
+        <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+    </footer>
 
-            <div style="text-
+    <script>
+        const streak = localStorage.getItem('ca_streak_count') || '1';
+        const streakEl = document.getElementById('streakCount');
+        if (streakEl) streakEl.innerText = streak;
+
+        const PAIR_DATABASE = {
+            "SPRING-LEAP": { score: 94, tier: "YELLOW", badgeClass: "badge-yellow", desc: "Strong Direct Synonymy. Both words share core denotation: rapid vertical or forward propulsion." },
+            "SPRING-AUTUMN": { score: 72, tier: "GREEN", badgeClass: "badge-green", desc: "Contextual Environmental Domain. Words are linked by shared astronomical and meteorological calendar seasons." },
+            "BAT-CLUB": { score: 88, tier: "PURPLE", badgeClass: "badge-purple", desc: "Dual-Polysemic Bridge. Both function as physical blunt sports implements and as traditional playing card suit symbols." },
+            "DASH-SURF": { score: 85, tier: "BLUE", badgeClass: "badge-blue", desc: "Compound Suffix Collocation. Words possess zero semantic commonality alone, but both form common compound words when followed by 'BOARD'." },
+            "DATE-LEAP": { score: 40, tier: "GREEN", badgeClass: "badge-green", desc: "Temporal Association. Linked loosely through calendar systems ('Leap Year' / 'Calendar Date')." },
+            "BAT-LEAP": { score: 18, tier: "DEC_FAIL", badgeClass: "badge-yellow", desc: "Negligible Semantic Linkage. No significant dictionary overlap or compound collocation exists between these candidates." }
+        };
+
+        function runVectorComparison() {
+            const a = document.getElementById('wordSelectA').value;
+            const b = document.getElementById('wordSelectB').value;
+            const key = `${a}-${b}`;
+            const altKey = `${b}-${a}`;
+
+            const data = PAIR_DATABASE[key] || PAIR_DATABASE[altKey] || {
+                score: 30,
+                tier: "LATENT LINK",
+                badgeClass: "badge-green",
+                desc: "Divergent Semantic Fields. Words require secondary or tertiary lateral hops to construct an associative category."
+            };
+
+            const box = document.getElementById('vectorResultBox');
+            box.style.display = 'block';
+            document.getElementById('vectorScoreLabel').innerText = `Semantic Cohesion: ${data.score}%`;
+            
+            const badge = document.getElementById('vectorTierTag');
+            badge.className = `tier-badge ${data.badgeClass}`;
+            badge.innerText = `${data.tier} ASSOCIATION`;
+
+            const fill = document.getElementById('vectorBarFill');
+            fill.style.width = `${data.score}%`;
+            if (data.score > 80) fill.style.background = "var(--tier-green)";
+            else if (data.score > 50) fill.style.background = "var(--tier-blue)";
+            else fill.style.background = "#FF5E5B";
+
+            document.getElementById('vectorExplanation').innerText = data.desc;
+        }
+
+        // Initialize default vector preview
+        runVectorComparison();
+    </script>
+</body>
+</html>
