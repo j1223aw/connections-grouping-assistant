@@ -1,0 +1,5 @@
+file 'C:/Users/Infinite/Documents/Connections Grouping Assistant/video_pipeline/anchor_temp/scene_1.mp3'
+file 'C:/Users/Infinite/Documents/Connections Grouping Assistant/video_pipeline/anchor_temp/scene_2.mp3'
+file 'C:/Users/Infinite/Documents/Connections Grouping Assistant/video_pipeline/anchor_temp/scene_3.mp3'
+file 'C:/Users/Infinite/Documents/Connections Grouping Assistant/video_pipeline/anchor_temp/scene_4.mp3'
+file 'C:/Users/Infinite/Documents/Connections Grouping Assistant/video_pipeline/anchor_temp/scene_5.mp3'

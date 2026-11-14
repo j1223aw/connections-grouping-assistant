@@ -1,0 +1,70 @@
+{
+  "id": 1244,
+  "api_id": 1346,
+  "puzzle_number": 1244,
+  "date": "2026-11-06",
+  "starting_board": [
+    "BACKUP",
+    "PICKUP",
+    "MAKEUP",
+    "HOT ROD",
+    "FLATBED",
+    "FABRIC",
+    "EXTRA",
+    "WOOLENS",
+    "TRAFFIC CONE",
+    "SEMI",
+    "CONSTITUTION",
+    "REPLACEMENT",
+    "SPARE",
+    "OSIRIS",
+    "STRUCTURE",
+    "TANKER"
+  ],
+  "categories": [
+    {
+      "tier": "Yellow",
+      "level": 0,
+      "title": "COMPOSITION",
+      "words": [
+        "CONSTITUTION",
+        "FABRIC",
+        "MAKEUP",
+        "STRUCTURE"
+      ]
+    },
+    {
+      "tier": "Green",
+      "level": 1,
+      "title": "COPY",
+      "words": [
+        "BACKUP",
+        "EXTRA",
+        "REPLACEMENT",
+        "SPARE"
+      ]
+    },
+    {
+      "tier": "Blue",
+      "level": 2,
+      "title": "KINDS OF TRUCKS",
+      "words": [
+        "FLATBED",
+        "PICKUP",
+        "SEMI",
+        "TANKER"
+      ]
+    },
+    {
+      "tier": "Purple",
+      "level": 3,
+      "title": "ENDING IN PARTS OF THE EYE",
+      "words": [
+        "HOT ROD",
+        "OSIRIS",
+        "TRAFFIC CONE",
+        "WOOLENS"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "id": 1251,
+  "api_id": 1360,
+  "puzzle_number": 1251,
+  "date": "2026-11-13",
+  "starting_board": [
+    "PRESS",
+    "BARGE",
+    "SCROLL",
+    "WATER SKIER",
+    "SURF",
+    "TEASER",
+    "WAVES",
+    "TRAILER",
+    "TRUST",
+    "EXPOSURE",
+    "SEARCH",
+    "FREEZE",
+    "COVERAGE",
+    "GLIDER",
+    "PUBLICITY",
+    "BROWSE"
+  ],
+  "categories": [
+    {
+      "tier": "Yellow",
+      "level": 0,
+      "title": "USE THE INTERNET",
+      "words": [
+        "BROWSE",
+        "SCROLL",
+        "SEARCH",
+        "SURF"
+      ]
+    },
+    {
+      "tier": "Green",
+      "level": 1,
+      "title": "MEDIA ATTENTION",
+      "words": [
+        "COVERAGE",
+        "EXPOSURE",
+        "PRESS",
+        "PUBLICITY"
+      ]
+    },
+    {
+      "tier": "Blue",
+      "level": 2,
+      "title": "THINGS THAT ARE TOWED",
+      "words": [
+        "BARGE",
+        "GLIDER",
+        "TRAILER",
+        "WATER SKIER"
+      ]
+    },
+    {
+      "tier": "Purple",
+      "level": 3,
+      "title": "BRAIN ___",
+      "words": [
+        "FREEZE",
+        "TEASER",
+        "TRUST",
+        "WAVES"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "id": 1229,
+  "api_id": 1336,
+  "puzzle_number": 1229,
+  "date": "2026-10-22",
+  "starting_board": [
+    "MOBILE",
+    "COMFORT",
+    "BLANK",
+    "SAFETY",
+    "RELIEF",
+    "GRIP",
+    "END",
+    "BUST",
+    "HANDLE",
+    "TACKLE",
+    "PILL",
+    "KNOB",
+    "SHE",
+    "GUARD",
+    "HILT",
+    "STATUE"
+  ],
+  "categories": [
+    {
+      "tier": "Yellow",
+      "level": 0,
+      "title": "PARTS TO BE GRASPED",
+      "words": [
+        "GRIP",
+        "HANDLE",
+        "HILT",
+        "KNOB"
+      ]
+    },
+    {
+      "tier": "Green",
+      "level": 1,
+      "title": "KINDS OF SCULPTURES",
+      "words": [
+        "BUST",
+        "MOBILE",
+        "RELIEF",
+        "STATUE"
+      ]
+    },
+    {
+      "tier": "Blue",
+      "level": 2,
+      "title": "AMERICAN FOOTBALL POSITIONS",
+      "words": [
+        "END",
+        "GUARD",
+        "SAFETY",
+        "TACKLE"
+      ]
+    },
+    {
+      "tier": "Purple",
+      "level": 3,
+      "title": "STARTS OF BEDDING",
+      "words": [
+        "BLANK",
+        "COMFORT",
+        "PILL",
+        "SHE"
+      ]
+    }
+  ]
+}

@@ -10,3 +10,9 @@ video_pipeline/output/
 *.mp4
 *.mp3
 *.wav
+
+# Sensitive API Tokens & Secrets
+video_pipeline/*secret*.json
+video_pipeline/token.json
+video_pipeline/__pycache__/
+video_pipeline/pipeline_output/

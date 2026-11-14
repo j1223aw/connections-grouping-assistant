@@ -1,0 +1,70 @@
+{
+  "id": 1230,
+  "api_id": 1339,
+  "puzzle_number": 1230,
+  "date": "2026-10-23",
+  "starting_board": [
+    "EXTENSION",
+    "LOVE",
+    "DIRECT",
+    "POWER",
+    "SPINAL",
+    "VOCAL",
+    "DRIVER",
+    "DISTANCE",
+    "PHONE",
+    "TIME",
+    "UPDATE",
+    "OPEN",
+    "FRANK",
+    "FORCE",
+    "DOUBLE",
+    "PLUGIN"
+  ],
+  "categories": [
+    {
+      "tier": "Yellow",
+      "level": 0,
+      "title": "FORTHRIGHT",
+      "words": [
+        "DIRECT",
+        "FRANK",
+        "OPEN",
+        "VOCAL"
+      ]
+    },
+    {
+      "tier": "Green",
+      "level": 1,
+      "title": "THINGS YOU INSTALL ON A COMPUTER",
+      "words": [
+        "DRIVER",
+        "EXTENSION",
+        "PLUGIN",
+        "UPDATE"
+      ]
+    },
+    {
+      "tier": "Blue",
+      "level": 2,
+      "title": "QUANTITIES IN A FORMULA FOR POWER",
+      "words": [
+        "DISTANCE",
+        "FORCE",
+        "POWER",
+        "TIME"
+      ]
+    },
+    {
+      "tier": "Purple",
+      "level": 3,
+      "title": "___ TAP",
+      "words": [
+        "DOUBLE",
+        "LOVE",
+        "PHONE",
+        "SPINAL"
+      ]
+    }
+  ]
+}

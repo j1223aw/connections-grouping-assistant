@@ -1,0 +1,70 @@
+{
+  "id": 1247,
+  "api_id": 1366,
+  "puzzle_number": 1247,
+  "date": "2026-11-09",
+  "starting_board": [
+    "STEAK KNIFE",
+    "CARD SHARK",
+    "CON JOB",
+    "BOOTCUT",
+    "NAVY SEAL",
+    "SHELL GAME",
+    "MINT LEAF",
+    "GAMMA RAY",
+    "TAPE DISPENSER",
+    "LOW-RISE",
+    "FUN SPONGE",
+    "RIP-OFF",
+    "SKINNY",
+    "FLIMFLAM",
+    "GRAPEFRUIT SPOON",
+    "DISTRESSED"
+  ],
+  "categories": [
+    {
+      "tier": "Yellow",
+      "level": 0,
+      "title": "DECEITFUL SCHEME",
+      "words": [
+        "CON JOB",
+        "FLIMFLAM",
+        "RIP-OFF",
+        "SHELL GAME"
+      ]
+    },
+    {
+      "tier": "Green",
+      "level": 1,
+      "title": "JEANS DESCRIPTORS",
+      "words": [
+        "BOOTCUT",
+        "DISTRESSED",
+        "LOW-RISE",
+        "SKINNY"
+      ]
+    },
+    {
+      "tier": "Blue",
+      "level": 2,
+      "title": "THINGS WITH SERRATED EDGES",
+      "words": [
+        "GRAPEFRUIT SPOON",
+        "MINT LEAF",
+        "STEAK KNIFE",
+        "TAPE DISPENSER"
+      ]
+    },
+    {
+      "tier": "Purple",
+      "level": 3,
+      "title": "ENDING IN SEA CREATURES",
+      "words": [
+        "CARD SHARK",
+        "FUN SPONGE",
+        "GAMMA RAY",
+        "NAVY SEAL"
+      ]
+    }
+  ]
+}

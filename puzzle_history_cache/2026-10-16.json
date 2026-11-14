@@ -1,0 +1,70 @@
+{
+  "id": 1223,
+  "api_id": 1325,
+  "puzzle_number": 1223,
+  "date": "2026-10-16",
+  "starting_board": [
+    "HUNGARY",
+    "HUNGRY",
+    "HIPPO",
+    "CHICKEN",
+    "CHIP",
+    "CHAD",
+    "COOLIDGE",
+    "CYRUS",
+    "SPAN",
+    "MARK",
+    "LAOS",
+    "NICK",
+    "PARAGUAY",
+    "SMARTIES",
+    "BULGARI",
+    "SCRATCH"
+  ],
+  "categories": [
+    {
+      "tier": "Yellow",
+      "level": 0,
+      "title": "SURFACE IMPERFECTIONS",
+      "words": [
+        "CHIP",
+        "MARK",
+        "NICK",
+        "SCRATCH"
+      ]
+    },
+    {
+      "tier": "Green",
+      "level": 1,
+      "title": "LANDLOCKED COUNTRIES",
+      "words": [
+        "CHAD",
+        "HUNGARY",
+        "LAOS",
+        "PARAGUAY"
+      ]
+    },
+    {
+      "tier": "Blue",
+      "level": 2,
+      "title": "EUROPEAN COUNTRIES MINUS A LETTER",
+      "words": [
+        "BULGARI",
+        "CYRUS",
+        "HUNGRY",
+        "SPAN"
+      ]
+    },
+    {
+      "tier": "Purple",
+      "level": 3,
+      "title": "STARTING WITH WORDS FOR \"STYLISH\"",
+      "words": [
+        "CHICKEN",
+        "COOLIDGE",
+        "HIPPO",
+        "SMARTIES"
+      ]
+    }
+  ]
+}

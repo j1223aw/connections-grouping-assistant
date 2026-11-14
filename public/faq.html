@@ -144,49 +144,49 @@
             <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
                 <span class="tier-badge badge-purple" style="margin: 0; font-size: 10px; padding: 2px 7px;">DAILY WALKTHROUGH</span>
                 <span style="font-size: 13px; font-weight: 700; color: var(--ink);">
-                    Stuck on today's bridge words? Watch how SWIFT & FLEET were untangled.
+                    Stuck on today's cutting-edge decoy or baby gear with first letter changed? Watch Saturday's breakdown &rarr;
                 </span>
             </div>
-            <a href="breakdowns.html" class="btn-tactile btn-primary" style="padding: 6px 12px; font-size: 11px; white-space: nowrap; text-decoration: none;">
+            <a href="breakdowns.html#today" class="btn-tactile btn-primary" style="padding: 6px 12px; font-size: 11px; white-space: nowrap; text-decoration: none;">
                 Watch Breakdown &rarr;
             </a>
         </aside>
 		<main class="content-bento">
-            <h1>Frequently Asked Questions & Methodology</h1>
-            <p>An inside look into our semantic association engine, anti-spoiler progressive hint design, and the mathematical principles of combinatorial grid partitioning.</p>
+            <h1>Frequently Asked Questions</h1>
+            <p>Answers to common questions about how the scratchboard works, how hints are structured, and our privacy promise.</p>
 
             <!-- INTERACTIVE SEMANTIC VECTOR ARTIFACT (Karpathy In-Browser App Principle) -->
             <section class="interactive-artifact">
-                <span class="tier-badge badge-blue">INTERACTIVE SIMULATOR</span>
-                <h3 style="margin: 6px 0 0 0; font-size: 18px;">Pairwise Semantic Association Inspector</h3>
+                <span class="tier-badge badge-blue">TRY IT OUT</span>
+                <h3 style="margin: 6px 0 0 0; font-size: 18px;">Word Connection Checker: See How Words Relate</h3>
                 <p style="font-size: 13px; color: var(--ink-muted); margin-top: 8px;">
-                    Experience how our backend evaluates polysemic relationships. Select two sample words to measure their semantic link and determine whether they share an overt synonym tier or a lateral wordplay bridge:
+                    Pick any two words below to see how our helper identifies their connection—whether they mean the same thing, share a common theme, or connect through clever wordplay:
                 </p>
 
                 <div class="comparator-controls">
                     <div>
-                        <label style="font-size: 11px; font-weight: 800; text-transform: uppercase;">Word Candidate A</label>
+                        <label style="font-size: 11px; font-weight: 800; text-transform: uppercase;">First Word</label>
                         <select id="wordSelectA" class="comparator-select" onchange="runVectorComparison()">
-                            <option value="SPRING">SPRING (Polysemic: Jump, Season, Coil)</option>
-                            <option value="BAT">BAT (Polysemic: Winged Mammal, Club)</option>
-                            <option value="DATE">DATE (Polysemic: Fruit, Calendar, Outing)</option>
-                            <option value="DASH">DASH (Polysemic: Run, Board Prefix)</option>
+                            <option value="SPRING">SPRING (Can mean: Jump, Season, Metal Coil)</option>
+                            <option value="BAT">BAT (Can mean: Flying Animal, Baseball Bat)</option>
+                            <option value="DATE">DATE (Can mean: Sweet Fruit, Calendar Day)</option>
+                            <option value="DASH">DASH (Can mean: Quick Run, Dashboard)</option>
                         </select>
                     </div>
                     <div>
-                        <label style="font-size: 11px; font-weight: 800; text-transform: uppercase;">Word Candidate B</label>
+                        <label style="font-size: 11px; font-weight: 800; text-transform: uppercase;">Second Word</label>
                         <select id="wordSelectB" class="comparator-select" onchange="runVectorComparison()">
-                            <option value="LEAP">LEAP (Synonym: Bound, Hop)</option>
-                            <option value="SURF">SURF (Board Prefix: Surfboard)</option>
-                            <option value="AUTUMN">AUTUMN (Seasonal Domain)</option>
-                            <option value="CLUB">CLUB (Playing Card Suit, Weapon)</option>
+                            <option value="LEAP">LEAP (Means: Jump, Hop, Bound)</option>
+                            <option value="SURF">SURF (Pairs with: Surfboard)</option>
+                            <option value="AUTUMN">AUTUMN (Means: Fall / Season)</option>
+                            <option value="CLUB">CLUB (Can mean: Playing Card Suit, Bat)</option>
                         </select>
                     </div>
                 </div>
 
                 <div id="vectorResultBox" class="comparator-result">
                     <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <span id="vectorScoreLabel" style="font-size: 13px; font-weight: 800;">Estimated Semantic Link</span>
+                        <span id="vectorScoreLabel" style="font-size: 13px; font-weight: 800;">Estimated Connection</span>
                         <span id="vectorTierTag" class="tier-badge badge-yellow" style="margin-bottom: 0;">YELLOW CANDIDATE</span>
                     </div>
                     <div class="vector-bar-track">
@@ -197,49 +197,46 @@
             </section>
 
             <!-- SUBSTANTIVE EDITORIAL TAXONOMY & FAQS -->
-            <h2>Engine Architecture & Hint Philosophy</h2>
+            <h2>Helpful Answers to Common Questions</h2>
 
             <div class="faq-accordion">
                 <article class="faq-item">
-                    <h3>🧩 How does the neural solver partition the 16-word grid?</h3>
+                    <h3>🧩 How does this helper organize the 16 words?</h3>
                     <p>
-                        When you submit a 16-word grid, our backend executes a secure Cloud Run function powered by Gemini. Rather than performing simple dictionary lookups, the model evaluates the combinatorial space of all $\binom{16}{4} = 1,820$ possible 4-word groupings simultaneously.
-                    </p>
-                    <p>
-                        It cross-references semantic clusters, slang, parts of speech, compound prefixes/suffixes, and phonetics. Once candidates are assembled, our deterministic watchdog verifies that exactly four disjoint subsets of four words are constructed with zero duplication before sending the payload to your browser.
+                        When you enter your 16 words, our helper compares each word against all the others on the board. It looks for four distinct groups: words with the same dictionary meaning (Yellow), words sharing a hobby or theme (Green), general knowledge or compound words (Blue), and spelling or letter tricks (Purple). It makes sure every single word has its own rightful place.
                     </p>
                 </article>
 
                 <article class="faq-item">
-                    <h3>🛡️ What is the "Spoiler Shield" and how does it protect streaks?</h3>
+                    <h3>🛡️ What is the "Spoiler Shield" and how does it protect your fun?</h3>
                     <p>
-                        Standard word solvers ruin the fun by immediately dumping the four completed answer groups. The <strong>Connections Grouping Assistant</strong> was engineered with a 3-tier progressive hint disclosure model:
+                        Nothing ruins a word game faster than accidentally seeing all the answers! That's why our helper uses a gentle, 3-step hint system:
                     </p>
                     <p>
-                        1. <strong>Linguistic Category Nudge:</strong> Reveals a masked summary of the category rule (e.g., <span class="code-pill">Words Ending in 'BOARD'</span>) without revealing which tiles belong to it.<br>
-                        2. <strong>Anchor Clues:</strong> Highlights exactly two anchor words that anchor the grouping, leaving you to deduce the remaining two candidates independently.<br>
-                        3. <strong>Full Solution Reveal:</strong> Unlocks the complete tier only when you explicitly confirm you are ready.
-                    </p>
-                </article>
-
-                <article class="faq-item">
-                    <h3>⚠️ How do you identify and warn about Red Herrings?</h3>
-                    <p>
-                        A red herring is created when five or six words on a board share an overt contextual feature (e.g., five flying animals or five colors). Our backend runs an association graph across all sixteen words to detect when a single theme claims more than four tiles. When detected, the assistant flags a <strong>Red Herring Advisory</strong> alerting you that at least one candidate is a double-agent belonging to a harder tier.
+                        1. <strong>Category Theme Nudge:</strong> Gives you a gentle clue about the group theme without revealing which words belong to it.<br>
+                        2. <strong>Starter Words:</strong> Reveals just two words from the group, leaving you the fun of finding the other two on your own.<br>
+                        3. <strong>Full Solution Reveal:</strong> Shows the complete 4-word answer only when you click to reveal it.
                     </p>
                 </article>
 
                 <article class="faq-item">
-                    <h3>🚫 Is using this tool considered cheating?</h3>
+                    <h3>⚠️ What is a "Red Herring" and how do you warn about them?</h3>
                     <p>
-                        We built this tool as an educational companion, deductive trainer, and streak-preservation safety net. By providing staged nudges and anchor words rather than raw solutions, players learn to spot lateral wordplay mechanisms and homophone transformations that transfer directly to future solving sessions.
+                        A red herring is a decoy word designed to distract you. For example, you might see 5 words that all seem to be types of birds, but one actually belongs to a completely different group. When our helper identifies 5 words that fit one theme, it flags the overlap so you don't waste one of your 4 guesses.
                     </p>
                 </article>
 
                 <article class="faq-item">
-                    <h3>🔒 What data does this tool collect?</h3>
+                    <h3>🚫 Is using this helper considered cheating?</h3>
                     <p>
-                        We prioritize minimal data collection. Your daily solver streaks are saved locally in your browser's <span class="code-pill">localStorage</span> and never transmitted to external servers. Word submissions are processed transiently in server memory to generate hints and are never sold or used to build user profiles. Review our <a href="privacy.html" style="color: var(--ink); font-weight: 700; text-decoration: underline;">Privacy Policy</a> for full compliance details.
+                        Not at all. Think of it like working through a puzzle with a partner at the table. Rather than giving away answers, it offers progressive clues so you can work through the logic yourself, discover the connections, and keep your daily streak alive.
+                    </p>
+                </article>
+
+                <article class="faq-item">
+                    <h3>🔒 What data does this website collect?</h3>
+                    <p>
+                        Your privacy is completely protected. Your daily streak is saved right inside your own browser on your phone or computer—we never send it to any outside server. The words you enter are only used to find hints and are never saved or sold. This site is completely free and safe to use. Review our <a href="privacy.html" style="color: var(--ink); font-weight: 700; text-decoration: underline;">Privacy Policy</a> for full details.
                     </p>
                 </article>
             </div>
@@ -247,13 +244,13 @@
             <div style="text-align: center; margin: 32px 0; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
                 <a href="nyt-connections-guide.html" class="btn-tactile btn-secondary">Read 4-Color Tier Guide &rarr;</a>
                 <a href="strategy.html" class="btn-tactile btn-secondary">Explore 5-Word Trap Strategy &rarr;</a>
-                <a href="index.html" class="btn-tactile btn-primary">Open Neural Board Solver &rarr;</a>
+                <a href="index.html" class="btn-tactile btn-primary">Try Solver &amp; Hints &rarr;</a>
             </div>
         </main>
 
         <section class="support-banner">
-            <h4>☕ Keep Our Neural Solver Fast & Ad-Light</h4>
-            <p>Every analysis runs server-side AI reasoning across lexical databases. If our hints saved your streak today, consider fueling the compute!</p>
+            <h4>☕ Enjoying Your Morning Puzzle Companion?</h4>
+            <p>We love keeping this helper fast, free, and easy to use for everyone enjoying their daily morning word puzzle. If our gentle hints helped you today, consider buying us a coffee!</p>
             <div class="support-btn-group">
                 <a href="https://ko-fi.com/connectionsassistant" target="_blank" rel="noopener noreferrer" class="btn-support btn-kofi">☕ Tip $3 on Ko-fi</a>
                 <a href="https://paypal.me/j1223aw/2" target="_blank" rel="noopener noreferrer" class="btn-support btn-paypal">🅿️ Tip $2 via PayPal</a>
@@ -265,6 +262,7 @@
         <p>&copy; 2026 Connections Grouping Assistant. All rights reserved.</p>
         <p style="margin: 4px 0 12px 0;">This independent helper utility is not affiliated with the New York Times Company.</p>
         <div class="footer-links">
+            <a href="about.html">About Us</a>
             <a href="privacy.html">Privacy Policy</a>
             <a href="terms.html">Terms of Service</a>
             <a href="contact.html">Contact Us</a>
@@ -277,12 +275,12 @@
         if (streakEl) streakEl.innerText = streak;
 
         const PAIR_DATABASE = {
-            "SPRING-LEAP": { score: 94, tier: "YELLOW", badgeClass: "badge-yellow", desc: "Strong Direct Synonymy. Both words share core denotation: rapid vertical or forward propulsion." },
-            "SPRING-AUTUMN": { score: 72, tier: "GREEN", badgeClass: "badge-green", desc: "Contextual Environmental Domain. Words are linked by shared astronomical and meteorological calendar seasons." },
-            "BAT-CLUB": { score: 88, tier: "PURPLE", badgeClass: "badge-purple", desc: "Dual-Polysemic Bridge. Both function as physical blunt sports implements and as traditional playing card suit symbols." },
-            "DASH-SURF": { score: 85, tier: "BLUE", badgeClass: "badge-blue", desc: "Compound Suffix Collocation. Words possess zero semantic commonality alone, but both form common compound words when followed by 'BOARD'." },
-            "DATE-LEAP": { score: 40, tier: "GREEN", badgeClass: "badge-green", desc: "Temporal Association. Linked loosely through calendar systems ('Leap Year' / 'Calendar Date')." },
-            "BAT-LEAP": { score: 18, tier: "DEC_FAIL", badgeClass: "badge-yellow", desc: "Negligible Semantic Linkage. No significant dictionary overlap or compound collocation exists between these candidates." }
+            "SPRING-LEAP": { score: 95, tier: "YELLOW", badgeClass: "badge-yellow", desc: "Words That Mean the Same Thing (Synonyms). Both words mean to jump or propel yourself forward." },
+            "SPRING-AUTUMN": { score: 75, tier: "GREEN", badgeClass: "badge-green", desc: "Connected by Common Theme (Contextual Link). Both words represent calendar seasons of the year." },
+            "BAT-CLUB": { score: 85, tier: "PURPLE", badgeClass: "badge-purple", desc: "Clever Wordplay Connection. Both words can mean heavy hitting sticks, and both are playing card suits!" },
+            "DASH-SURF": { score: 88, tier: "BLUE", badgeClass: "badge-blue", desc: "Shared Word Connection. These words don't mean the same thing, but both pair with 'BOARD' (Dashboard, Surfboard)." },
+            "DATE-LEAP": { score: 40, tier: "GREEN", badgeClass: "badge-green", desc: "Calendar Connection. Both relate loosely to calendar time ('Leap Year' and 'Calendar Date')." },
+            "BAT-LEAP": { score: 15, tier: "DEC_FAIL", badgeClass: "badge-yellow", desc: "No Direct Connection. These two words do not share a common definition, theme, or wordplay link." }
         };
 
         function runVectorComparison() {

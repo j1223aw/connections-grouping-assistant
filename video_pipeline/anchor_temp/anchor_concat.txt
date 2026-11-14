@@ -1,0 +1,11 @@
+file 'C:/Users/Infinite/Documents/Connections Grouping Assistant/video_pipeline/anchor_temp/frame_1.png'
+duration 23.59
+file 'C:/Users/Infinite/Documents/Connections Grouping Assistant/video_pipeline/anchor_temp/frame_2.png'
+duration 28.85
+file 'C:/Users/Infinite/Documents/Connections Grouping Assistant/video_pipeline/anchor_temp/frame_3.png'
+duration 23.45
+file 'C:/Users/Infinite/Documents/Connections Grouping Assistant/video_pipeline/anchor_temp/frame_4.png'
+duration 29.47
+file 'C:/Users/Infinite/Documents/Connections Grouping Assistant/video_pipeline/anchor_temp/frame_5.png'
+duration 21.58
+file 'C:/Users/Infinite/Documents/Connections Grouping Assistant/video_pipeline/anchor_temp/frame_5.png'

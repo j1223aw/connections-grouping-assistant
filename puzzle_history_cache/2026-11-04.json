@@ -1,0 +1,70 @@
+{
+  "id": 1242,
+  "api_id": 1355,
+  "puzzle_number": 1242,
+  "date": "2026-11-04",
+  "starting_board": [
+    "FLY",
+    "POKE",
+    "IRON",
+    "WORKS",
+    "WOOD",
+    "WRING",
+    "WEDGE",
+    "BLEACH",
+    "PUTTER",
+    "CRACKER",
+    "DOORSTOP",
+    "LOLL",
+    "FLATIRON BUILDING",
+    "SHUFFLE",
+    "TUMBLE DRY",
+    "PIE SLICE"
+  ],
+  "categories": [
+    {
+      "tier": "Yellow",
+      "level": 0,
+      "title": "TRIANGULAR PRISMS WITH A SHARP EDGE",
+      "words": [
+        "DOORSTOP",
+        "FLATIRON BUILDING",
+        "PIE SLICE",
+        "WEDGE"
+      ]
+    },
+    {
+      "tier": "Green",
+      "level": 1,
+      "title": "WORDS AFTER \"DO NOT\" ON A CARE LABEL",
+      "words": [
+        "BLEACH",
+        "IRON",
+        "TUMBLE DRY",
+        "WRING"
+      ]
+    },
+    {
+      "tier": "Blue",
+      "level": 2,
+      "title": "MOVE IDLY, WITH \"AROUND\"",
+      "words": [
+        "LOLL",
+        "POKE",
+        "PUTTER",
+        "SHUFFLE"
+      ]
+    },
+    {
+      "tier": "Purple",
+      "level": 3,
+      "title": "FIRE___",
+      "words": [
+        "CRACKER",
+        "FLY",
+        "WOOD",
+        "WORKS"
+      ]
+    }
+  ]
+}

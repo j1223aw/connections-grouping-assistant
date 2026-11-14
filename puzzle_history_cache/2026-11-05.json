@@ -1,0 +1,70 @@
+{
+  "id": 1243,
+  "api_id": 1353,
+  "puzzle_number": 1243,
+  "date": "2026-11-05",
+  "starting_board": [
+    "RAINDROP",
+    "ROSE",
+    "WHISKER",
+    "KITTEN",
+    "GIG",
+    "PEAR",
+    "SPIKE",
+    "NARCISSUS",
+    "WEDGE",
+    "RUN",
+    "LOTUS",
+    "UVULA",
+    "BRANDO",
+    "ANEMONE",
+    "SPEEDBAG",
+    "PLATFORM"
+  ],
+  "categories": [
+    {
+      "tier": "Yellow",
+      "level": 0,
+      "title": "KINDS OF HEELS",
+      "words": [
+        "KITTEN",
+        "PLATFORM",
+        "SPIKE",
+        "WEDGE"
+      ]
+    },
+    {
+      "tier": "Green",
+      "level": 1,
+      "title": "FLOWERS",
+      "words": [
+        "ANEMONE",
+        "LOTUS",
+        "NARCISSUS",
+        "ROSE"
+      ]
+    },
+    {
+      "tier": "Blue",
+      "level": 2,
+      "title": "TEARDROP-SHAPED THINGS",
+      "words": [
+        "PEAR",
+        "RAINDROP",
+        "SPEEDBAG",
+        "UVULA"
+      ]
+    },
+    {
+      "tier": "Purple",
+      "level": 3,
+      "title": "LIQUORS WITH LAST LETTERS CHANGED",
+      "words": [
+        "BRANDO",
+        "GIG",
+        "RUN",
+        "WHISKER"
+      ]
+    }
+  ]
+}

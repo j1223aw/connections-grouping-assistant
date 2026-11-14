@@ -1,0 +1,23 @@
+file 'C:/Users/Infinite/Documents/Connections Grouping Assistant/output_masterclass/temp/frame_01.png'
+duration 45.70
+file 'C:/Users/Infinite/Documents/Connections Grouping Assistant/output_masterclass/temp/frame_02.png'
+duration 45.50
+file 'C:/Users/Infinite/Documents/Connections Grouping Assistant/output_masterclass/temp/frame_03.png'
+duration 51.12
+file 'C:/Users/Infinite/Documents/Connections Grouping Assistant/output_masterclass/temp/frame_04.png'
+duration 46.82
+file 'C:/Users/Infinite/Documents/Connections Grouping Assistant/output_masterclass/temp/frame_05.png'
+duration 48.58
+file 'C:/Users/Infinite/Documents/Connections Grouping Assistant/output_masterclass/temp/frame_06.png'
+duration 47.30
+file 'C:/Users/Infinite/Documents/Connections Grouping Assistant/output_masterclass/temp/frame_07.png'
+duration 48.17
+file 'C:/Users/Infinite/Documents/Connections Grouping Assistant/output_masterclass/temp/frame_08.png'
+duration 44.04
+file 'C:/Users/Infinite/Documents/Connections Grouping Assistant/output_masterclass/temp/frame_09.png'
+duration 46.68
+file 'C:/Users/Infinite/Documents/Connections Grouping Assistant/output_masterclass/temp/frame_10.png'
+duration 42.74
+file 'C:/Users/Infinite/Documents/Connections Grouping Assistant/output_masterclass/temp/frame_11.png'
+duration 40.97
+file 'C:/Users/Infinite/Documents/Connections Grouping Assistant/output_masterclass/temp/frame_11.png'

@@ -1,0 +1,1925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9227690723872378" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ERDGNDJ01Q"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-ERDGNDJ01Q');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Daily NYT Connections video walkthroughs and lateral trap breakdowns. Master board solutions, analyze polysemic words, and avoid decoy groupings.">
+    <title>Daily Video Walkthroughs & Board Breakdowns | Connections Assistant</title>
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232d3436'/%3E%3Crect x='4' y='4' width='10' height='10' rx='2.5' fill='%23f9ca24'/%3E%3Crect x='18' y='4' width='10' height='10' rx='2.5' fill='%236ab04c'/%3E%3Crect x='4' y='18' width='10' height='10' rx='2.5' fill='%234834d4'/%3E%3Crect x='18' y='18' width='10' height='10' rx='2.5' fill='%23be2edd'/%3E%3C/svg%3E">
+
+    <!-- Fonts & Master Stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 24px 16px;
+            box-sizing: border-box;
+        }
+        .video-spotlight {
+            background: #FFFFFF;
+            border: 2px solid var(--border-lip);
+            border-radius: var(--radius-card);
+            box-shadow: 4px 4px 0px var(--border-lip);
+            padding: 24px;
+            margin: 24px 0;
+            scroll-margin-top: 80px;
+            box-sizing: border-box;
+        }
+        .video-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            border-radius: 12px;
+            border: none;
+            margin: 14px 0;
+            background: #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 12px;
+        }
+        .breakdown-card {
+            background: var(--surface);
+            border: 2px solid var(--border-lip);
+            border-radius: 12px;
+            box-shadow: 3px 3px 0px var(--border-lip);
+            padding: 20px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+        .breakdown-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 6px;
+            margin: 12px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .breakdown-tile {
+            background: var(--stone);
+            border: 1.5px solid var(--border-lip);
+            border-radius: 6px;
+            padding: 7px 2px;
+            text-align: center;
+            font-size: 10.5px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            min-width: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .tile-yellow { background: var(--tier-yellow); }
+        .tile-green  { background: var(--tier-green); }
+        .tile-blue   { background: var(--tier-blue); }
+        .tile-purple { background: var(--tier-purple); color: #FFF; }
+
+        /* Daily Breakdown Spotlight */
+        .daily-spotlight {
+            background: #FFFFFF;
+            border: 2px solid var(--border-lip);
+            border-radius: var(--radius-card);
+            box-shadow: 4px 4px 0px var(--border-lip);
+            padding: 24px;
+            margin: 24px 0;
+            border-left: 8px solid var(--tier-purple);
+            scroll-margin-top: 80px;
+            position: relative;
+            box-sizing: border-box;
+        }
+        .daily-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 18px;
+            border-bottom: 2px solid var(--stone);
+            padding-bottom: 14px;
+        }
+        .badge-today {
+            background: #FEF3C7;
+            color: #92400E;
+            border: 1.5px solid #D97706;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 6px;
+            letter-spacing: 0.05em;
+            display: inline-block;
+        }
+        .live-pill {
+            background: #FEE2E2;
+            color: #991B1B;
+            border: 1px solid #DC2626;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 3px 8px;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .daily-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .daily-video-wrapper {
+            max-width: 480px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .daily-tactics {
+            width: 100%;
+        }
+        .short-container {
+            position: relative;
+            width: 100%;
+            max-width: 280px;
+            aspect-ratio: 9 / 16;
+            margin: 0 auto;
+            border-radius: 12px;
+            border: 2px solid var(--border-lip);
+            overflow: hidden;
+            background: #000;
+            box-shadow: 3px 3px 0 var(--border-lip);
+        }
+        .short-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* ===================================================
+           HIGH-CTR NEO-BRUTALIST VIDEO BENTO CARD
+           =================================================== */
+        .video-bento-card {
+            background: #FFFFFF;
+            border: 2.5px solid var(--border-lip);
+            border-radius: 16px;
+            box-shadow: 4px 4px 0 var(--border-lip);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .video-bento-header {
+            background: #FAF8F5;
+            padding: 12px 14px;
+            border-bottom: 2px solid var(--border-lip);
+        }
+        .video-bento-title-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 6px;
+            margin-bottom: 6px;
+            flex-wrap: nowrap;
+        }
+        .video-bento-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10.5px;
+            font-weight: 800;
+            color: #991B1B;
+            background: #FEE2E2;
+            border: 1.5px solid var(--border-lip);
+            border-radius: 999px;
+            box-shadow: 1.5px 1.5px 0 var(--border-lip);
+            padding: 0 8px;
+            height: 24px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            letter-spacing: 0.02em;
+            white-space: nowrap;
+            line-height: 1;
+            box-sizing: border-box;
+            flex-shrink: 0;
+        }
+        .video-duration-pill {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10.5px;
+            font-weight: 800;
+            color: #1A1A1A;
+            background: var(--tier-yellow);
+            border: 1.5px solid var(--border-lip);
+            border-radius: 999px;
+            box-shadow: 1.5px 1.5px 0 var(--border-lip);
+            padding: 0 8px;
+            height: 24px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            letter-spacing: 0.02em;
+            white-space: nowrap;
+            line-height: 1;
+            box-sizing: border-box;
+            flex-shrink: 0;
+        }
+        .video-bento-sub {
+            font-size: 12px;
+            color: var(--ink-muted);
+            font-weight: 600;
+        }
+
+        /* Dual-Mode Toggle Tabs */
+        .video-mode-toggle {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: #EFECE6;
+            border-bottom: 2px solid var(--border-lip);
+            padding: 4px;
+            gap: 4px;
+        }
+        .mode-tab {
+            background: transparent;
+            border: none;
+            border-radius: 8px;
+            padding: 8px 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: all 0.15s ease;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--ink-muted);
+        }
+        .mode-tab:hover {
+            background: rgba(255,255,255,0.6);
+            color: var(--ink-heavy);
+        }
+        .mode-tab.active {
+            background: #FFFFFF;
+            border: 1.5px solid var(--border-lip);
+            box-shadow: 2px 2px 0 var(--border-lip);
+            color: var(--ink-heavy);
+        }
+        .mode-tab-icon {
+            font-size: 15px;
+        }
+        .mode-tab-text {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            line-height: 1.2;
+        }
+        .mode-tab-text strong {
+            font-size: 12px;
+            color: var(--ink-heavy);
+        }
+        .mode-tab-text small {
+            font-size: 10px;
+            color: var(--ink-muted);
+        }
+
+        /* Video Stage */
+        .video-player-stage {
+            position: relative;
+            width: 100%;
+            background: #000000;
+            overflow: hidden;
+            transition: aspect-ratio 0.2s ease;
+        }
+        .video-player-stage.mode-short {
+            aspect-ratio: 9 / 16;
+            max-height: 480px;
+        }
+        .video-player-stage.mode-masterclass {
+            aspect-ratio: 16 / 9;
+        }
+        .video-iframe-slot {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .video-iframe-slot iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* High-CTR Facade */
+        .video-facade {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            overflow: hidden;
+            background: #111;
+        }
+        .video-facade img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.72) contrast(1.1);
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+        .video-facade:hover img {
+            transform: scale(1.04);
+            filter: brightness(0.82) contrast(1.15);
+        }
+        .facade-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 16px;
+            box-sizing: border-box;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.65) 100%);
+        }
+        .play-btn-circle {
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: #FFD200;
+            border: 2.5px solid #1A1A1A;
+            box-shadow: 0 4px 0 #1A1A1A;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s ease;
+        }
+        .video-facade:hover .play-btn-circle {
+            transform: scale(1.1) translateY(-2px);
+            box-shadow: 0 6px 0 #1A1A1A;
+            background: #FFE033;
+        }
+        .facade-cta-label {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+        .facade-cta-main {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 800;
+            font-size: 12px;
+            color: #FFFFFF;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
+            letter-spacing: 0.04em;
+            background: rgba(26,26,26,0.88);
+            padding: 4px 10px;
+            border-radius: 6px;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        .facade-cta-sub {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            color: #E2E8F0;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+        }
+        .facade-tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(26,26,26,0.88);
+            color: #FFD200;
+            border: 1.5px solid #FFD200;
+            border-radius: 6px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            font-weight: 800;
+            padding: 3px 8px;
+            letter-spacing: 0.05em;
+            z-index: 2;
+        }
+
+        /* Video Chapters */
+        .video-chapters-box {
+            background: #FAF8F5;
+            padding: 12px 14px;
+            border-top: 2px solid var(--border-lip);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .chapters-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2px;
+        }
+        .chapters-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--ink-heavy);
+            letter-spacing: 0.05em;
+        }
+        .chapters-safe-pill {
+            font-size: 10px;
+            font-weight: 700;
+            color: #047857;
+            background: #D1FAE5;
+            border: 1px solid #10B981;
+            border-radius: 999px;
+            padding: 1px 6px;
+        }
+        .chapters-list {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .chapter-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 5px 8px;
+            border-radius: 6px;
+            background: #FFFFFF;
+            border: 1px solid var(--border-lip);
+            cursor: pointer;
+            transition: all 0.15s ease;
+            font-size: 12px;
+        }
+        .chapter-item:hover {
+            background: #FEF3C7;
+            border-color: #D97706;
+            transform: translateX(2px);
+        }
+        .chapter-time {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 800;
+            font-size: 11px;
+            color: #1A1A1A;
+            background: var(--tier-yellow);
+            padding: 1px 5px;
+            border-radius: 4px;
+            border: 1px solid var(--border-lip);
+        }
+        .chapter-desc {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+            color: var(--ink-heavy);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            flex: 1;
+        }
+
+        /* Friendly Coach Tip Bar */
+        .video-coach-bar {
+            background: #FFFBEB;
+            border-top: 1.5px solid #FDE68A;
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11.5px;
+            color: #92400E;
+            line-height: 1.4;
+        }
+        .coach-icon {
+            font-size: 14px;
+        }
+        .trap-advisory-box {
+            background: #FFFBEB;
+            border: 1.5px solid #F59E0B;
+            border-left: 4px solid #D97706;
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 13px;
+            line-height: 1.5;
+            color: #78350F;
+            box-sizing: border-box;
+        }
+        .tier-legend-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 10px;
+        }
+        .legend-chip {
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 6px;
+            border: 1px solid var(--border-lip);
+            white-space: nowrap;
+        }
+        .chip-yellow { background: var(--tier-yellow); }
+        .chip-green  { background: var(--tier-green); }
+        .chip-blue   { background: var(--tier-blue); }
+        .chip-purple { background: var(--tier-purple); color: #FFF; }
+
+        @media (max-width: 768px) {
+            .daily-layout {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .video-bento-card {
+                max-width: 100%;
+            }
+            .video-player-stage.mode-short {
+                max-width: 320px;
+                margin: 0 auto;
+            }
+            .short-container {
+                max-width: 280px;
+            }
+            .daily-spotlight {
+                padding: 18px 14px;
+            }
+            .breakdown-tile {
+                font-size: 9.5px;
+                padding: 6px 1px;
+            }
+            .video-spotlight {
+                padding: 16px 14px;
+            }
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 16px 10px;
+            }
+            .daily-spotlight {
+                padding: 14px 10px;
+            }
+            .breakdown-grid {
+                gap: 4px;
+            }
+            .breakdown-tile {
+                font-size: 8px;
+                padding: 6px 1px;
+                letter-spacing: -0.03em;
+            }
+            .trap-advisory-box {
+                padding: 8px 10px;
+                font-size: 12.5px;
+            }
+        }
+
+        /* Lexical Deep Dive & Cognitive WWWWWH Masterclass Accordion */
+        .lexical-accordion {
+            margin-top: 22px;
+            border: 2px solid var(--border-lip);
+            border-radius: 12px;
+            background: #FFFDF9;
+            box-shadow: 4px 4px 0px var(--border-lip);
+            overflow: hidden;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .lexical-summary {
+            background: #F3EFE0;
+            padding: 13px 16px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            font-weight: 800;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--border-lip);
+            user-select: none;
+            gap: 10px;
+        }
+        .lexical-summary:hover {
+            background: #EBE5D3;
+        }
+        .lexical-badge-pill {
+            font-size: 11px;
+            background: #FFFFFF;
+            border: 1.5px solid var(--border-lip);
+            padding: 3px 8px;
+            border-radius: 6px;
+            white-space: nowrap;
+        }
+        .lexical-body {
+            padding: 18px 16px;
+            box-sizing: border-box;
+        }
+        .lexical-tier-card {
+            border: 2px solid var(--border-lip);
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 20px;
+            background: #FFFFFF;
+            box-sizing: border-box;
+        }
+        .lexical-tier-card:last-child {
+            margin-bottom: 0;
+        }
+        .lexical-tier-header {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border-lip);
+        }
+        .lexical-tier-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .tier-type-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--ink-muted);
+            letter-spacing: 0.02em;
+        }
+        .tier-category-heading {
+            font-family: 'Fraunces', serif;
+            font-size: 20px;
+            font-weight: 900;
+            color: var(--ink);
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+        }
+        .wwwwwh-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+        .wwwwwh-box {
+            background: #FAF8F2;
+            border: 1px solid var(--border-lip);
+            border-left: 4px solid var(--ink);
+            padding: 10px 12px;
+            border-radius: 6px;
+            font-size: 12.5px;
+            line-height: 1.5;
+            box-sizing: border-box;
+        }
+        .wwwwwh-box strong {
+            font-family: 'JetBrains Mono', monospace;
+            display: block;
+            margin-bottom: 2px;
+            color: var(--ink);
+        }
+        .words-lexicon-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+        }
+        .lex-card {
+            border: 1.5px solid var(--border-lip);
+            border-radius: 8px;
+            padding: 12px 14px;
+            background: #FAFAFA;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            box-sizing: border-box;
+        }
+        .lex-header {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .lex-word {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 15px;
+            font-weight: 800;
+            letter-spacing: 0.02em;
+        }
+        .lex-ipa {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: #6B7280;
+        }
+        .lex-pos {
+            font-size: 10.5px;
+            font-weight: 800;
+            text-transform: uppercase;
+            background: #E5E7EB;
+            padding: 1px 6px;
+            border-radius: 4px;
+        }
+        .lex-def {
+            font-size: 12.5px;
+            line-height: 1.5;
+            color: var(--ink);
+        }
+        .lex-etym {
+            font-size: 11.5px;
+            color: #4B5563;
+            line-height: 1.45;
+            background: #FFFFFF;
+            border: 1px solid #E5E7EB;
+            padding: 6px 8px;
+            border-radius: 4px;
+        }
+        .lex-sentence {
+            font-size: 12px;
+            font-style: italic;
+            color: #374151;
+            border-left: 2.5px solid var(--border-lip);
+            padding-left: 8px;
+        }
+        @media (max-width: 680px) {
+            .wwwwwh-grid, .words-lexicon-grid {
+                grid-template-columns: 1fr;
+            }
+            .lexical-summary {
+                font-size: 11px;
+                padding: 10px 12px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 6px;
+            }
+            .lexical-body {
+                padding: 14px 10px;
+            }
+            .lexical-tier-card {
+                padding: 12px 10px;
+            }
+            .tier-category-heading {
+                font-size: 17px;
+            }
+            .tier-type-badge {
+                font-size: 11px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="brand-group">
+                <span class="brand-title">Connections Assistant</span>
+            </a>
+            <div class="nav-right">
+                <a href="index.html" class="streak-pill" id="streakPill" title="Daily Solver Streak">
+                    🔥 <span id="streakCount">1</span> Day Streak
+                </a>
+                <div class="nav-links">
+                    <a href="index.html">Solver</a>
+                    <a href="breakdowns.html" class="active">Breakdowns</a>
+                    <a href="nyt-connections-guide.html">Guide</a>
+                    <a href="strategy.html">Strategy</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <main class="content-bento">
+            <h1>Daily Video Walkthroughs & Word Explanations</h1>
+            <p>Daily walkthroughs of NYT Connections puzzles with video commentary, decoy warnings, and complete word meanings.</p>
+
+            <!-- TODAY'S DAILY BREAKDOWN -->
+            <section class="daily-spotlight" id="today">
+                <span id="latest" style="position: absolute; top: -80px; left: 0;"></span>
+                <div class="daily-header">
+                    <div>
+                        <span class="badge-today">TODAY'S BREAKDOWN (2026-11-13)</span>
+                        <h2 style="margin: 8px 0 4px 0; font-size: 22px;">Friday, Nov 13, 2026 &bull; Puzzle #1251</h2>
+                        <p style="font-size: 14px; color: var(--ink-muted); margin: 0;">Step-by-step breakdown of the <strong>BRAIN ___</strong> wordplay &amp; the 3-tier <strong>WATER & OCEAN</strong> decoy trap.</p>
+                    </div>
+                    <span class="live-pill">🔴 LIVE TODAY</span>
+                </div>
+
+                <div class="daily-layout">
+                    <!-- High-CTR Neo-Brutalist Video Bento Card with Dual-Mode Switcher -->
+                    <div class="daily-video-wrapper">
+                        <div class="video-bento-card" id="video-bento">
+                            <!-- Header with Guerrilla Loss-Aversion Framing -->
+                            <div class="video-bento-header">
+                                <div class="video-bento-title-row">
+                                    <span class="video-bento-badge">🛡️ Streak Shield</span>
+                                    <span class="video-duration-pill" id="video-duration-pill">⚡ 45s Quick Watch</span>
+                                </div>
+                                <div class="video-bento-sub">Step-by-step clues &bull; Zero spoiler risk</div>
+                            </div>
+
+                            <!-- Dual-Mode Instant Toggle Tabs -->
+                            <div class="video-mode-toggle" role="tablist" aria-label="Video Format Selector">
+                                <button type="button" class="mode-tab active" id="tab-short" onclick="switchVideoMode('short')">
+                                    <span class="mode-tab-icon">📱</span>
+                                    <span class="mode-tab-text"><strong>45s Short</strong> <small>Quick Decoy Alert</small></span>
+                                </button>
+                                <button type="button" class="mode-tab" id="tab-masterclass" onclick="switchVideoMode('masterclass')">
+                                    <span class="mode-tab-icon">🖥️</span>
+                                    <span class="mode-tab-text"><strong>Masterclass</strong> <small>16:9 Deep Dive</small></span>
+                                </button>
+                            </div>
+
+                            <!-- Video Stage / Facade Container -->
+                            <div class="video-player-stage mode-short" id="video-player-stage">
+                                <!-- Interactive High-CTR Facade Poster -->
+                                <div class="video-facade" id="video-facade" onclick="playCurrentVideo()" title="Click to watch spoiler-free walkthrough">
+                                    <img id="facade-thumb" src="https://i.ytimg.com/vi/JXqKaB4AFpQ/hqdefault.jpg" alt="Today's Connections Walkthrough Video" loading="lazy" />
+                                    <div class="facade-overlay">
+                                        <div class="play-btn-circle" aria-label="Play Video">
+                                            <svg viewBox="0 0 24 24" width="28" height="28" fill="#1A1A1A">
+                                                <path d="M8 5v14l11-7z"/>
+                                            </svg>
+                                        </div>
+                                        <div class="facade-cta-label" id="facade-cta-label">
+                                            <span class="facade-cta-main">TAP TO WATCH 45s WALKTHROUGH</span>
+                                            <span class="facade-cta-sub">Safe &bull; Protects Your Streak</span>
+                                        </div>
+                                    </div>
+                                    <div class="facade-tag" id="facade-tag">⚡ 45-SEC SPOILER GUARD</div>
+                                </div>
+
+                                <!-- The Iframe Container (populated on play) -->
+                                <div class="video-iframe-slot" id="video-iframe-slot" style="display: none;"></div>
+                            </div>
+
+                            <!-- Key Moments / Chapters (Desktop Void Balancer) -->
+                            <div class="video-chapters-box" id="video-chapters-box">
+                                <div class="chapters-header">
+                                    <span class="chapters-title">⏱️ VIDEO TIMESTAMPS</span>
+                                    <span class="chapters-safe-pill">Spoiler-Free Cues</span>
+                                </div>
+                                <div class="chapters-list" id="chapters-list-short">
+                                    <div class="chapter-item" onclick="seekVideo(0)">
+                                        <span class="chapter-time">0:00</span>
+                                        <span class="chapter-desc">3-Tier Water & Ocean Decoy Trap Alert</span>
+                                    </div>
+                                    <div class="chapter-item" onclick="seekVideo(18)">
+                                        <span class="chapter-time">0:18</span>
+                                        <span class="chapter-desc">Lateral Wordplay &amp; Brain ___ Clue</span>
+                                    </div>
+                                    <div class="chapter-item" onclick="seekVideo(35)">
+                                        <span class="chapter-time">0:35</span>
+                                        <span class="chapter-desc">Safe Solve Strategy &bull; Streak Protected!</span>
+                                    </div>
+                                </div>
+                                <div class="chapters-list" id="chapters-list-masterclass" style="display: none;">
+                                    <div class="chapter-item" onclick="seekVideo(0)">
+                                        <span class="chapter-time">0:00</span>
+                                        <span class="chapter-desc">Introduction &amp; Decoy Trap Alert</span>
+                                    </div>
+                                    <div class="chapter-item" onclick="seekVideo(35)">
+                                        <span class="chapter-time">0:35</span>
+                                        <span class="chapter-desc">🟨 Use The Internet</span>
+                                    </div>
+                                    <div class="chapter-item" onclick="seekVideo(133)">
+                                        <span class="chapter-time">2:13</span>
+                                        <span class="chapter-desc">🟩 Media Attention</span>
+                                    </div>
+                                    <div class="chapter-item" onclick="seekVideo(225)">
+                                        <span class="chapter-time">3:45</span>
+                                        <span class="chapter-desc">🟦 Things That Are Towed</span>
+                                    </div>
+                                    <div class="chapter-item" onclick="seekVideo(316)">
+                                        <span class="chapter-time">5:16</span>
+                                        <span class="chapter-desc">🟪 Brain ___ Wordplay</span>
+                                    </div>
+                                    <div class="chapter-item" onclick="seekVideo(399)">
+                                        <span class="chapter-time">6:39</span>
+                                        <span class="chapter-desc">Complete Solved Grid Recap</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Friendly Coach Tip Bar -->
+                            <div class="video-coach-bar">
+                                <span class="coach-icon">☕</span>
+                                <span class="coach-text"><strong>Coach's Tip:</strong> Watch the first 20 seconds to spot today's decoy before burning any guesses!</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tactical Board Analysis for Today -->
+                    <div class="daily-tactics">
+                        <h3 style="font-size: 16px; margin-bottom: 8px;">🎯 Key Board Traps &amp; Solutions</h3>
+                        
+                        <div class="trap-advisory-box">
+                            <strong>⚠️ Red Herring Advisory:</strong> <em>SURF, WAVES, WATER SKIER, and BARGE</em> tempt an immediate water/ocean grouping! However, every single one belongs to a completely different tier: <em>SURF</em> is an Internet action (Yellow), <em>WAVES</em> is a Brain compound (Purple), and <em>BARGE</em> and <em>WATER SKIER</em> are things that are towed (Blue). Do not burn a guess grouping them together!
+                        </div>
+
+                        <!-- Solved Board in 4-Word Rows with Labels Over Them -->
+                        <div class="solved-tiers-stack" id="solved-tiers-stack">
+                            <div class="solved-tier-row tier-yellow">
+                                <div class="solved-tier-header">
+                                    <div class="tier-header-left">
+                                        <span class="tier-pill pill-yellow">🟨 YELLOW TIER</span>
+                                        <span class="tier-title">USE THE INTERNET</span>
+                                    </div>
+                                    <span class="tier-hint-sub">Direct Match</span>
+                                </div>
+                                <div class="solved-row-tiles">
+                                <div class="solved-tile tile-yellow">BROWSE</div>
+                                <div class="solved-tile tile-yellow">SCROLL</div>
+                                <div class="solved-tile tile-yellow">SEARCH</div>
+                                <div class="solved-tile tile-yellow">SURF</div>
+                                </div>
+                            </div>
+                            <div class="solved-tier-row tier-green">
+                                <div class="solved-tier-header">
+                                    <div class="tier-header-left">
+                                        <span class="tier-pill pill-green">🟩 GREEN TIER</span>
+                                        <span class="tier-title">MEDIA ATTENTION</span>
+                                    </div>
+                                    <span class="tier-hint-sub">Theme &amp; Context</span>
+                                </div>
+                                <div class="solved-row-tiles">
+                                <div class="solved-tile tile-green">COVERAGE</div>
+                                <div class="solved-tile tile-green">EXPOSURE</div>
+                                <div class="solved-tile tile-green">PRESS</div>
+                                <div class="solved-tile tile-green">PUBLICITY</div>
+                                </div>
+                            </div>
+                            <div class="solved-tier-row tier-blue">
+                                <div class="solved-tier-header">
+                                    <div class="tier-header-left">
+                                        <span class="tier-pill pill-blue">🟦 BLUE TIER</span>
+                                        <span class="tier-title">THINGS THAT ARE TOWED</span>
+                                    </div>
+                                    <span class="tier-hint-sub">Compounds &amp; Trivia</span>
+                                </div>
+                                <div class="solved-row-tiles">
+                                <div class="solved-tile tile-blue">BARGE</div>
+                                <div class="solved-tile tile-blue">GLIDER</div>
+                                <div class="solved-tile tile-blue">TRAILER</div>
+                                <div class="solved-tile tile-blue">WATER SKIER</div>
+                                </div>
+                            </div>
+                            <div class="solved-tier-row tier-purple">
+                                <div class="solved-tier-header">
+                                    <div class="tier-header-left">
+                                        <span class="tier-pill pill-purple">🟪 PURPLE TIER</span>
+                                        <span class="tier-title">BRAIN ___</span>
+                                    </div>
+                                    <span class="tier-hint-sub">Lateral Wordplay</span>
+                                </div>
+                                <div class="solved-row-tiles">
+                                <div class="solved-tile tile-purple">FREEZE</div>
+                                <div class="solved-tile tile-purple">TEASER</div>
+                                <div class="solved-tile tile-purple">TRUST</div>
+                                <div class="solved-tile tile-purple">WAVES</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        
+
+                        <p style="font-size: 13px; color: var(--ink-muted); margin: 12px 0 0 0; line-height: 1.5;">
+                            <strong>Lateral Wordplay Breakdown:</strong> The Purple group connects compound words and idioms beginning with 'BRAIN': <em>BRAIN FREEZE</em>, <em>BRAIN TEASER</em>, <em>BRAIN TRUST</em>, and <em>BRAIN WAVES</em>.
+                        </p>
+
+                        <div style="margin-top: 16px; display: flex; gap: 10px; flex-wrap: wrap;">
+                            <a href="index.html" class="btn-tactile btn-primary" style="padding: 8px 16px; font-size: 13px; text-decoration: none;">Try on Solver Grid &rarr;</a>
+                            <a href="https://www.youtube.com/@ConnectionsAssistant?sub_confirmation=1" target="_blank" rel="noopener noreferrer" class="btn-tactile btn-secondary" style="padding: 8px 16px; font-size: 13px; text-decoration: none;">Subscribe @ConnectionsAssistant &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                                                                                <!-- FULL-WIDTH DAILY WORD GUIDE -->
+                <details class="lexical-accordion" id="lexical-encyclopedia" open>
+                    <summary class="lexical-summary">
+                        <span>📖 TODAY'S WORD GUIDE: MEANINGS, ORIGINS &amp; HOW EACH GROUP CONNECTS</span>
+                        <span class="lexical-badge-pill">16 Words Explained &bull; Click to Open / Close &darr;</span>
+                    </summary>
+                    <div class="lexical-body">
+                        <!-- TIER 1 -->
+                        <div class="lexical-tier-card" style="border-top: 5px solid var(--tier-yellow);">
+                            <div class="lexical-tier-header">
+                                <div class="lexical-tier-top">
+                                    <span class="legend-chip chip-yellow">🟨 TIER 1 &bull; EASIEST</span>
+                                    <span class="tier-type-badge">Words That Mean the Same Thing (Synonyms & Exclamations)</span>
+                                </div>
+                                <div class="tier-category-heading">USE THE INTERNET</div>
+                            </div>
+
+                            <div class="wwwwwh-grid">
+                                <div class="wwwwwh-box">
+                                    <strong>WHO USES THEM:</strong> Solvers, readers, and speakers exploring use the internet vocabulary.
+                                </div>
+                                <div class="wwwwwh-box">
+                                    <strong>WHAT CONNECTS THEM:</strong> Each word directly connects to USE THE INTERNET: BROWSE, SCROLL, SEARCH, SURF.
+                                </div>
+                                <div class="wwwwwh-box">
+                                    <strong>WHERE YOU HEAR THEM:</strong> Everyday conversation, literature, news media, and specialized cultural contexts.
+                                </div>
+                                <div class="wwwwwh-box">
+                                    <strong>WHEN TO USE THEM:</strong> When identifying shared semantic or structural traits linking disparate terms.
+                                </div>
+                                <div class="wwwwwh-box">
+                                    <strong>WHY THE CREATOR CHOSE THEM:</strong> Designed to test vocabulary recognition and isolate false red herrings across categories.
+                                </div>
+                                <div class="wwwwwh-box">
+                                    <strong>HOW TO SOLVE:</strong> Group the 4 terms (BROWSE, SCROLL, SEARCH, SURF) sharing the common bond: USE THE INTERNET.
+                                </div>
+                            </div>
+
+                            <div class="words-lexicon-grid">
+                                <div class="lex-card">
+                                    <div class="lex-header">
+                                        <span class="lex-word">BROWSE</span>
+                                        <span class="lex-ipa">//browse//</span>
+                                        <span class="lex-pos">noun</span>
+                                    </div>
+                                    <div class="lex-def">A word or expression belonging to the 'USE THE INTERNET' category.</div>
+                                    <div class="lex-etym"><strong>Etymology & Mechanics:</strong> English usage associated with USE THE INTERNET.</div>
+                                    <div class="lex-sentence">"The word 'BROWSE' serves as a prominent example in today's puzzle."</div>
+                                </div>
+                                <div class="lex-card">
+                                    <div class="lex-header">
+                                        <span class="lex-word">SCROLL</span>
+                                        <span class="lex-ipa">//scroll//</span>
+                                        <span class="lex-pos">noun</span>
+                                    </div>
+                                    <div class="lex-def">A word or expression belonging to the 'USE THE INTERNET' category.</div>
+                                    <div class="lex-etym"><strong>Etymology & Mechanics:</strong> English usage associated with USE THE INTERNET.</div>
+                                    <div class="lex-sentence">"The word 'SCROLL' serves as a prominent example in today's puzzle."</div>
+                                </div>
+                                <div class="lex-card">
+                                    <div class="lex-header">
+                                        <span class="lex-word">SEARCH</span>
+                                        <span class="lex-ipa">//search//</span>
+                                        <span class="lex-pos">noun</span>
+                                    </div>
+                                    <div class="lex-def">A word or expression belonging to the 'USE THE INTERNET' category.</div>
+                                    <div class="lex-etym"><strong>Etymology & Mechanics:</strong> English usage associated with USE THE INTERNET.</div>
+                                    <div class="lex-sentence">"The word 'SEARCH' serves as a prominent example in today's puzzle."</div>
+                                </div>
+                                <div class="lex-card">
+                                    <div class="lex-header">
+                                        <span class="lex-word">SURF</span>
+                                        <span class="lex-ipa">//surf//</span>
+                                        <span class="lex-pos">noun</span>
+                                    </div>
+                                    <div class="lex-def">A word or expression belonging to the 'USE THE INTERNET' category.</div>
+                                    <div class="lex-etym"><strong>Etymology & Mechanics:</strong> English usage associated with USE THE INTERNET.</div>
+                                    <div class="lex-sentence">"The word 'SURF' serves as a prominent example in today's puzzle."</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- TIER 2 -->
+                        <div class="lexical-tier-card" style="border-top: 5px solid var(--tier-green);">
+                            <div class="lexical-tier-header">
+                                <div class="lexical-tier-top">
+                                    <span class="legend-chip chip-green">🟩 TIER 2 &bull; MEDIUM</span>
+                                    <span class="tier-type-badge">Shared Contextual or Syntactic Relationship</span>
+                                </div>
+                                <div class="tier-category-heading">MEDIA ATTENTION</div>
+                            </div>
+
+                            <div class="wwwwwh-grid">
+                                <div class="wwwwwh-box">
+                                    <strong>WHO USES THEM:</strong> Solvers, readers, and speakers exploring media attention vocabulary.
+                                </div>
+                                <div class="wwwwwh-box">
+                                    <strong>WHAT CONNECTS THEM:</strong> Each word directly connects to MEDIA ATTENTION: COVERAGE, EXPOSURE, PRESS, PUBLICITY.
+                                </div>
+                                <div class="wwwwwh-box">
+                                    <strong>WHERE YOU HEAR THEM:</strong> Everyday conversation, literature, news media, and specialized cultural contexts.
+                                </div>
+                                <div class="wwwwwh-box">
+                                    <strong>WHEN TO USE THEM:</strong> When identifying shared semantic or structural traits linking disparate terms.
+                                </div>
+                                <div class="wwwwwh-box">
+                                    <strong>WHY THE CREATOR CHOSE THEM:</strong> Designed to test vocabulary recognition and isolate false red herrings across categories.
+                                </div>
+                                <div class="wwwwwh-box">
+                                    <strong>HOW TO SOLVE:</strong> Group the 4 terms (COVERAGE, EXPOSURE, PRESS, PUBLICITY) sharing the common bond: MEDIA ATTENTION.
+                                </div>
+                            </div>
+
+                            <div class="words-lexicon-grid">
+                                <div class="lex-card">
+                                    <div class="lex-header">
+                                        <span class="lex-word">COVERAGE</span>
+                                        <span class="lex-ipa">//coverage//</span>
+                                        <span class="lex-pos">noun</span>
+                                    </div>
+                                    <div class="lex-def">A word or expression belonging to the 'MEDIA ATTENTION' category.</div>
+                                    <div class="lex-etym"><strong>Etymology & Mechanics:</strong> English usage associated with MEDIA ATTENTION.</div>
+                                    <div class="lex-sentence">"The word 'COVERAGE' serves as a prominent example in today's puzzle."</div>
+                                </div>
+                                <div class="lex-card">
+                                    <div class="lex-header">
+                                        <span class="lex-word">EXPOSURE</span>
+                                        <span class="lex-ipa">//exposure//</span>
+                                        <span class="lex-pos">noun</span>
+                                    </div>
+                                    <div class="lex-def">A word or expression belonging to the 'MEDIA ATTENTION' category.</div>
+                                    <div class="lex-etym"><strong>Etymology & Mechanics:</strong> English usage associated with MEDIA ATTENTION.</div>
+                                    <div class="lex-sentence">"The word 'EXPOSURE' serves as a prominent example in today's puzzle."</div>
+                                </div>
+                                <div class="lex-card">
+                                    <div class="lex-header">
+                                        <span class="lex-word">PRESS</span>
+                                        <span class="lex-ipa">//press//</span>
+                                        <span class="lex-pos">noun</span>
+                                    </div>
+                                    <div class="lex-def">A word or expression belonging to the 'MEDIA ATTENTION' category.</div>
+                                    <div class="lex-etym"><strong>Etymology & Mechanics:</strong> English usage associated with MEDIA ATTENTION.</div>
+                                    <div class="lex-sentence">"The word 'PRESS' serves as a prominent example in today's puzzle."</div>
+                                </div>
+                                <div class="lex-card">
+                                    <div class="lex-header">
+                                        <span class="lex-word">PUBLICITY</span>
+                                        <span class="lex-ipa">//publicity//</span>
+                                        <span class="lex-pos">noun</span>
+                                    </div>
+                                    <div class="lex-def">A word or expression belonging to the 'MEDIA ATTENTION' category.</div>
+                                    <div class="lex-etym"><strong>Etymology & Mechanics:</strong> English usage associated with MEDIA ATTENTION.</div>
+                                    <div class="lex-sentence">"The word 'PUBLICITY' serves as a prominent example in today's puzzle."</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- TIER 3 -->
+                        <div class="lexical-tier-card" style="border-top: 5px solid var(--tier-blue);">
+                            <div class="lexical-tier-header">
+                                <div class="lexical-tier-top">
+                                    <span class="legend-chip chip-blue">🟦 TIER 3 &bull; HARD</span>
+                                    <span class="tier-type-badge">Shared Compound Structure or Domain Association</span>
+                                </div>
+                                <div class="tier-category-heading">THINGS THAT ARE TOWED</div>
+                            </div>
+
+                            <div class="wwwwwh-grid">
+                                <div class="wwwwwh-box">
+                                    <strong>WHO USES THEM:</strong> Solvers, readers, and speakers exploring things that are towed vocabulary.
+                                </div>
+                                <div class="wwwwwh-box">
+                                    <strong>WHAT CONNECTS THEM:</strong> Each word directly connects to THINGS THAT ARE TOWED: BARGE, GLIDER, TRAILER, WATER SKIER.
+                                </div>
+                                <div class="wwwwwh-box">
+                                    <strong>WHERE YOU HEAR THEM:</strong> Everyday conversation, literature, news media, and specialized cultural contexts.
+                                </div>
+                                <div class="wwwwwh-box">
+                                    <strong>WHEN TO USE THEM:</strong> When identifying shared semantic or structural traits linking disparate terms.
+                                </div>
+                                <div class="wwwwwh-box">
+                                    <strong>WHY THE CREATOR CHOSE THEM:</strong> Designed to test vocabulary recognition and isolate false red herrings across categories.
+                                </div>
+                                <div class="wwwwwh-box">
+                                    <strong>HOW TO SOLVE:</strong> Group the 4 terms (BARGE, GLIDER, TRAILER, WATER SKIER) sharing the common bond: THINGS THAT ARE TOWED.
+                                </div>
+                            </div>
+
+                            <div class="words-lexicon-grid">
+                                <div class="lex-card">
+                                    <div class="lex-header">
+                                        <span class="lex-word">BARGE</span>
+                                        <span class="lex-ipa">//barge//</span>
+                                        <span class="lex-pos">noun</span>
+                                    </div>
+                                    <div class="lex-def">A word or expression belonging to the 'THINGS THAT ARE TOWED' category.</div>
+                                    <div class="lex-etym"><strong>Etymology & Mechanics:</strong> English usage associated with THINGS THAT ARE TOWED.</div>
+                                    <div class="lex-sentence">"The word 'BARGE' serves as a prominent example in today's puzzle."</div>
+                                </div>
+                                <div class="lex-card">
+                                    <div class="lex-header">
+                                        <span class="lex-word">GLIDER</span>
+                                        <span class="lex-ipa">//glider//</span>
+                                        <span class="lex-pos">noun</span>
+                                    </div>
+                                    <div class="lex-def">A word or expression belonging to the 'THINGS THAT ARE TOWED' category.</div>
+                                    <div class="lex-etym"><strong>Etymology & Mechanics:</strong> English usage associated with THINGS THAT ARE TOWED.</div>
+                                    <div class="lex-sentence">"The word 'GLIDER' serves as a prominent example in today's puzzle."</div>
+                                </div>
+                                <div class="lex-card">
+                                    <div class="lex-header">
+                                        <span class="lex-word">TRAILER</span>
+                                        <span class="lex-ipa">//trailer//</span>
+                                        <span class="lex-pos">noun</span>
+                                    </div>
+                                    <div class="lex-def">A word or expression belonging to the 'THINGS THAT ARE TOWED' category.</div>
+                                    <div class="lex-etym"><strong>Etymology & Mechanics:</strong> English usage associated with THINGS THAT ARE TOWED.</div>
+                                    <div class="lex-sentence">"The word 'TRAILER' serves as a prominent example in today's puzzle."</div>
+                                </div>
+                                <div class="lex-card">
+                                    <div class="lex-header">
+                                        <span class="lex-word">WATER SKIER</span>
+                                        <span class="lex-ipa">//water skier//</span>
+                                        <span class="lex-pos">noun</span>
+                                    </div>
+                                    <div class="lex-def">A word or expression belonging to the 'THINGS THAT ARE TOWED' category.</div>
+                                    <div class="lex-etym"><strong>Etymology & Mechanics:</strong> English usage associated with THINGS THAT ARE TOWED.</div>
+                                    <div class="lex-sentence">"The word 'WATER SKIER' serves as a prominent example in today's puzzle."</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- TIER 4 -->
+                        <div class="lexical-tier-card" style="border-top: 5px solid var(--tier-purple);">
+                            <div class="lexical-tier-header">
+                                <div class="lexical-tier-top">
+                                    <span class="legend-chip chip-purple">🟪 TIER 4 &bull; TRICKY WORDPLAY</span>
+                                    <span class="tier-type-badge">Lateral Trivia / Pop Culture / Wordplay Mechanics</span>
+                                </div>
+                                <div class="tier-category-heading">BRAIN ___</div>
+                            </div>
+
+                            <div class="wwwwwh-grid">
+                                <div class="wwwwwh-box">
+                                    <strong>WHO USES THEM:</strong> Solvers, readers, and speakers exploring brain ___ vocabulary.
+                                </div>
+                                <div class="wwwwwh-box">
+                                    <strong>WHAT CONNECTS THEM:</strong> Each word directly connects to BRAIN ___: FREEZE, TEASER, TRUST, WAVES.
+                                </div>
+                                <div class="wwwwwh-box">
+                                    <strong>WHERE YOU HEAR THEM:</strong> Everyday conversation, literature, news media, and specialized cultural contexts.
+                                </div>
+                                <div class="wwwwwh-box">
+                                    <strong>WHEN TO USE THEM:</strong> When identifying shared semantic or structural traits linking disparate terms.
+                                </div>
+                                <div class="wwwwwh-box">
+                                    <strong>WHY THE CREATOR CHOSE THEM:</strong> Designed to test vocabulary recognition and isolate false red herrings across categories.
+                                </div>
+                                <div class="wwwwwh-box">
+                                    <strong>HOW TO SOLVE:</strong> Group the 4 terms (FREEZE, TEASER, TRUST, WAVES) sharing the common bond: BRAIN ___.
+                                </div>
+                            </div>
+
+                            <div class="words-lexicon-grid">
+                                <div class="lex-card">
+                                    <div class="lex-header">
+                                        <span class="lex-word">FREEZE</span>
+                                        <span class="lex-ipa">//freeze//</span>
+                                        <span class="lex-pos">noun</span>
+                                    </div>
+                                    <div class="lex-def">A word or expression belonging to the 'BRAIN ___' category.</div>
+                                    <div class="lex-etym"><strong>Etymology & Mechanics:</strong> English usage associated with BRAIN ___.</div>
+                                    <div class="lex-sentence">"The word 'FREEZE' serves as a prominent example in today's puzzle."</div>
+                                </div>
+                                <div class="lex-card">
+                                    <div class="lex-header">
+                                        <span class="lex-word">TEASER</span>
+                                        <span class="lex-ipa">//teaser//</span>
+                                        <span class="lex-pos">noun</span>
+                                    </div>
+                                    <div class="lex-def">A word or expression belonging to the 'BRAIN ___' category.</div>
+                                    <div class="lex-etym"><strong>Etymology & Mechanics:</strong> English usage associated with BRAIN ___.</div>
+                                    <div class="lex-sentence">"The word 'TEASER' serves as a prominent example in today's puzzle."</div>
+                                </div>
+                                <div class="lex-card">
+                                    <div class="lex-header">
+                                        <span class="lex-word">TRUST</span>
+                                        <span class="lex-ipa">//trust//</span>
+                                        <span class="lex-pos">noun</span>
+                                    </div>
+                                    <div class="lex-def">A word or expression belonging to the 'BRAIN ___' category.</div>
+                                    <div class="lex-etym"><strong>Etymology & Mechanics:</strong> English usage associated with BRAIN ___.</div>
+                                    <div class="lex-sentence">"The word 'TRUST' serves as a prominent example in today's puzzle."</div>
+                                </div>
+                                <div class="lex-card">
+                                    <div class="lex-header">
+                                        <span class="lex-word">WAVES</span>
+                                        <span class="lex-ipa">//waves//</span>
+                                        <span class="lex-pos">noun</span>
+                                    </div>
+                                    <div class="lex-def">A word or expression belonging to the 'BRAIN ___' category.</div>
+                                    <div class="lex-etym"><strong>Etymology & Mechanics:</strong> English usage associated with BRAIN ___.</div>
+                                    <div class="lex-sentence">"The word 'WAVES' serves as a prominent example in today's puzzle."</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+            </section>
+
+                                                                                                                                                                        <!-- PAST PUZZLE BREAKDOWNS & HISTORY SECTION -->
+            <section class="breakdown-card" id="history" style="background: #FAF8F5; border: 2px solid var(--border-lip); border-radius: var(--radius-card); box-shadow: 4px 4px 0 var(--border-lip); padding: 22px; margin: 28px 0;">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; border-bottom: 2px solid var(--stone); padding-bottom: 10px;">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span style="font-size: 22px;">📚</span>
+                        <h3 style="margin: 0; font-size: 20px; font-family: 'Fraunces', serif;">Past Puzzle Breakdowns &amp; History Library</h3>
+                    </div>
+                    <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; background: #EDE9FE; color: #5B21B6; border: 1px solid #7C3AED; padding: 3px 10px; border-radius: 999px; font-weight: 700;">☕ 30-DAY SOLVER ARCHIVE</span>
+                </div>
+
+                <!-- Friendly Welcoming Banner -->
+                <div style="background: #FFFBEB; border: 1.5px solid #F59E0B; border-radius: 12px; padding: 14px 18px; margin-bottom: 18px; display: flex; align-items: flex-start; gap: 14px;">
+                    <span style="font-size: 26px; line-height: 1; user-select: none;">☕</span>
+                    <div>
+                        <div style="font-weight: 800; font-size: 14px; color: #92400E; margin-bottom: 3px;">
+                            Welcome to Your Morning Puzzle Companion Library!
+                        </div>
+                        <p style="font-size: 13px; color: #78350F; margin: 0; line-height: 1.55;">
+                            Missed a morning puzzle over the weekend, lost a streak to a sneaky decoy trap, or just love studying clever lateral wordplay? Pull up a chair! Below you'll find full step-by-step walkthroughs, solved 4x4 boards, and red herring tips for every puzzle from the past month.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Recent Breakdowns Showcase -->
+                <div style="font-weight: 700; font-size: 13.5px; color: var(--ink); margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">
+                    <span>✨</span>
+                    <span>Recent Daily Breakdowns:</span>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 11px; margin-bottom: 18px;">
+                    <div style="background: #FFFFFF; border: 1.5px solid var(--border-lip); border-radius: 10px; padding: 14px 16px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; box-shadow: 2px 2px 0 var(--border-lip);">
+                        <div style="flex: 1; min-width: 240px;">
+                            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 5px; flex-wrap: wrap;">
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; background: #DCFCE7; color: #166534; padding: 2px 7px; border-radius: 4px; border: 1px solid #86EFAC;">⚡ YESTERDAY'S PUZZLE</span>
+                                <span style="font-weight: 700; font-size: 14.5px; color: var(--ink);">Wednesday, Nov 11, 2026</span>
+                            </div>
+                            <div style="font-size: 12.5px; color: var(--ink-muted); margin-bottom: 2px;">
+                                <strong>Yellow:</strong> KINDS OF MEDICINE &bull; <strong>Purple:</strong> ENDING IN PALINDROMES
+                            </div>
+                            <div style="font-size: 12px; color: #78350F; font-style: italic;">
+                                💡 Watch out for the 4-color <strong>TEA</strong> rainbow decoy trap
+                            </div>
+                        </div>
+                        <a href="breakdowns/2026-11-11.html" class="btn-tactile btn-secondary" style="font-size: 12px; padding: 8px 14px; text-decoration: none;">
+                            Review Walkthrough &rarr;
+                        </a>
+                    </div>
+                    <div style="background: #FFFFFF; border: 1.5px solid var(--border-lip); border-radius: 10px; padding: 14px 16px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; box-shadow: 2px 2px 0 var(--border-lip);">
+                        <div style="flex: 1; min-width: 240px;">
+                            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 5px; flex-wrap: wrap;">
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; background: #FEF3C7; color: #92400E; padding: 2px 7px; border-radius: 4px;">PUZZLE #1248</span>
+                                <span style="font-weight: 700; font-size: 14.5px; color: var(--ink);">Tuesday, Nov 10, 2026</span>
+                            </div>
+                            <div style="font-size: 12.5px; color: var(--ink-muted); margin-bottom: 2px;">
+                                <strong>Yellow:</strong> HUBBUB &bull; <strong>Purple:</strong> WORDS WITH FIVE OF ONE VOWEL
+                            </div>
+                            <div style="font-size: 12px; color: #78350F; font-style: italic;">
+                                💡 Watch out for the 5-word <strong>BEEKEEPER</strong> trade trap
+                            </div>
+                        </div>
+                        <a href="breakdowns/2026-11-10.html" class="btn-tactile btn-secondary" style="font-size: 12px; padding: 8px 14px; text-decoration: none;">
+                            Review Walkthrough &rarr;
+                        </a>
+                    </div>
+                    <div style="background: #FFFFFF; border: 1.5px solid var(--border-lip); border-radius: 10px; padding: 14px 16px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; box-shadow: 2px 2px 0 var(--border-lip);">
+                        <div style="flex: 1; min-width: 240px;">
+                            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 5px; flex-wrap: wrap;">
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; background: #FEF3C7; color: #92400E; padding: 2px 7px; border-radius: 4px;">PUZZLE #1247</span>
+                                <span style="font-weight: 700; font-size: 14.5px; color: var(--ink);">Monday, Nov 09, 2026</span>
+                            </div>
+                            <div style="font-size: 12.5px; color: var(--ink-muted); margin-bottom: 2px;">
+                                <strong>Yellow:</strong> DECEITFUL SCHEME &bull; <strong>Purple:</strong> ENDING IN SEA CREATURES
+                            </div>
+                            <div style="font-size: 12px; color: #78350F; font-style: italic;">
+                                💡 Watch out for the 5-word <strong>CARD SHARK</strong> scam decoy trap
+                            </div>
+                        </div>
+                        <a href="breakdowns/2026-11-09.html" class="btn-tactile btn-secondary" style="font-size: 12px; padding: 8px 14px; text-decoration: none;">
+                            Review Walkthrough &rarr;
+                        </a>
+                    </div>
+                    <div style="background: #FFFFFF; border: 1.5px solid var(--border-lip); border-radius: 10px; padding: 14px 16px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; box-shadow: 2px 2px 0 var(--border-lip);">
+                        <div style="flex: 1; min-width: 240px;">
+                            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 5px; flex-wrap: wrap;">
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; background: #FEF3C7; color: #92400E; padding: 2px 7px; border-radius: 4px;">PUZZLE #1246</span>
+                                <span style="font-weight: 700; font-size: 14.5px; color: var(--ink);">Sunday, Nov 08, 2026</span>
+                            </div>
+                            <div style="font-size: 12.5px; color: var(--ink-muted); margin-bottom: 2px;">
+                                <strong>Yellow:</strong> MUSCULAR &bull; <strong>Purple:</strong> VEGETABLE HOMOPHONES
+                            </div>
+                            <div style="font-size: 12px; color: #78350F; font-style: italic;">
+                                💡 Watch out for the 5-word <strong>CUT</strong> salon decoy trap
+                            </div>
+                        </div>
+                        <a href="breakdowns/2026-11-08.html" class="btn-tactile btn-secondary" style="font-size: 12px; padding: 8px 14px; text-decoration: none;">
+                            Review Walkthrough &rarr;
+                        </a>
+                    </div>
+                    <div style="background: #FFFFFF; border: 1.5px solid var(--border-lip); border-radius: 10px; padding: 14px 16px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; box-shadow: 2px 2px 0 var(--border-lip);">
+                        <div style="flex: 1; min-width: 240px;">
+                            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 5px; flex-wrap: wrap;">
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; background: #FEF3C7; color: #92400E; padding: 2px 7px; border-radius: 4px;">PUZZLE #1245</span>
+                                <span style="font-weight: 700; font-size: 14.5px; color: var(--ink);">Saturday, Nov 07, 2026</span>
+                            </div>
+                            <div style="font-size: 12.5px; color: var(--ink-muted); margin-bottom: 2px;">
+                                <strong>Yellow:</strong> PIRATE'S PLUNDER &bull; <strong>Purple:</strong> ENDS OF STORM TYPES
+                            </div>
+                            <div style="font-size: 12px; color: #78350F; font-style: italic;">
+                                💡 Watch out for the cardinal directions decoy trap
+                            </div>
+                        </div>
+                        <a href="breakdowns/2026-11-07.html" class="btn-tactile btn-secondary" style="font-size: 12px; padding: 8px 14px; text-decoration: none;">
+                            Review Walkthrough &rarr;
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Friendly Practice Coach Tip -->
+                <div style="background: #F0FDF4; border: 1.5px solid #86EFAC; border-radius: 10px; padding: 12px 16px; margin: 18px 0; font-size: 12.5px; color: #166534; display: flex; align-items: center; gap: 10px;">
+                    <span style="font-size: 20px; line-height: 1;">💡</span>
+                    <div style="line-height: 1.5;">
+                        <strong>Daily Solver's Tip:</strong> Practicing with past Purple tiers is the #1 way to train your brain to spot homophones, hidden prefixes, and Wyna Liu's lateral wordplay tricks before they catch you!
+                    </div>
+                </div>
+
+                <!-- Complete 30-Day Grid Accordion -->
+                <details class="archive-accordion" style="background: #FFFFFF; border: 1.5px solid var(--border-lip); border-radius: 10px; padding: 14px 16px; box-shadow: 2px 2px 0 var(--border-lip);" open>
+                    <summary style="cursor: pointer; font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 13px; color: var(--ink); display: flex; justify-content: space-between; align-items: center; user-select: none;">
+                        <span>📅 Complete 30-Day Puzzle Directory (Oct 13 &ndash; Nov 11)</span>
+                        <span style="font-size: 11px; background: #FEF3C7; color: #92400E; padding: 3px 8px; border-radius: 4px;">30 Puzzles &bull; Click to Toggle</span>
+                    </summary>
+                    <p style="font-size: 12.5px; color: var(--ink-muted); margin: 10px 0 12px 0;">
+                        Click any date below to open its dedicated walkthrough with solved 4x4 color grids and category guides:
+                    </p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 9px;">
+                        <a href="breakdowns/2026-11-11.html" style="display: block; text-decoration: none; background: #FFFFFF; border: 1.5px solid var(--border-lip); border-radius: 8px; padding: 9px 12px; color: inherit; transition: transform 0.12s ease, box-shadow 0.12s ease; box-shadow: 1.5px 1.5px 0 var(--border-lip);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px;">
+                                <span style="font-weight: 700; font-size: 13px; color: var(--ink);">Nov 11 (Wed)</span>
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--ink-muted); font-weight: 700;">#1249</span>
+                            </div>
+                            <div style="font-size: 11.5px; color: #6D28D9; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="ENDING IN PALINDROMES">
+                                🟪 ENDING IN PALINDROMES
+                            </div>
+                        </a>
+                        <a href="breakdowns/2026-11-10.html" style="display: block; text-decoration: none; background: #FFFFFF; border: 1.5px solid var(--border-lip); border-radius: 8px; padding: 9px 12px; color: inherit; transition: transform 0.12s ease, box-shadow 0.12s ease; box-shadow: 1.5px 1.5px 0 var(--border-lip);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px;">
+                                <span style="font-weight: 700; font-size: 13px; color: var(--ink);">Nov 10 (Tue)</span>
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--ink-muted); font-weight: 700;">#1248</span>
+                            </div>
+                            <div style="font-size: 11.5px; color: #6D28D9; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="WORDS WITH FIVE OF ONE VOWEL">
+                                🟪 WORDS WITH FIVE OF ONE VOWEL
+                            </div>
+                        </a>
+                        <a href="breakdowns/2026-11-09.html" style="display: block; text-decoration: none; background: #FFFFFF; border: 1.5px solid var(--border-lip); border-radius: 8px; padding: 9px 12px; color: inherit; transition: transform 0.12s ease, box-shadow 0.12s ease; box-shadow: 1.5px 1.5px 0 var(--border-lip);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px;">
+                                <span style="font-weight: 700; font-size: 13px; color: var(--ink);">Nov 09 (Mon)</span>
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--ink-muted); font-weight: 700;">#1247</span>
+                            </div>
+                            <div style="font-size: 11.5px; color: #6D28D9; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="ENDING IN SEA CREATURES">
+                                🟪 ENDING IN SEA CREATURES
+                            </div>
+                        </a>
+                        <a href="breakdowns/2026-11-08.html" style="display: block; text-decoration: none; background: #FFFFFF; border: 1.5px solid var(--border-lip); border-radius: 8px; padding: 9px 12px; color: inherit; transition: transform 0.12s ease, box-shadow 0.12s ease; box-shadow: 1.5px 1.5px 0 var(--border-lip);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px;">
+                                <span style="font-weight: 700; font-size: 13px; color: var(--ink);">Nov 08 (Sun)</span>
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--ink-muted); font-weight: 700;">#1246</span>
+                            </div>
+                            <div style="font-size: 11.5px; color: #6D28D9; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="VEGETABLE HOMOPHONES">
+                                🟪 VEGETABLE HOMOPHONES
+                            </div>
+                        </a>
+                        <a href="breakdowns/2026-11-07.html" style="display: block; text-decoration: none; background: #FFFFFF; border: 1.5px solid var(--border-lip); border-radius: 8px; padding: 9px 12px; color: inherit; transition: transform 0.12s ease, box-shadow 0.12s ease; box-shadow: 1.5px 1.5px 0 var(--border-lip);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px;">
+                                <span style="font-weight: 700; font-size: 13px; color: var(--ink);">Nov 07 (Sat)</span>
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--ink-muted); font-weight: 700;">#1245</span>
+                            </div>
+                            <div style="font-size: 11.5px; color: #6D28D9; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="ENDS OF STORM TYPES">
+                                🟪 ENDS OF STORM TYPES
+                            </div>
+                        </a>
+                        <a href="breakdowns/2026-11-06.html" style="display: block; text-decoration: none; background: #FFFFFF; border: 1.5px solid var(--border-lip); border-radius: 8px; padding: 9px 12px; color: inherit; transition: transform 0.12s ease, box-shadow 0.12s ease; box-shadow: 1.5px 1.5px 0 var(--border-lip);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px;">
+                                <span style="font-weight: 700; font-size: 13px; color: var(--ink);">Nov 06 (Fri)</span>
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--ink-muted); font-weight: 700;">#1244</span>
+                            </div>
+                            <div style="font-size: 11.5px; color: #6D28D9; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="ENDING IN PARTS OF THE EYE">
+                                🟪 ENDING IN PARTS OF THE EYE
+                            </div>
+                        </a>
+                        <a href="breakdowns/2026-11-05.html" style="display: block; text-decoration: none; background: #FFFFFF; border: 1.5px solid var(--border-lip); border-radius: 8px; padding: 9px 12px; color: inherit; transition: transform 0.12s ease, box-shadow 0.12s ease; box-shadow: 1.5px 1.5px 0 var(--border-lip);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px;">
+                                <span style="font-weight: 700; font-size: 13px; color: var(--ink);">Nov 05 (Thu)</span>
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--ink-muted); font-weight: 700;">#1243</span>
+                            </div>
+                            <div style="font-size: 11.5px; color: #6D28D9; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="LIQUORS WITH LAST LETTERS CHANGED">
+                                🟪 LIQUORS WITH LAST LETTERS CHANGED
+                            </div>
+                        </a>
+                        <a href="breakdowns/2026-11-04.html" style="display: block; text-decoration: none; background: #FFFFFF; border: 1.5px solid var(--border-lip); border-radius: 8px; padding: 9px 12px; color: inherit; transition: transform 0.12s ease, box-shadow 0.12s ease; box-shadow: 1.5px 1.5px 0 var(--border-lip);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px;">
+                                <span style="font-weight: 700; font-size: 13px; color: var(--ink);">Nov 04 (Wed)</span>
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--ink-muted); font-weight: 700;">#1242</span>
+                            </div>
+                            <div style="font-size: 11.5px; color: #6D28D9; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="FIRE___">
+                                🟪 FIRE___
+                            </div>
+                        </a>
+                        <a href="breakdowns/2026-11-03.html" style="display: block; text-decoration: none; background: #FFFFFF; border: 1.5px solid var(--border-lip); border-radius: 8px; padding: 9px 12px; color: inherit; transition: transform 0.12s ease, box-shadow 0.12s ease; box-shadow: 1.5px 1.5px 0 var(--border-lip);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px;">
+                                <span style="font-weight: 700; font-size: 13px; color: var(--ink);">Nov 03 (Tue)</span>
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--ink-muted); font-weight: 700;">#1241</span>
+                            </div>
+                            <div style="font-size: 11.5px; color: #6D28D9; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="ENDING IN MENU BAR HEADINGS">
+                                🟪 ENDING IN MENU BAR HEADINGS
+                            </div>
+                        </a>
+                        <a href="breakdowns/2026-11-02.html" style="display: block; text-decoration: none; background: #FFFFFF; border: 1.5px solid var(--border-lip); border-radius: 8px; padding: 9px 12px; color: inherit; transition: transform 0.12s ease, box-shadow 0.12s ease; box-shadow: 1.5px 1.5px 0 var(--border-lip);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px;">
+                                <span style="font-weight: 700; font-size: 13px; color: var(--ink);">Nov 02 (Mon)</span>
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--ink-muted); font-weight: 700;">#1240</span>
+                            </div>
+                            <div style="font-size: 11.5px; color: #6D28D9; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="THINGS WITH MIRRORS">
+                                🟪 THINGS WITH MIRRORS
+                            </div>
+                        </a>
+                        <a href="breakdowns/2026-11-01.html" style="display: block; text-decoration: none; background: #FFFFFF; border: 1.5px solid var(--border-lip); border-radius: 8px; padding: 9px 12px; color: inherit; transition: transform 0.12s ease, box-shadow 0.12s ease; box-shadow: 1.5px 1.5px 0 var(--border-lip);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px;">
+                                <span style="font-weight: 700; font-size: 13px; color: var(--ink);">Nov 01 (Sun)</span>
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--ink-muted); font-weight: 700;">#1239</span>
+                            </div>
+                            <div style="font-size: 11.5px; color: #6D28D9; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="SYNONYMS FOR "SOAKED" WITH FIRST LETTER CHANGED">
+                                🟪 SYNONYMS FOR "SOAKED" WITH FIRST LETTER CHANGED
+                            </div>
+                        </a>
+                        <a href="breakdowns/2026-10-31.html" style="display: block; text-decoration: none; background: #FFFFFF; border: 1.5px solid var(--border-lip); border-radius: 8px; padding: 9px 12px; color: inherit; transition: transform 0.12s ease, box-shadow 0.12s ease; box-shadow: 1.5px 1.5px 0 var(--border-lip);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px;">
+                                <span style="font-weight: 700; font-size: 13px; color: var(--ink);">Oct 31 (Sat)</span>
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--ink-muted); font-weight: 700;">#1238</span>
+                            </div>
+                            <div style="font-size: 11.5px; color: #6D28D9; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="STARTING WITH DOG COMMANDS">
+                                🟪 STARTING WITH DOG COMMANDS
+                            </div>
+                        </a>
+                        <a href="breakdowns/2026-10-30.html" style="display: block; text-decoration: none; background: #FFFFFF; border: 1.5px solid var(--border-lip); border-radius: 8px; padding: 9px 12px; color: inherit; transition: transform 0.12s ease, box-shadow 0.12s ease; box-shadow: 1.5px 1.5px 0 var(--border-lip);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px;">
+                                <span style="font-weight: 700; font-size: 13px; color: var(--ink);">Oct 30 (Fri)</span>
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--ink-muted); font-weight: 700;">#1237</span>
+                            </div>
+                            <div style="font-size: 11.5px; color: #6D28D9; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="FRUIT WITH FIRST LETTER CHANGED">
+                                🟪 FRUIT WITH FIRST LETTER CHANGED
+                            </div>
+                        </a>
+                        <a href="breakdowns/2026-10-29.html" style="display: block; text-decoration: none; background: #FFFFFF; border: 1.5px solid var(--border-lip); border-radius: 8px; padding: 9px 12px; color: inherit; transition: transform 0.12s ease, box-shadow 0.12s ease; box-shadow: 1.5px 1.5px 0 var(--border-lip);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px;">
+                                <span style="font-weight: 700; font-size: 13px; color: var(--ink);">Oct 29 (Thu)</span>
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--ink-muted); font-weight: 700;">#1236</span>
+                            </div>
+                            <div style="font-size: 11.5px; color: #6D28D9; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="THINGS THAT FEATURE THREE COLORS">
+                                🟪 THINGS THAT FEATURE THREE COLORS
+                            </div>
+                        </a>
+                        <a href="breakdowns/2026-10-28.html" style="display: block; text-decoration: none; background: #FFFFFF; border: 1.5px solid var(--border-lip); border-radius: 8px; padding: 9px 12px; color: inherit; transition: transform 0.12s ease, box-shadow 0.12s ease; box-shadow: 1.5px 1.5px 0 var(--border-lip);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px;">
+                                <span style="font-weight: 700; font-size: 13px; color: var(--ink);">Oct 28 (Wed)</span>
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--ink-muted); font-weight: 700;">#1235</span>
+                            </div>
+                            <div style="font-size: 11.5px; color: #6D28D9; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="HOMOPHONES OF PATHS">
+                                🟪 HOMOPHONES OF PATHS
+                            </div>
+                        </a>
+                        <a href="breakdowns/2026-10-27.html" style="display: block; text-decoration: none; background: #FFFFFF; border: 1.5px solid var(--border-lip); border-radius: 8px; padding: 9px 12px; color: inherit; transition: transform 0.12s ease, box-shadow 0.12s ease; box-shadow: 1.5px 1.5px 0 var(--border-lip);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px;">
+                                <span style="font-weight: 700; font-size: 13px; color: var(--ink);">Oct 27 (Tue)</span>
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--ink-muted); font-weight: 700;">#1234</span>
+                            </div>
+                            <div style="font-size: 11.5px; color: #6D28D9; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="BELL ___">
+                                🟪 BELL ___
+                            </div>
+                        </a>
+                        <a href="breakdowns/2026-10-26.html" style="display: block; text-decoration: none; background: #FFFFFF; border: 1.5px solid var(--border-lip); border-radius: 8px; padding: 9px 12px; color: inherit; transition: transform 0.12s ease, box-shadow 0.12s ease; box-shadow: 1.5px 1.5px 0 var(--border-lip);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px;">
+                                <span style="font-weight: 700; font-size: 13px; color: var(--ink);">Oct 26 (Mon)</span>
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--ink-muted); font-weight: 700;">#1233</span>
+                            </div>
+                            <div style="font-size: 11.5px; color: #6D28D9; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="HORROR MOVIES WITH LAST LETTER CHANGED">
+                                🟪 HORROR MOVIES WITH LAST LETTER CHANGED
+                            </div>
+                        </a>
+                        <a href="breakdowns/2026-10-25.html" style="display: block; text-decoration: none; background: #FFFFFF; border: 1.5px solid var(--border-lip); border-radius: 8px; padding: 9px 12px; color: inherit; transition: transform 0.12s ease, box-shadow 0.12s ease; box-shadow: 1.5px 1.5px 0 var(--border-lip);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px;">
+                                <span style="font-weight: 700; font-size: 13px; color: var(--ink);">Oct 25 (Sun)</span>
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--ink-muted); font-weight: 700;">#1232</span>
+                            </div>
+                            <div style="font-size: 11.5px; color: #6D28D9; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="THINGS THAT CAN BE SNAPPED">
+                                🟪 THINGS THAT CAN BE SNAPPED
+                            </div>
+                        </a>
+                        <a href="breakdowns/2026-10-24.html" style="display: block; text-decoration: none; background: #FFFFFF; border: 1.5px solid var(--border-lip); border-radius: 8px; padding: 9px 12px; color: inherit; transition: transform 0.12s ease, box-shadow 0.12s ease; box-shadow: 1.5px 1.5px 0 var(--border-lip);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px;">
+                                <span style="font-weight: 700; font-size: 13px; color: var(--ink);">Oct 24 (Sat)</span>
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--ink-muted); font-weight: 700;">#1231</span>
+                            </div>
+                            <div style="font-size: 11.5px; color: #6D28D9; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="___ BAR">
+                                🟪 ___ BAR
+                            </div>
+                        </a>
+                        <a href="breakdowns/2026-10-23.html" style="display: block; text-decoration: none; background: #FFFFFF; border: 1.5px solid var(--border-lip); border-radius: 8px; padding: 9px 12px; color: inherit; transition: transform 0.12s ease, box-shadow 0.12s ease; box-shadow: 1.5px 1.5px 0 var(--border-lip);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px;">
+                                <span style="font-weight: 700; font-size: 13px; color: var(--ink);">Oct 23 (Fri)</span>
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--ink-muted); font-weight: 700;">#1230</span>
+                            </div>
+                            <div style="font-size: 11.5px; color: #6D28D9; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="___ TAP">
+                                🟪 ___ TAP
+                            </div>
+                        </a>
+                        <a href="breakdowns/2026-10-22.html" style="display: block; text-decoration: none; background: #FFFFFF; border: 1.5px solid var(--border-lip); border-radius: 8px; padding: 9px 12px; color: inherit; transition: transform 0.12s ease, box-shadow 0.12s ease; box-shadow: 1.5px 1.5px 0 var(--border-lip);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px;">
+                                <span style="font-weight: 700; font-size: 13px; color: var(--ink);">Oct 22 (Thu)</span>
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--ink-muted); font-weight: 700;">#1229</span>
+                            </div>
+                            <div style="font-size: 11.5px; color: #6D28D9; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="STARTS OF BEDDING">
+                                🟪 STARTS OF BEDDING
+                            </div>
+                        </a>
+                        <a href="breakdowns/2026-10-21.html" style="display: block; text-decoration: none; background: #FFFFFF; border: 1.5px solid var(--border-lip); border-radius: 8px; padding: 9px 12px; color: inherit; transition: transform 0.12s ease, box-shadow 0.12s ease; box-shadow: 1.5px 1.5px 0 var(--border-lip);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px;">
+                                <span style="font-weight: 700; font-size: 13px; color: var(--ink);">Oct 21 (Wed)</span>
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--ink-muted); font-weight: 700;">#1228</span>
+                            </div>
+                            <div style="font-size: 11.5px; color: #6D28D9; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="DOUBLE MISNOMERS (NEITHER WORD IS AN ACCURATE DESCRIPTION)">
+                                🟪 DOUBLE MISNOMERS (NEITHER WORD IS AN ACCURATE DESCRIPTION)
+                            </div>
+                        </a>
+                        <a href="breakdowns/2026-10-20.html" style="display: block; text-decoration: none; background: #FFFFFF; border: 1.5px solid var(--border-lip); border-radius: 8px; padding: 9px 12px; color: inherit; transition: transform 0.12s ease, box-shadow 0.12s ease; box-shadow: 1.5px 1.5px 0 var(--border-lip);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px;">
+                                <span style="font-weight: 700; font-size: 13px; color: var(--ink);">Oct 20 (Tue)</span>
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--ink-muted); font-weight: 700;">#1227</span>
+                            </div>
+                            <div style="font-size: 11.5px; color: #6D28D9; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="HOMOPHONES OF DISNEY CHARACTERS">
+                                🟪 HOMOPHONES OF DISNEY CHARACTERS
+                            </div>
+                        </a>
+                        <a href="breakdowns/2026-10-19.html" style="display: block; text-decoration: none; background: #FFFFFF; border: 1.5px solid var(--border-lip); border-radius: 8px; padding: 9px 12px; color: inherit; transition: transform 0.12s ease, box-shadow 0.12s ease; box-shadow: 1.5px 1.5px 0 var(--border-lip);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px;">
+                                <span style="font-weight: 700; font-size: 13px; color: var(--ink);">Oct 19 (Mon)</span>
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--ink-muted); font-weight: 700;">#1226</span>
+                            </div>
+                            <div style="font-size: 11.5px; color: #6D28D9; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="ENDING IN BIRDS">
+                                🟪 ENDING IN BIRDS
+                            </div>
+                        </a>
+                        <a href="breakdowns/2026-10-18.html" style="display: block; text-decoration: none; background: #FFFFFF; border: 1.5px solid var(--border-lip); border-radius: 8px; padding: 9px 12px; color: inherit; transition: transform 0.12s ease, box-shadow 0.12s ease; box-shadow: 1.5px 1.5px 0 var(--border-lip);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px;">
+                                <span style="font-weight: 700; font-size: 13px; color: var(--ink);">Oct 18 (Sun)</span>
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--ink-muted); font-weight: 700;">#1225</span>
+                            </div>
+                            <div style="font-size: 11.5px; color: #6D28D9; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="STARTING WITH THINGS THAT CLOUD THE AIR">
+                                🟪 STARTING WITH THINGS THAT CLOUD THE AIR
+                            </div>
+                        </a>
+                        <a href="breakdowns/2026-10-17.html" style="display: block; text-decoration: none; background: #FFFFFF; border: 1.5px solid var(--border-lip); border-radius: 8px; padding: 9px 12px; color: inherit; transition: transform 0.12s ease, box-shadow 0.12s ease; box-shadow: 1.5px 1.5px 0 var(--border-lip);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px;">
+                                <span style="font-weight: 700; font-size: 13px; color: var(--ink);">Oct 17 (Sat)</span>
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--ink-muted); font-weight: 700;">#1224</span>
+                            </div>
+                            <div style="font-size: 11.5px; color: #6D28D9; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="LA ___">
+                                🟪 LA ___
+                            </div>
+                        </a>
+                        <a href="breakdowns/2026-10-16.html" style="display: block; text-decoration: none; background: #FFFFFF; border: 1.5px solid var(--border-lip); border-radius: 8px; padding: 9px 12px; color: inherit; transition: transform 0.12s ease, box-shadow 0.12s ease; box-shadow: 1.5px 1.5px 0 var(--border-lip);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px;">
+                                <span style="font-weight: 700; font-size: 13px; color: var(--ink);">Oct 16 (Fri)</span>
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--ink-muted); font-weight: 700;">#1223</span>
+                            </div>
+                            <div style="font-size: 11.5px; color: #6D28D9; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="STARTING WITH WORDS FOR "STYLISH"">
+                                🟪 STARTING WITH WORDS FOR "STYLISH"
+                            </div>
+                        </a>
+                        <a href="breakdowns/2026-10-15.html" style="display: block; text-decoration: none; background: #FFFFFF; border: 1.5px solid var(--border-lip); border-radius: 8px; padding: 9px 12px; color: inherit; transition: transform 0.12s ease, box-shadow 0.12s ease; box-shadow: 1.5px 1.5px 0 var(--border-lip);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px;">
+                                <span style="font-weight: 700; font-size: 13px; color: var(--ink);">Oct 15 (Thu)</span>
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--ink-muted); font-weight: 700;">#1222</span>
+                            </div>
+                            <div style="font-size: 11.5px; color: #6D28D9; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="LOW LANDFORMS WITH A LETTER CHANGED">
+                                🟪 LOW LANDFORMS WITH A LETTER CHANGED
+                            </div>
+                        </a>
+                        <a href="breakdowns/2026-10-14.html" style="display: block; text-decoration: none; background: #FFFFFF; border: 1.5px solid var(--border-lip); border-radius: 8px; padding: 9px 12px; color: inherit; transition: transform 0.12s ease, box-shadow 0.12s ease; box-shadow: 1.5px 1.5px 0 var(--border-lip);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px;">
+                                <span style="font-weight: 700; font-size: 13px; color: var(--ink);">Oct 14 (Wed)</span>
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--ink-muted); font-weight: 700;">#1221</span>
+                            </div>
+                            <div style="font-size: 11.5px; color: #6D28D9; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="STARTING WITH "FEE, FI, FO, FUM"">
+                                🟪 STARTING WITH "FEE, FI, FO, FUM"
+                            </div>
+                        </a>
+                        <a href="breakdowns/2026-10-13.html" style="display: block; text-decoration: none; background: #FFFFFF; border: 1.5px solid var(--border-lip); border-radius: 8px; padding: 9px 12px; color: inherit; transition: transform 0.12s ease, box-shadow 0.12s ease; box-shadow: 1.5px 1.5px 0 var(--border-lip);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px;">
+                                <span style="font-weight: 700; font-size: 13px; color: var(--ink);">Oct 13 (Tue)</span>
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--ink-muted); font-weight: 700;">#1220</span>
+                            </div>
+                            <div style="font-size: 11.5px; color: #6D28D9; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="LOOSE ___">
+                                🟪 LOOSE ___
+                            </div>
+                        </a>
+                    </div>
+                </details>
+            </section>
+
+            <!-- ANCHOR MASTERCLASS VIDEO -->
+            <section class="video-spotlight" id="masterclass">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 12px;">
+                    <span class="tier-badge badge-purple" style="margin: 0; font-size: 11px; padding: 4px 10px;">FEATURED MASTERCLASS</span>
+                    <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; background: #FEF3C7; color: #92400E; border: 1.5px solid #D97706; padding: 4px 10px; border-radius: 6px; display: inline-flex; align-items: center; gap: 6px;">
+                        🎬 16:9 Comprehensive Walkthrough
+                    </span>
+                </div>
+                <h2 style="margin: 8px 0 6px 0; font-size: 22px; color: var(--ink);">Featured Masterclass: The Definitive Guide to Solving NYT Connections</h2>
+                <p style="font-size: 14px; color: var(--ink-muted); margin: 0 0 16px 0; line-height: 1.6;">Comprehensive breakdown covering polysemic traps, frequency analysis, and eliminating red herrings.</p>
+                
+                <div class="video-container" style="aspect-ratio: 16 / 9; width: 100%; border: none; border-radius: 12px;">
+                    <iframe src="https://www.youtube.com/embed/KH3DIIjSjB4" title="The Definitive Guide to Solving NYT Connections | Master Strategy & Color Tiers" style="aspect-ratio: 16 / 9; width: 100%; border: none; border-radius: 12px;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </section>
+
+            <h2>Recent Puzzle Breakdowns &amp; Examples</h2>
+
+            <!-- Case Study 1 -->
+            <article class="breakdown-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+                    <h3 style="margin: 0; font-size: 16px;">Example: The "BAT" 5-Word Decoy Trap</h3>
+                    <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; background: #FEF3C7; color: #92400E; border: 1px solid #D97706; padding: 2px 8px; border-radius: 4px; font-weight: 700;">5-WORD CONFLICT</span>
+                </div>
+                <p style="font-size: 13px; color: var(--ink-muted); margin: 8px 0 12px 0; line-height: 1.6;">
+                    <strong>The Dilemma:</strong> The board showed <em>BAT, AIRPLANE, BIRD, BUTTERFLY, ANGEL</em>. All five have wings! Guessing right away would waste an attempt because one belongs to a different group.
+                </p>
+                
+                <div class="breakdown-grid">
+                    <div class="breakdown-tile tile-green">AIRPLANE</div>
+                    <div class="breakdown-tile tile-green">BIRD</div>
+                    <div class="breakdown-tile tile-green">BUTTERFLY</div>
+                    <div class="breakdown-tile tile-green">ANGEL</div>
+                    <div class="breakdown-tile tile-purple">BAT</div>
+                    <div class="breakdown-tile tile-purple">CLUB</div>
+                    <div class="breakdown-tile tile-purple">DIAMOND</div>
+                    <div class="breakdown-tile tile-purple">HEART</div>
+                </div>
+
+                <p style="font-size: 13px; color: var(--ink-muted); margin: 8px 0 0 0; line-height: 1.6;">
+                    <strong>The Solution:</strong> <em>BAT</em> actually belonged to playing card suits alongside <em>CLUB, DIAMOND, and HEART</em> (with baseball wordplay). Once you see the suits, the four true winged items become obvious!
+                </p>
+            </article>
+
+            <!-- Case Study 2 -->
+            <article class="breakdown-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+                    <h3 style="margin: 0; font-size: 16px;">Example: Words That End in "BOARD"</h3>
+                    <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; background: #DBEAFE; color: #1E40AF; border: 1px solid #3B82F6; padding: 2px 8px; border-radius: 4px; font-weight: 700;">BLUE TIER PATTERN</span>
+                </div>
+                <p style="font-size: 13px; color: var(--ink-muted); margin: 8px 0 12px 0; line-height: 1.6;">
+                    <strong>The Pattern:</strong> Words that don't mean the same thing at all (<em>KEY, DASH, SNOW, SURF</em>) were secretly linked because each one can end with the word "BOARD".
+                </p>
+                <p style="font-size: 13px; color: var(--ink-muted); margin: 0; line-height: 1.6;">
+                    <strong>The Takeaway:</strong> When words seem completely unrelated, try adding a common word like "BOARD", "TIME", or "BALL" before or after them.
+                </p>
+            </article>
+
+            <div style="text-align: center; margin: 32px 0; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+                <a href="strategy.html" class="btn-tactile btn-secondary">Explore 5-Word Trap Strategy &rarr;</a>
+                <a href="index.html" class="btn-tactile btn-primary">Open Word Helper &rarr;</a>
+            </div>
+        </main>
+
+        <section class="support-banner">
+            <h4>☕ Enjoying Your Morning Puzzle Companion?</h4>
+            <p>We love keeping this helper fast, free, and easy to use for everyone enjoying their daily morning word puzzle. If our gentle hints helped you today, consider buying us a coffee!</p>
+            <div class="support-btn-group">
+                <a href="https://ko-fi.com/connectionsassistant" target="_blank" rel="noopener noreferrer" class="btn-support btn-kofi">☕ Tip $3 on Ko-fi</a>
+                <a href="https://paypal.me/j1223aw/2" target="_blank" rel="noopener noreferrer" class="btn-support btn-paypal">🅿️ Tip $2 via PayPal</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Connections Grouping Assistant. All rights reserved.</p>
+        <p style="margin: 4px 0 12px 0;">This independent helper utility is not affiliated with the New York Times Company.</p>
+        <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="https://www.reddit.com/user/ConnectionsCoach/" target="_blank" rel="noopener noreferrer">Reddit: u/ConnectionsCoach</a>
+            <a href="https://www.youtube.com/@ConnectionsAssistant" target="_blank" rel="noopener noreferrer">YouTube: @ConnectionsAssistant</a>
+        </div>
+    </footer>
+
+    <script>
+        const streak = localStorage.getItem('ca_streak_count') || '1';
+        const streakEl = document.getElementById('streakCount');
+        if (streakEl) streakEl.innerText = streak;
+
+        // ===================================================
+        // HIGH-CTR DUAL-MODE VIDEO BENTO CONTROLLER
+        // ===================================================
+        const VIDEO_CONFIG = {
+            short: {
+                id: "JXqKaB4AFpQ",
+                title: "NYT Connections Hints Today - Friday Nov 13, 2026",
+                duration: "⚡ 45s Quick Watch",
+                ctaMain: "TAP TO WATCH 45s WALKTHROUGH",
+                ctaSub: "Safe • Protects Your Streak",
+                tag: "⚡ 45-SEC SPOILER GUARD",
+                modeClass: "mode-short"
+            },
+            masterclass: {
+                id: "G50D-qZDsC4",
+                title: "Todays NYT Connections Explained (Nov 13, 2026) | Full Solution & Word Meanings (#1251)",
+                duration: "🎓 7m Masterclass",
+                ctaMain: "TAP TO WATCH MASTERCLASS (16:9)",
+                ctaSub: "Step-by-Step Word Guide & Strategy",
+                tag: "🎓 FULL VIDEO MASTERCLASS",
+                modeClass: "mode-masterclass"
+            }
+        };
+
+        let currentVideoMode = "short";
+        let isVideoPlaying = false;
+
+        function switchVideoMode(mode) {
+            if (mode === currentVideoMode && !isVideoPlaying) return;
+            currentVideoMode = mode;
+
+            // Update Tab states
+            const tabShort = document.getElementById("tab-short");
+            const tabMasterclass = document.getElementById("tab-masterclass");
+            if (tabShort && tabMasterclass) {
+                tabShort.classList.toggle("active", mode === "short");
+                tabMasterclass.classList.toggle("active", mode === "masterclass");
+            }
+
+            const cfg = VIDEO_CONFIG[mode];
+            const durationPill = document.getElementById("video-duration-pill");
+            if (durationPill) durationPill.textContent = cfg.duration;
+
+            const ctaMain = document.querySelector("#facade-cta-label .facade-cta-main");
+            const ctaSub = document.querySelector("#facade-cta-label .facade-cta-sub");
+            if (ctaMain) ctaMain.textContent = cfg.ctaMain;
+            if (ctaSub) ctaSub.textContent = cfg.ctaSub;
+
+            const facadeTag = document.getElementById("facade-tag");
+            if (facadeTag) facadeTag.textContent = cfg.tag;
+
+            const facadeThumb = document.getElementById("facade-thumb");
+            if (facadeThumb) facadeThumb.src = `https://i.ytimg.com/vi/${cfg.id}/hqdefault.jpg`;
+
+            const stage = document.getElementById("video-player-stage");
+            if (stage) {
+                stage.classList.remove("mode-short", "mode-masterclass");
+                stage.classList.add(cfg.modeClass);
+            }
+
+            // Chapters toggle
+            const chaptersShort = document.getElementById("chapters-list-short");
+            const chaptersMasterclass = document.getElementById("chapters-list-masterclass");
+            if (chaptersShort) chaptersShort.style.display = mode === "short" ? "flex" : "none";
+            if (chaptersMasterclass) chaptersMasterclass.style.display = mode === "masterclass" ? "flex" : "none";
+
+            if (isVideoPlaying) {
+                loadIframe(cfg.id, cfg.title, true);
+            }
+        }
+
+        function playCurrentVideo() {
+            isVideoPlaying = true;
+            const cfg = VIDEO_CONFIG[currentVideoMode];
+            const facade = document.getElementById("video-facade");
+            const slot = document.getElementById("video-iframe-slot");
+            if (facade) facade.style.display = "none";
+            if (slot) {
+                slot.style.display = "block";
+                loadIframe(cfg.id, cfg.title, true);
+            }
+        }
+
+        function loadIframe(id, title, autoplay) {
+            const slot = document.getElementById("video-iframe-slot");
+            if (!slot) return;
+            const autoParam = autoplay ? "?autoplay=1&rel=0" : "?rel=0";
+            slot.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${id}${autoParam}" title="${title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+        }
+
+        function seekVideo(seconds) {
+            isVideoPlaying = true;
+            const cfg = VIDEO_CONFIG[currentVideoMode];
+            const facade = document.getElementById("video-facade");
+            const slot = document.getElementById("video-iframe-slot");
+            if (facade) facade.style.display = "none";
+            if (slot) {
+                slot.style.display = "block";
+                slot.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${cfg.id}?autoplay=1&start=${seconds}&rel=0" title="${cfg.title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+            }
+        }
+    </script>
+</body>
+</html>

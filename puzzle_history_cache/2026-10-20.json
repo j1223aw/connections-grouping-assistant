@@ -1,0 +1,70 @@
+{
+  "id": 1227,
+  "api_id": 1328,
+  "puzzle_number": 1227,
+  "date": "2026-10-20",
+  "starting_board": [
+    "CHEVRON",
+    "DOCK",
+    "BELL",
+    "PENCIL",
+    "POODLE",
+    "WRAP",
+    "MINI",
+    "MINION",
+    "WALRUS",
+    "PUPPET",
+    "CLOSE",
+    "HORSESHOE",
+    "ARIAL",
+    "STOP",
+    "STOOGE",
+    "END"
+  ],
+  "categories": [
+    {
+      "tier": "Yellow",
+      "level": 0,
+      "title": "FINISH",
+      "words": [
+        "CLOSE",
+        "END",
+        "STOP",
+        "WRAP"
+      ]
+    },
+    {
+      "tier": "Green",
+      "level": 1,
+      "title": "LACKEY",
+      "words": [
+        "MINION",
+        "POODLE",
+        "PUPPET",
+        "STOOGE"
+      ]
+    },
+    {
+      "tier": "Blue",
+      "level": 2,
+      "title": "MUSTACHES",
+      "words": [
+        "CHEVRON",
+        "HORSESHOE",
+        "PENCIL",
+        "WALRUS"
+      ]
+    },
+    {
+      "tier": "Purple",
+      "level": 3,
+      "title": "HOMOPHONES OF DISNEY CHARACTERS",
+      "words": [
+        "ARIAL",
+        "BELL",
+        "DOCK",
+        "MINI"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "id": 1221,
+  "api_id": 1330,
+  "puzzle_number": 1221,
+  "date": "2026-10-14",
+  "starting_board": [
+    "FEED",
+    "THING",
+    "SERVE",
+    "SUGGESTION",
+    "FIERY",
+    "FLICKER",
+    "FLASH",
+    "FOMENT",
+    "SMASH",
+    "HULK",
+    "TRACE",
+    "FUMBLE",
+    "SLICE",
+    "WHIFF",
+    "VOLLEY",
+    "PUNISHER"
+  ],
+  "categories": [
+    {
+      "tier": "Yellow",
+      "level": 0,
+      "title": "HINT",
+      "words": [
+        "FLICKER",
+        "SUGGESTION",
+        "TRACE",
+        "WHIFF"
+      ]
+    },
+    {
+      "tier": "Green",
+      "level": 1,
+      "title": "TENNIS SHOTS",
+      "words": [
+        "SERVE",
+        "SLICE",
+        "SMASH",
+        "VOLLEY"
+      ]
+    },
+    {
+      "tier": "Blue",
+      "level": 2,
+      "title": "SUPERHEROES, WITH \"THE\"",
+      "words": [
+        "FLASH",
+        "HULK",
+        "PUNISHER",
+        "THING"
+      ]
+    },
+    {
+      "tier": "Purple",
+      "level": 3,
+      "title": "STARTING WITH \"FEE, FI, FO, FUM\"",
+      "words": [
+        "FEED",
+        "FIERY",
+        "FOMENT",
+        "FUMBLE"
+      ]
+    }
+  ]
+}

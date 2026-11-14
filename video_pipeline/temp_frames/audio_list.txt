@@ -1,0 +1,3 @@
+file 'C:/Users/Infinite/Documents/Connections Grouping Assistant/video_pipeline/temp_frames/the_scale_trap__weighing_devic_a1.mp3'
+file 'C:/Users/Infinite/Documents/Connections Grouping Assistant/video_pipeline/temp_frames/the_scale_trap__weighing_devic_a2.mp3'
+file 'C:/Users/Infinite/Documents/Connections Grouping Assistant/video_pipeline/temp_frames/the_scale_trap__weighing_devic_a3.mp3'

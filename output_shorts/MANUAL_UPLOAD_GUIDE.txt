@@ -1,0 +1,66 @@
+======================================================================
+CONNECTIONS ASSISTANT — DAILY YOUTUBE SHORTS MANUAL UPLOAD GUIDE
+Puzzle Date: 2026-11-14 | Puzzle #1252
+======================================================================
+
+>>> DROP 1: TEASER & DECOY TRAP SHORT
+- Video File:      C:\Users\Infinite\Documents\Connections Grouping Assistant\output_shorts\today_connections_hints.mp4
+- Thumbnail File:  C:\Users\Infinite\Documents\Connections Grouping Assistant\output_shorts\frames\scene_3.png
+- Title:           Stuck on Today's NYT Connections? Gentle Hints & Trap Alert (2026-11-14) #shorts #nytconnections
+- Description:
+Morning walkthrough and hints for today's NYT Connections puzzle (#1252 - 2026-11-14).
+
+☕ Test candidate word groups on our free interactive helper without burning your 4 guesses:
+https://connectionsassistant.com/breakdowns.html
+
+THE 4 COLOR TIERS:
+🟨 TIER 1 • EASIEST (Direct Synonyms) — Words that share the same meaning
+🟩 TIER 2 • MODERATE (Contextual Link) — Connected by a common theme or subject
+🟦 TIER 3 • CHALLENGING (Trivia & Patterns) — Specialized trivia or shared word patterns
+🟪 TIER 4 • TRICKIEST (Lateral Wordplay) — Clever wordplay or spelling tricks
+
+#NYTConnections #WordPuzzle #BrainTeaser #ConnectionsHints #Shorts #KeepSharp #SeniorGames
+- Pinned Comment:  ☕ Test your candidate word groups without burning your 4 daily guesses on our free, ad-free helper: https://connectionsassistant.com/breakdowns.html
+- Tags:            NYT Connections, Connections hints, NYT Connections today, Connections Assistant, gentle hints, connections hints without spoilers, Wordle Solver, brain health, word puzzle
+
+----------------------------------------------------------------------
+>>> DROP 2: FULL BOARD ORDERED WALKTHROUGH SHORT
+- Video File:      C:\Users\Infinite\Documents\Connections Grouping Assistant\output_shorts\today_connections_full_solution.mp4
+- Thumbnail File:  C:\Users\Infinite\Documents\Connections Grouping Assistant\output_shorts\solution_frames\frame_4b_purple_solved.png
+- Title:           NYT Connections Solution Today (2026-11-14) | Step-by-Step Walkthrough #shorts #nytconnections
+- Description:
+Step-by-step solution for today's NYT Connections puzzle (#1252 - 2026-11-14):
+
+🟨 TIER 1 • EASIEST (Direct Synonyms): Cutting-Edge
+   → Words that share the same direct meaning
+
+🟩 TIER 2 • MODERATE (Contextual Link): Locations For An Institution
+   → Connected by a common theme or subject
+
+🟦 TIER 3 • CHALLENGING (Trivia & Patterns): Strategy Board Games
+   → Specialized trivia or shared word patterns
+
+🟪 TIER 4 • TRICKIEST (Lateral Wordplay): Baby Gear With First Letter Changed
+   → Clever wordplay or spelling tricks
+
+☕ Check out today's full word meanings, origins, and interactive board helper at:
+https://connectionsassistant.com/breakdowns.html
+
+#NYTConnections #ConnectionsSolution #WordPuzzle #BrainTeaser #Shorts #KeepSharp #WordGames
+- Pinned Comment:  ☕ Solved today's puzzle? Read full word definitions, origins, and helpful clues at: https://connectionsassistant.com/breakdowns.html
+- Tags:            NYT Connections, Connections solution today, Connections full walkthrough, NYT Connections answers, Connections hints, Connections Assistant, Wordle Solver, brain games
+
+----------------------------------------------------------------------
+>>> DROP 3: 16:9 LONG-FORM DEEP DIVE MASTERCLASS
+- Video File:      C:\Users\Infinite\Documents\Connections Grouping Assistant\output_masterclass\today_deep_dive_masterclass.mp4
+- Thumbnail File:  C:\Users\Infinite\Documents\Connections Grouping Assistant\output_masterclass\today_deep_dive_thumbnail.png
+- Metadata File:   C:\Users\Infinite\Documents\Connections Grouping Assistant\output_masterclass\today_deep_dive_metadata.txt
+- Title:           NYT Connections Explained Today (2026-11-14) | Full Solution, Word Meanings & Clues
+
+----------------------------------------------------------------------
+>>> POST-UPLOAD WEBSITE UPDATE (1 STEP):
+After uploading Drop 1, grab its YouTube Video ID or URL (e.g. TF_eBP_eN20) and run:
+  python sync_daily_web.py --short-id <VIDEO_ID> --deploy
+
+This instantly swaps the live embed on breakdowns.html and pushes to production!
+======================================================================

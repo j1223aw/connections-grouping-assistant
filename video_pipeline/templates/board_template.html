@@ -1,86 +1,198 @@
-﻿<!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Plus+Jakarta+Sans:wght@700;800&family=JetBrains+Mono:wght@700&display=swap');
+
   * { box-sizing: border-box; margin: 0; padding: 0; }
+  
   body {
-    width: 1080px; height: 1920px;
-    background: radial-gradient(circle at 50% 20%, #1e293b 0%, #0f172a 100%);
+    width: 1080px;
+    height: 1920px;
+    background-color: #FAF8F5; /* Warm Alabaster Paper */
     font-family: 'Plus Jakarta Sans', sans-serif;
-    color: #ffffff;
-    display: flex; flex-direction: column; align-items: center; justify-content: space-between;
-    padding: 140px 60px 100px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 120px 48px;
+    color: #1A1A1A;
+    overflow: hidden;
   }
-  .header { text-align: center; width: 100%; }
-  .tag {
-    display: inline-block; padding: 12px 28px; border-radius: 999px;
-    background: rgba(108, 92, 231, 0.2); border: 2px solid #6c5ce7;
-    color: #a29bfe; font-size: 28px; font-weight: 700; letter-spacing: 2px;
-    text-transform: uppercase; margin-bottom: 24px;
+
+  /* Header Branding */
+  .header-card {
+    background: #FFFFFF;
+    border: 3px solid #1A1A1A;
+    border-radius: 24px;
+    box-shadow: 0 8px 0 #1A1A1A;
+    padding: 36px 48px;
+    width: 100%;
+    text-align: center;
   }
-  .hook {
-    font-size: 64px; font-weight: 800; line-height: 1.15;
-    background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    text-shadow: 0 8px 30px rgba(0,0,0,0.5);
+  .brand-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 26px;
+    letter-spacing: 0.12em;
+    color: #6B7280;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .headline {
+    font-family: 'Fraunces', serif;
+    font-size: 58px;
+    font-weight: 900;
+    line-height: 1.15;
+    color: #1A1A1A;
+  }
+
+  /* 4x4 Grid Container */
+  .grid-container {
+    background: #FFFFFF;
+    border: 4px solid #1A1A1A;
+    border-radius: 28px;
+    box-shadow: 0 12px 0 #1A1A1A;
+    padding: 36px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+  }
+
+  /* Tactile Puzzle Tiles */
+  .tile {
+    height: 180px;
+    background: #EFECE6; /* Soft Stone */
+    border: 3px solid #1A1A1A;
+    border-radius: 18px;
+    box-shadow: 0 6px 0 #1A1A1A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 8px 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+  }
+
+  /* Dynamic Font Scaling Classes */
+  .tile.len-short { font-size: 24px; letter-spacing: 0.03em; }
+  .tile.len-med   { font-size: 20px; letter-spacing: 0.02em; }
+  .tile.len-long  { font-size: 16px; letter-spacing: 0.01em; }
+  .tile.len-xlong { font-size: 14px; letter-spacing: 0.005em; }
+  .tile.len-xxlong{ font-size: 12.5px; letter-spacing: 0em; }
+
+  /* Active Decoy Highlight */
+  .tile.highlighted {
+    background: #FFD200;
+    transform: translateY(2px);
+    box-shadow: 0 4px 0 #1A1A1A;
+  }
+
+  /* 4 Authentic NYT Cognitive Tiers */
+  .tile.solved-yellow { background: #F9DF6D; color: #1A1A1A; }
+  .tile.solved-green  { background: #A0C35A; color: #1A1A1A; }
+  .tile.solved-blue   { background: #B0C4EF; color: #1A1A1A; }
+
+  /* Purple Shimmer Keyframe & Glowing Tile */
+  @keyframes purpleGlow {
+    0% { border-color: #6B21A8; box-shadow: 0 6px 0 #4C1D95, 0 0 16px rgba(186, 129, 197, 0.4); }
+    50% { border-color: #E9D5FF; box-shadow: 0 6px 0 #6B21A8, 0 0 28px rgba(186, 129, 197, 0.85); }
+    100% { border-color: #6B21A8; box-shadow: 0 6px 0 #4C1D95, 0 0 16px rgba(186, 129, 197, 0.4); }
+  }
+
+  .tile.solved-purple {
+    background: #BA81C5;
+    color: #FFFFFF;
+    border: 4px solid #6B21A8;
+    box-shadow: 0 6px 0 #4C1D95;
+    animation: purpleGlow 2s infinite ease-in-out;
+  }
+
+  /* Tier Status Banner */
+  .badge-container {
+    height: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
   }
   .badge {
-    margin-top: 24px; display: inline-block; padding: 14px 36px; border-radius: 16px;
-    font-size: 34px; font-weight: 800; letter-spacing: 1.5px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    padding: 18px 40px;
+    border-radius: 999px;
+    border: 3px solid #1A1A1A;
+    box-shadow: 0 6px 0 #1A1A1A;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
-  .badge.purple { background: #be2edd; color: #fff; }
-  .badge.blue { background: #4834d4; color: #fff; }
-  .badge.green { background: #6ab04c; color: #fff; }
-  .badge.yellow { background: #f9ca24; color: #2d3436; }
+  .badge.yellow { background: #F9DF6D; color: #1A1A1A; }
+  .badge.green  { background: #A0C35A; color: #1A1A1A; }
+  .badge.blue   { background: #B0C4EF; color: #1A1A1A; }
+  .badge.purple { 
+    background: #BA81C5; 
+    color: #FFFFFF; 
+    border: 4px solid #6B21A8; 
+    animation: purpleGlow 2s infinite ease-in-out; 
+  }
 
-  .grid {
-    width: 960px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
-    margin: 40px 0;
+  /* Footer CTA Box */
+  .footer-card {
+    background: #FFFFFF;
+    border: 3px solid #1A1A1A;
+    border-radius: 24px;
+    box-shadow: 0 8px 0 #1A1A1A;
+    padding: 30px 44px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
-  .tile {
-    aspect-ratio: 1; background: #334155; border-radius: 20px;
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Inter', sans-serif; font-size: 30px; font-weight: 700;
-    letter-spacing: 1px; text-align: center; padding: 10px;
-    box-shadow: 0 8px 0 #1e293b, 0 15px 25px rgba(0,0,0,0.3);
-    border: 2px solid rgba(255,255,255,0.08);
+  .footer-text {
+    font-size: 30px;
+    font-weight: 700;
+    color: #4B5563;
   }
-  .tile.highlighted {
-    background: #e2e8f0; color: #0f172a; transform: translateY(-4px);
-    box-shadow: 0 12px 0 #94a3b8, 0 20px 30px rgba(0,0,0,0.4);
+  .footer-url {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 34px;
+    font-weight: 900;
+    color: #1A1A1A;
+    background: #F9DF6D;
+    padding: 10px 24px;
+    border: 2px solid #1A1A1A;
+    border-radius: 12px;
+    box-shadow: 0 4px 0 #1A1A1A;
   }
-  .tile.solved-purple {
-    background: #be2edd; color: #ffffff; border-color: #e056fd;
-    box-shadow: 0 12px 0 #6c1285, 0 20px 30px rgba(190,46,221,0.4);
-  }
-  .tile.solved-blue {
-    background: #4834d4; color: #ffffff; border-color: #686de0;
-    box-shadow: 0 12px 0 #2c1b96, 0 20px 30px rgba(72,52,212,0.4);
-  }
-  .footer {
-    text-align: center; width: 100%;
-    background: rgba(15, 23, 42, 0.7); border: 2px solid rgba(255,255,255,0.1);
-    border-radius: 24px; padding: 24px; backdrop-filter: blur(10px);
-  }
-  .footer-logo { font-size: 32px; color: #64748b; font-weight: 700; }
-  .footer-url { font-size: 42px; font-weight: 800; color: #00cec9; letter-spacing: 1px; }
 </style>
 </head>
 <body>
-  <div class="header">
-    <div class="tag">Daily Trap Breakdown</div>
-    <div class="hook">{{HOOK}}</div>
+
+  <div class="header-card">
+    <div class="brand-badge">NYT CONNECTIONS GROUPING ASSISTANT</div>
+    <div class="headline">{{HOOK}}</div>
+  </div>
+
+  <div class="badge-container">
     {{BADGE_HTML}}
   </div>
-  <div class="grid">
+
+  <div class="grid-container">
     {{GRID_ITEMS}}
   </div>
-  <div class="footer">
-    <div class="footer-logo">Solve & Group Instantly</div>
+
+  <div class="footer-card">
+    <div class="footer-text">Test boards without spoilers:</div>
     <div class="footer-url">connectionsassistant.com</div>
   </div>
+
 </body>
 </html>

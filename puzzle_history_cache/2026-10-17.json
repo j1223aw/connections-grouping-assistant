@@ -1,0 +1,70 @@
+{
+  "id": 1224,
+  "api_id": 1329,
+  "puzzle_number": 1224,
+  "date": "2026-10-17",
+  "starting_board": [
+    "BREA",
+    "KING",
+    "SNAP",
+    "PING",
+    "STILL",
+    "PAZ",
+    "SNOW",
+    "SHOT",
+    "BOHÈME",
+    "FIDDLER",
+    "ALERT",
+    "PRINT",
+    "CHIME",
+    "SCALA",
+    "HERMIT",
+    "DING"
+  ],
+  "categories": [
+    {
+      "tier": "Yellow",
+      "level": 0,
+      "title": "DIGITAL NOTIFICATIONS",
+      "words": [
+        "ALERT",
+        "CHIME",
+        "DING",
+        "PING"
+      ]
+    },
+    {
+      "tier": "Green",
+      "level": 1,
+      "title": "PHOTO",
+      "words": [
+        "PRINT",
+        "SHOT",
+        "SNAP",
+        "STILL"
+      ]
+    },
+    {
+      "tier": "Blue",
+      "level": 2,
+      "title": "KINDS OF CRABS",
+      "words": [
+        "FIDDLER",
+        "HERMIT",
+        "KING",
+        "SNOW"
+      ]
+    },
+    {
+      "tier": "Purple",
+      "level": 3,
+      "title": "LA ___",
+      "words": [
+        "BOHÈME",
+        "BREA",
+        "PAZ",
+        "SCALA"
+      ]
+    }
+  ]
+}

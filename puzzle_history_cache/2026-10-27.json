@@ -1,0 +1,70 @@
+{
+  "id": 1234,
+  "api_id": 1341,
+  "puzzle_number": 1234,
+  "date": "2026-10-27",
+  "starting_board": [
+    "TACO",
+    "PEPPER",
+    "DRUM",
+    "JAR",
+    "TINKER",
+    "TOWER",
+    "FIDDLE",
+    "JINGLE",
+    "LIBERTY",
+    "CANAL",
+    "TRIFLE",
+    "DIVING",
+    "ANVIL",
+    "BOTTOMS",
+    "STIRRUP",
+    "MEDDLE"
+  ],
+  "categories": [
+    {
+      "tier": "Yellow",
+      "level": 0,
+      "title": "MESS (WITH)",
+      "words": [
+        "FIDDLE",
+        "MEDDLE",
+        "TINKER",
+        "TRIFLE"
+      ]
+    },
+    {
+      "tier": "Green",
+      "level": 1,
+      "title": "PARTS OF THE EAR",
+      "words": [
+        "ANVIL",
+        "CANAL",
+        "DRUM",
+        "STIRRUP"
+      ]
+    },
+    {
+      "tier": "Blue",
+      "level": 2,
+      "title": "___ BELL",
+      "words": [
+        "DIVING",
+        "JINGLE",
+        "LIBERTY",
+        "TACO"
+      ]
+    },
+    {
+      "tier": "Purple",
+      "level": 3,
+      "title": "BELL ___",
+      "words": [
+        "BOTTOMS",
+        "JAR",
+        "PEPPER",
+        "TOWER"
+      ]
+    }
+  ]
+}

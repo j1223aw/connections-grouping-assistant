@@ -1,0 +1,70 @@
+{
+  "id": 1226,
+  "api_id": 1327,
+  "puzzle_number": 1226,
+  "date": "2026-10-19",
+  "starting_board": [
+    "MOHAWK",
+    "MUFFIN",
+    "HOT AIR",
+    "BALLOON",
+    "RAVE",
+    "WIND",
+    "FLURRY",
+    "STEAM",
+    "GAS",
+    "RIB",
+    "FUME",
+    "ALIBIS",
+    "BOIL",
+    "BLATHER",
+    "ESCROW",
+    "NUGGETS"
+  ],
+  "categories": [
+    {
+      "tier": "Yellow",
+      "level": 0,
+      "title": "SEETHE",
+      "words": [
+        "BOIL",
+        "FUME",
+        "RAVE",
+        "STEAM"
+      ]
+    },
+    {
+      "tier": "Green",
+      "level": 1,
+      "title": "ALL TALK",
+      "words": [
+        "BLATHER",
+        "GAS",
+        "HOT AIR",
+        "WIND"
+      ]
+    },
+    {
+      "tier": "Blue",
+      "level": 2,
+      "title": "\"MC\" THINGS AT MCDONALD'S",
+      "words": [
+        "FLURRY",
+        "MUFFIN",
+        "NUGGETS",
+        "RIB"
+      ]
+    },
+    {
+      "tier": "Purple",
+      "level": 3,
+      "title": "ENDING IN BIRDS",
+      "words": [
+        "ALIBIS",
+        "BALLOON",
+        "ESCROW",
+        "MOHAWK"
+      ]
+    }
+  ]
+}

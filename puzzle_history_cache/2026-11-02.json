@@ -1,0 +1,70 @@
+{
+  "id": 1240,
+  "api_id": 1344,
+  "puzzle_number": 1240,
+  "date": "2026-11-02",
+  "starting_board": [
+    "MEDICINE CABINET",
+    "COMPASS",
+    "FOG MACHINE",
+    "INCENSE",
+    "WATERFALL",
+    "DISCO BALL",
+    "NETTLE",
+    "HIKING BOOTS",
+    "DRESSING ROOM",
+    "DRY ICE",
+    "WATER BOTTLE",
+    "WIND UP",
+    "PIQUE",
+    "KALEIDOSCOPE",
+    "HUMIDIFIER",
+    "BACKPACK"
+  ],
+  "categories": [
+    {
+      "tier": "Yellow",
+      "level": 0,
+      "title": "THINGS TO BRING ON A TREK",
+      "words": [
+        "BACKPACK",
+        "COMPASS",
+        "HIKING BOOTS",
+        "WATER BOTTLE"
+      ]
+    },
+    {
+      "tier": "Green",
+      "level": 1,
+      "title": "ANGER",
+      "words": [
+        "INCENSE",
+        "NETTLE",
+        "PIQUE",
+        "WIND UP"
+      ]
+    },
+    {
+      "tier": "Blue",
+      "level": 2,
+      "title": "MIST MAKERS",
+      "words": [
+        "DRY ICE",
+        "FOG MACHINE",
+        "HUMIDIFIER",
+        "WATERFALL"
+      ]
+    },
+    {
+      "tier": "Purple",
+      "level": 3,
+      "title": "THINGS WITH MIRRORS",
+      "words": [
+        "DISCO BALL",
+        "DRESSING ROOM",
+        "KALEIDOSCOPE",
+        "MEDICINE CABINET"
+      ]
+    }
+  ]
+}

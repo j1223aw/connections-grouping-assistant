@@ -1,0 +1,70 @@
+{
+  "id": 1228,
+  "api_id": 1335,
+  "puzzle_number": 1228,
+  "date": "2026-10-21",
+  "starting_board": [
+    "ENGLISH HORN",
+    "LEAPFROG",
+    "ALPHA DOG",
+    "SWEETBREAD",
+    "HOT POTATO",
+    "MANTIS SHRIMP",
+    "SUNFLOWERS",
+    "BIG CHEESE",
+    "AMERICAN GOTHIC",
+    "GRAPE-NUTS",
+    "CAMPBELL'S SOUP CAN",
+    "DUCK DUCK GOOSE",
+    "TOP BANANA",
+    "THE SCREAM",
+    "MUSICAL CHAIRS",
+    "HEAVYWEIGHT"
+  ],
+  "categories": [
+    {
+      "tier": "Yellow",
+      "level": 0,
+      "title": "CLASSIC CHILDREN'S GAMES",
+      "words": [
+        "DUCK DUCK GOOSE",
+        "HOT POTATO",
+        "LEAPFROG",
+        "MUSICAL CHAIRS"
+      ]
+    },
+    {
+      "tier": "Green",
+      "level": 1,
+      "title": "IMPORTANT PERSON",
+      "words": [
+        "ALPHA DOG",
+        "BIG CHEESE",
+        "HEAVYWEIGHT",
+        "TOP BANANA"
+      ]
+    },
+    {
+      "tier": "Blue",
+      "level": 2,
+      "title": "FAMOUS PAINTINGS",
+      "words": [
+        "AMERICAN GOTHIC",
+        "CAMPBELL'S SOUP CAN",
+        "SUNFLOWERS",
+        "THE SCREAM"
+      ]
+    },
+    {
+      "tier": "Purple",
+      "level": 3,
+      "title": "DOUBLE MISNOMERS (NEITHER WORD IS AN ACCURATE DESCRIPTION)",
+      "words": [
+        "ENGLISH HORN",
+        "GRAPE-NUTS",
+        "MANTIS SHRIMP",
+        "SWEETBREAD"
+      ]
+    }
+  ]
+}

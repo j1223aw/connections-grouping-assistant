@@ -1,0 +1,70 @@
+{
+  "id": 1239,
+  "api_id": 1342,
+  "puzzle_number": 1239,
+  "date": "2026-11-01",
+  "starting_board": [
+    "HEAD",
+    "TRIPPING",
+    "CANINE",
+    "LOVER",
+    "DOGGY",
+    "SELF",
+    "MATURATED",
+    "PUPPY",
+    "HOUND",
+    "INCISOR",
+    "BROTHERLY",
+    "BICUSPID",
+    "UNREQUITED",
+    "TRENCHED",
+    "MOLAR",
+    "FIEND"
+  ],
+  "categories": [
+    {
+      "tier": "Yellow",
+      "level": 0,
+      "title": "KINDS OF TEETH",
+      "words": [
+        "BICUSPID",
+        "CANINE",
+        "INCISOR",
+        "MOLAR"
+      ]
+    },
+    {
+      "tier": "Green",
+      "level": 1,
+      "title": "KINDS OF LOVE",
+      "words": [
+        "BROTHERLY",
+        "PUPPY",
+        "SELF",
+        "UNREQUITED"
+      ]
+    },
+    {
+      "tier": "Blue",
+      "level": 2,
+      "title": "ENTHUSIAST",
+      "words": [
+        "FIEND",
+        "HEAD",
+        "HOUND",
+        "LOVER"
+      ]
+    },
+    {
+      "tier": "Purple",
+      "level": 3,
+      "title": "SYNONYMS FOR \"SOAKED\" WITH FIRST LETTER CHANGED",
+      "words": [
+        "DOGGY",
+        "MATURATED",
+        "TRENCHED",
+        "TRIPPING"
+      ]
+    }
+  ]
+}

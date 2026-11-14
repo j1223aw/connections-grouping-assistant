@@ -1,0 +1,70 @@
+{
+  "id": 1245,
+  "api_id": 1350,
+  "puzzle_number": 1245,
+  "date": "2026-11-07",
+  "starting_board": [
+    "POLO",
+    "EASTER",
+    "NEW",
+    "CLONE",
+    "RHODE",
+    "RINGER",
+    "SOON",
+    "TREASURE",
+    "HENLEY",
+    "BOUNTY",
+    "NORTH",
+    "CANE",
+    "SPOILS",
+    "SOUTH",
+    "RAGLAN",
+    "BOOTY"
+  ],
+  "categories": [
+    {
+      "tier": "Yellow",
+      "level": 0,
+      "title": "PIRATE'S PLUNDER",
+      "words": [
+        "BOOTY",
+        "BOUNTY",
+        "SPOILS",
+        "TREASURE"
+      ]
+    },
+    {
+      "tier": "Green",
+      "level": 1,
+      "title": "KINDS OF SHIRTS",
+      "words": [
+        "HENLEY",
+        "POLO",
+        "RAGLAN",
+        "RINGER"
+      ]
+    },
+    {
+      "tier": "Blue",
+      "level": 2,
+      "title": "FIRST WORDS OF U.S. STATE NAMES",
+      "words": [
+        "NEW",
+        "NORTH",
+        "RHODE",
+        "SOUTH"
+      ]
+    },
+    {
+      "tier": "Purple",
+      "level": 3,
+      "title": "ENDS OF STORM TYPES",
+      "words": [
+        "CANE",
+        "CLONE",
+        "EASTER",
+        "SOON"
+      ]
+    }
+  ]
+}

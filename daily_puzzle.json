@@ -1,0 +1,70 @@
+{
+  "id": 1252,
+  "api_id": 1348,
+  "puzzle_number": 1252,
+  "date": "2026-11-14",
+  "starting_board": [
+    "COMPLEX",
+    "CHESS",
+    "BATTLE",
+    "ADVANCED",
+    "MARRIAGE",
+    "PROGRESSIVE",
+    "CENTER",
+    "MOTTLE",
+    "GO",
+    "FACILITY",
+    "MODERN",
+    "OTHELLO",
+    "TRIB",
+    "STRATEGO",
+    "CAMPUS",
+    "FOREMOST"
+  ],
+  "categories": [
+    {
+      "tier": "Yellow",
+      "level": 0,
+      "title": "CUTTING-EDGE",
+      "words": [
+        "ADVANCED",
+        "FOREMOST",
+        "MODERN",
+        "PROGRESSIVE"
+      ]
+    },
+    {
+      "tier": "Green",
+      "level": 1,
+      "title": "LOCATIONS FOR AN INSTITUTION",
+      "words": [
+        "CAMPUS",
+        "CENTER",
+        "COMPLEX",
+        "FACILITY"
+      ]
+    },
+    {
+      "tier": "Blue",
+      "level": 2,
+      "title": "STRATEGY BOARD GAMES",
+      "words": [
+        "CHESS",
+        "GO",
+        "OTHELLO",
+        "STRATEGO"
+      ]
+    },
+    {
+      "tier": "Purple",
+      "level": 3,
+      "title": "BABY GEAR WITH FIRST LETTER CHANGED",
+      "words": [
+        "BATTLE",
+        "MARRIAGE",
+        "MOTTLE",
+        "TRIB"
+      ]
+    }
+  ]
+}

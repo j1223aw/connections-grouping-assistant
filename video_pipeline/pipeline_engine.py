@@ -1,126 +1,175 @@
-import os
-import sys
+﻿import os
+import re
 import json
 import asyncio
 import subprocess
 from pathlib import Path
-from pydantic import BaseModel, Field
+from typing import List
+
 from google import genai
 from google.genai import types
+from pydantic import BaseModel, Field
+
 import edge_tts
 from playwright.async_api import async_playwright
+
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
 
+# Base directories
 BASE_DIR = Path(r"C:\Users\Infinite\Documents\Connections Grouping Assistant\video_pipeline")
-OUTPUT_ROOT = BASE_DIR / "pipeline_output"
-OUTPUT_ROOT.mkdir(exist_ok=True)
+TEMPLATES_DIR = BASE_DIR / "templates"
 RENDER_DIR = BASE_DIR / "rendered_videos"
 RENDER_DIR.mkdir(exist_ok=True)
-TEMP_FRAME_DIR = BASE_DIR / "temp_frames"
-TEMP_FRAME_DIR.mkdir(exist_ok=True)
-TEMPLATE_PATH = BASE_DIR / "templates" / "board_template.html"
-TOPICS_FILE = BASE_DIR / "topics.txt"
+TEMP_DIR = BASE_DIR / "temp_frames"
+TEMP_DIR.mkdir(exist_ok=True)
+
 CLIENT_SECRETS = BASE_DIR / "client_secrets.json"
 TOKEN_FILE = BASE_DIR / "token.json"
-
 VOICE_NAME = "en-US-ChristopherNeural"
+PLAYLIST_NAME = "NYT Connections Hints & Strategies"
+
 SCOPES = [
     "https://www.googleapis.com/auth/youtube.upload",
     "https://www.googleapis.com/auth/youtube.force-ssl"
 ]
 
-# -------------------------------------------------------------
-# 1. Structured Gemini Blueprint Generation
-# -------------------------------------------------------------
-class Scene(BaseModel):
-    scene_number: int = Field(description="1: Hook, 2: Decoy Trap Split, 3: Solve Reveal & CTA")
-    voiceover: str = Field(description="Narration line for this scene")
+# Pydantic Structured Blueprint
+class ConnectionsBlueprint(BaseModel):
+    hook: str = Field(description="Max 5 words. High curiosity hook for header.")
+    theme: str = Field(description="Category name (e.g. Parts of a Shoe).")
+    tier_name: str = Field(description="Yellow, Green, Blue, or Purple")
+    tier_color: str = Field(description="yellow, green, blue, or purple")
+    words_16: List[str] = Field(description="Exact 16 puzzle words in uppercase.")
+    decoy_words: List[str] = Field(description="Exact 4 words that create the false 5-word overlap trap.")
+    solution_words: List[str] = Field(description="Exact 4 words that solve the category.")
+    scene1_narration: str = Field(description="Stage 1: Fast nudge. Max 18 words.")
+    scene2_narration: str = Field(description="Stage 2: Highlight decoy candidate trap. Max 22 words.")
+    scene3_narration: str = Field(description="Stage 3: Reveal solution and CTA. Max 20 words.")
 
-class VideoBlueprint(BaseModel):
-    video_title: str
-    hook_headline: str
-    target_category: str
-    category_tier: str
-    tier_hex_color: str
-    board_words: list[str] = Field(description="Exactly 16 puzzle words")
-    red_herrings_identified: list[str] = Field(description="4 decoy words")
-    target_words: list[str] = Field(description="4 solution words")
-    scenes: list[Scene]
-    pinned_comment: str
-    youtube_tags: list[str]
-
-def generate_script(topic: str) -> VideoBlueprint:
+def generate_blueprint(topic: str) -> ConnectionsBlueprint:
     print(f"\n[+] Generating structured blueprint for: {topic}...")
-    api_key = os.getenv("GEMINI_API_KEY")
-    client = genai.Client(api_key=api_key)
-    prompt = f"""
-    Create a high-retention 30-second NYT Connections breakdown about: "{topic}".
-    Output JSON adhering strictly to VideoBlueprint.
-    REQUIREMENTS:
-    - Exactly 16 board words arranged as 4 distinct categories of 4 words each.
-    - Exactly 4 decoy overlap words in red_herrings_identified.
-    - Exactly 4 solution words in target_words for the target_category.
-    - category_tier must be Yellow, Green, Blue, or Purple.
-    - tier_hex_color must match tier (#f9ca24 for Yellow, #6ab04c for Green, #4b7bec for Blue, #be2edd for Purple).
-    - scenes: Scene 1 introduces the board hook. Scene 2 breaks the decoy trap. Scene 3 reveals the category and gives CTA: "connectionsassistant.com".
-    """
+    client = genai.Client()
+    
+    prompt = f"""You are the master puzzle designer for Connections Assistant.
+Break down this puzzle trap: {topic}
+
+Enforce Karpathy LLM reasoning principles:
+1. Grounding: All 16 words must be valid English words. The solution must contain exactly 4 words.
+2. The Overlap Trap: The 4 decoy words must share a plausible semantic link with one of the solution words.
+3. Rapid Pacing: Total narration across all 3 scenes must be under 60 words for a sub-30 second runtime."""
+
     response = client.models.generate_content(
         model="gemini-2.5-flash",
         contents=prompt,
         config=types.GenerateContentConfig(
             response_mime_type="application/json",
-            response_schema=VideoBlueprint,
+            response_schema=ConnectionsBlueprint,
+            temperature=0.2,
         ),
     )
-    return VideoBlueprint.model_validate_json(response.text)
-
-# -------------------------------------------------------------
-# 2. Audio & Timing
-# -------------------------------------------------------------
-async def synthesize_neural_voice(script_text: str, output_mp3: str):
-    communicate = edge_tts.Communicate(script_text, VOICE_NAME, rate="+18%")
-    await communicate.save(output_mp3)
+    return response.parsed
 
 def get_audio_duration(audio_path: str) -> float:
     cmd = [
         "ffprobe", "-v", "error", "-show_entries", "format=duration",
         "-of", "default=noprint_wrappers=1:nokey=1", audio_path
     ]
-    result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-    return float(result.stdout.strip())
+    res = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    return float(res.stdout.strip())
 
-# -------------------------------------------------------------
-# 3. HTML Frame Generation & Playwright Capture
-# -------------------------------------------------------------
-def generate_board_html(hook: str, words: list[str], highlighted_words: list[str], solved_tier: str = None) -> str:
-    with open(TEMPLATE_PATH, "r", encoding="utf-8") as f:
-        template = f.read()
+async def synthesize_speech(text: str, out_path: str):
+    comm = edge_tts.Communicate(text, VOICE_NAME, rate="+18%")
+    await comm.save(out_path)
 
-    grid_items = ""
-    for w in words:
-        is_highlighted = w in highlighted_words
-        style_class = "tile highlighted" if is_highlighted else "tile"
-        if solved_tier and is_highlighted:
-            style_class += f" solved-{solved_tier.lower()}"
-        grid_items += f'<div class="{style_class}">{w}</div>'
+async def render_board_frames(blueprint: ConnectionsBlueprint, prefix: str) -> List[str]:
+    template_path = TEMPLATES_DIR / "board_template.html"
+    raw_html = template_path.read_text(encoding="utf-8")
+    tier = blueprint.tier_color.lower()
+    frames = []
 
-    badge_html = f'<div class="badge {solved_tier.lower()}">{solved_tier.upper()} CATEGORY</div>' if solved_tier else ''
-    html = template.replace("{{HOOK}}", hook)
-    html = html.replace("{{BADGE_HTML}}", badge_html)
-    html = html.replace("{{GRID_ITEMS}}", grid_items)
-    return html
+    async with async_playwright() as p:
+        browser = await p.chromium.launch()
+        page = await browser.new_page(viewport={"width": 1080, "height": 1920})
 
-async def capture_frame(page, html_content: str, output_path: str):
-    await page.set_content(html_content)
-    await page.screenshot(path=output_path)
+        # Scene 1: Initial Grid
+        s1_items = "".join([f'<div class="tile">{w}</div>' for w in blueprint.words_16])
+        h1 = raw_html.replace("{{HOOK}}", blueprint.hook.upper())
+        h1 = h1.replace("{{BADGE_HTML}}", "")
+        h1 = h1.replace("{{GRID_ITEMS}}", s1_items)
+        p1 = str(TEMP_DIR / f"{prefix}_scene1.png")
+        await page.set_content(h1)
+        await page.screenshot(path=p1)
+        frames.append(p1)
 
-# -------------------------------------------------------------
-# 4. YouTube Data API v3 Uploader
-# -------------------------------------------------------------
+        # Scene 2: Decoy Trap Highlighted
+        s2_tiles = []
+        for w in blueprint.words_16:
+            if w in blueprint.decoy_words:
+                s2_tiles.append(f'<div class="tile highlighted">{w}</div>')
+            else:
+                s2_tiles.append(f'<div class="tile">{w}</div>')
+        h2 = raw_html.replace("{{HOOK}}", "THE DECOY OVERLAP!")
+        h2 = h2.replace("{{BADGE_HTML}}", '<div class="badge yellow">⚠️ OVERLAPPING TRAP</div>')
+        h2 = h2.replace("{{GRID_ITEMS}}", "".join(s2_tiles))
+        p2 = str(TEMP_DIR / f"{prefix}_scene2.png")
+        await page.set_content(h2)
+        await page.screenshot(path=p2)
+        frames.append(p2)
+
+        # Scene 3: Solution Solved Tier
+        s3_tiles = []
+        for w in blueprint.words_16:
+            if w in blueprint.solution_words:
+                s3_tiles.append(f'<div class="tile solved-{tier}">{w}</div>')
+            else:
+                s3_tiles.append(f'<div class="tile">{w}</div>')
+        h3 = raw_html.replace("{{HOOK}}", blueprint.theme.upper())
+        badge_cls = f"badge {tier}"
+        h3 = h3.replace("{{BADGE_HTML}}", f'<div class="{badge_cls}">{blueprint.tier_name.upper()} TIER</div>')
+        h3 = h3.replace("{{GRID_ITEMS}}", "".join(s3_tiles))
+        p3 = str(TEMP_DIR / f"{prefix}_scene3.png")
+        await page.set_content(h3)
+        await page.screenshot(path=p3)
+        frames.append(p3)
+
+        await browser.close()
+
+    return frames
+
+def assemble_short(frames: List[str], audios: List[str], durations: List[float], output_path: str):
+    concat_audio = str(TEMP_DIR / "combined_audio.mp3")
+    audio_list_txt = TEMP_DIR / "audio_list.txt"
+    with open(audio_list_txt, "w") as f:
+        for a in audios:
+            f.write(f"file '{a.replace(os.sep, '/')}'\n")
+
+    subprocess.run([
+        "ffmpeg", "-y", "-f", "concat", "-safe", "0",
+        "-i", str(audio_list_txt), "-c", "copy", concat_audio
+    ], stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True)
+
+    concat_video_txt = TEMP_DIR / "video_concat.txt"
+    with open(concat_video_txt, "w") as f:
+        for i in range(len(frames)):
+            f.write(f"file '{frames[i].replace(os.sep, '/')}'\n")
+            f.write(f"duration {durations[i]:.2f}\n")
+        f.write(f"file '{frames[-1].replace(os.sep, '/')}'\n")
+
+    cmd = [
+        "ffmpeg", "-y",
+        "-f", "concat", "-safe", "0", "-i", str(concat_video_txt),
+        "-i", concat_audio,
+        "-c:v", "h264_nvenc", "-preset", "p6", "-b:v", "6M", "-pix_fmt", "yuv420p", "-r", "30",
+        "-c:a", "aac", "-b:a", "192k",
+        "-shortest",
+        str(output_path)
+    ]
+    subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True)
+
 def get_authenticated_service():
     creds = None
     if TOKEN_FILE.exists():
@@ -135,149 +184,122 @@ def get_authenticated_service():
             token.write(creds.to_json())
     return build("youtube", "v3", credentials=creds)
 
-def upload_and_schedule(video_path: Path, title: str, description: str, tags: list[str], publish_iso: str, thumbnail_path: Path = None):
-    youtube = get_authenticated_service()
-    print(f"\n[+] Preparing YouTube upload: {title}")
-    print(f"[+] Scheduled release slot: {publish_iso}")
-    body = {
-        "snippet": {
-            "title": title[:100],
-            "description": description,
-            "tags": tags,
-            "categoryId": "27"
-        },
-        "status": {
-            "privacyStatus": "private",
-            "publishAt": publish_iso,
-            "selfDeclaredMadeForKids": False
-        }
-    }
-    media = MediaFileUpload(str(video_path), chunksize=1024*1024*8, resumable=True, mimetype="video/mp4")
-    request = youtube.videos().insert(part="snippet,status", body=body, media_body=media)
-    response = None
-    print("[+] Uploading video stream to YouTube...")
-    while response is None:
-        status, response = request.next_chunk()
-        if status:
-            print(f"[+] Upload progress: {int(status.progress() * 100)}%")
-    video_id = response.get("id")
-    print(f"[✓] Upload successful & scheduled! Video ID: {video_id} (https://youtu.be/{video_id})")
+def add_to_playlist(youtube, video_id: str, playlist_name_keyword: str = "NYT Connections Hints"):
+    try:
+        playlists = youtube.playlists().list(mine=True, part="snippet", maxResults=25).execute()
+        target_id = next((pl["id"] for pl in playlists.get("items", []) if playlist_name_keyword.lower() in pl["snippet"]["title"].lower()), None)
+        if target_id:
+            youtube.playlistItems().insert(
+                part="snippet",
+                body={
+                    "snippet": {
+                        "playlistId": target_id,
+                        "resourceId": {"kind": "youtube#video", "videoId": video_id}
+                    }
+                }
+            ).execute()
+            print(f"[✓] Added {video_id} to playlist: {playlist_name_keyword}")
+    except Exception as e:
+        print(f"[!] Playlist sync note: {e}")
 
-    if thumbnail_path and thumbnail_path.exists():
-        try:
-            thumb_media = MediaFileUpload(str(thumbnail_path), mimetype="image/png", resumable=True)
-            youtube.thumbnails().set(videoId=video_id, media_body=thumb_media).execute()
-            print("[✓] Custom thumbnail attached from Scene 3.")
-        except Exception as e:
-            print(f"[!] Warning: Could not set thumbnail: {e}")
-    return video_id
-
-# -------------------------------------------------------------
-# 5. Master Execution Loop
-# -------------------------------------------------------------
-def slugify(text: str) -> str:
-    text = text.lower()
-    text = "".join(c if c.isalnum() else "_" for c in text).strip("_")
-    return text[:35]
-
-async def process_pipeline():
-    if not TOPICS_FILE.exists():
-        print(f"[!] {TOPICS_FILE} not found.")
+async def process_batch():
+    topics_file = BASE_DIR / "topics.txt"
+    if not topics_file.exists():
+        print("[!] topics.txt not found!")
         return
 
-    with open(TOPICS_FILE, "r", encoding="utf-8") as f:
-        topics = [line.strip() for line in f if line.strip() and not line.startswith("#")]
-
-    if not topics:
-        print("[!] No topics found in topics.txt.")
-        return
-
+    topics = [line.strip() for line in topics_file.read_text(encoding="utf-8").splitlines() if line.strip()]
     print(f"[+] Loaded {len(topics)} topic(s) to process.")
 
-    # Backfill missing slots for Sunday Oct 18 and Monday Oct 19 (12:30 PM and 6:00 PM EDT)
+    # Target release schedule: Friday, October 30 (8:00 AM, 12:30 PM, 6:00 PM EDT)
     schedule_times = [
-        "2026-10-18T16:30:00Z",  # Sun Oct 18 @ 12:30 PM EDT
-        "2026-10-18T22:00:00Z",  # Sun Oct 18 @ 6:00 PM EDT
-        "2026-10-19T16:30:00Z",  # Mon Oct 19 @ 12:30 PM EDT
-        "2026-10-19T22:00:00Z"   # Mon Oct 19 @ 6:00 PM EDT
+        "2026-10-30T12:00:00Z",  # Fri Oct 30 @ 8:00 AM EDT
+        "2026-10-30T16:30:00Z",  # Fri Oct 30 @ 12:30 PM EDT
+        "2026-10-30T22:00:00Z"   # Fri Oct 30 @ 6:00 PM EDT
     ]
 
-    async with async_playwright() as p:
-        browser = await p.chromium.launch()
-        page = await browser.new_page(viewport={"width": 1080, "height": 1920})
+    youtube = get_authenticated_service()
 
-        for idx, topic in enumerate(topics, 1):
-            slug = slugify(topic)
-            final_video = RENDER_DIR / f"{slug}.mp4"
-            raw_audio_path = str(BASE_DIR / f"{slug}_narration.mp3")
+    for i, topic in enumerate(topics):
+        prefix = re.sub(r'[^a-zA-Z0-9]', '_', topic.lower())[:30]
+        slug = re.sub(r'[^a-zA-Z0-9]+', '-', topic.lower()).strip('-')[:40]
+        output_mp4 = RENDER_DIR / f"nyt-connections-hints-today-{slug}-connectionsassistant.mp4"
 
-            blueprint = generate_script(topic)
-            full_narration = " ".join([s.voiceover for s in blueprint.scenes])
+        blueprint = generate_blueprint(topic)
 
-            # 1. Synthesize neural voiceover
-            await synthesize_neural_voice(full_narration, raw_audio_path)
-            audio_duration = get_audio_duration(raw_audio_path)
-            print(f"[+] Audio generated. Duration: {audio_duration:.2f}s")
+        a1 = str(TEMP_DIR / f"{prefix}_a1.mp3")
+        a2 = str(TEMP_DIR / f"{prefix}_a2.mp3")
+        a3 = str(TEMP_DIR / f"{prefix}_a3.mp3")
 
-            # 2. Render modern board frames via Playwright
-            f1_html = generate_board_html(blueprint.hook_headline, blueprint.board_words, [])
-            f1_path = str(TEMP_FRAME_DIR / f"{slug}_1.png")
-            await capture_frame(page, f1_html, f1_path)
+        await synthesize_speech(blueprint.scene1_narration, a1)
+        await synthesize_speech(blueprint.scene2_narration, a2)
+        await synthesize_speech(blueprint.scene3_narration, a3)
 
-            f2_html = generate_board_html("THE DECOY OVERLAP!", blueprint.board_words, blueprint.red_herrings_identified)
-            f2_path = str(TEMP_FRAME_DIR / f"{slug}_2.png")
-            await capture_frame(page, f2_html, f2_path)
+        durations = [get_audio_duration(a1), get_audio_duration(a2), get_audio_duration(a3)]
+        total_dur = sum(durations)
+        print(f"[+] Audio generated. Duration: {total_dur:.2f}s")
 
-            f3_html = generate_board_html(blueprint.target_category, blueprint.board_words, blueprint.target_words, blueprint.category_tier)
-            f3_path = str(TEMP_FRAME_DIR / f"{slug}_3.png")
-            await capture_frame(page, f3_html, f3_path)
+        frames = await render_board_frames(blueprint, prefix)
+        assemble_short(frames, [a1, a2, a3], durations, str(output_mp4))
+        print(f"[✓] Short successfully rendered: {output_mp4.name}")
 
-            # 3. Proportional Scene Timings
-            t1 = round(audio_duration * 0.20, 2)
-            t2 = round(audio_duration * 0.35, 2)
-            t3 = round(audio_duration - (t1 + t2), 2)
+        release_slot = schedule_times[i % len(schedule_times)]
+        clean_title = f"{topic.split(':')[0]} | NYT Connections Hints"[:100]
 
-            concat_txt = BASE_DIR / "concat.txt"
-            with open(concat_txt, "w") as f:
-                f.write(f"file '{f1_path.replace(os.sep, '/')}'\nduration {t1}\n")
-                f.write(f"file '{f2_path.replace(os.sep, '/')}'\nduration {t2}\n")
-                f.write(f"file '{f3_path.replace(os.sep, '/')}'\nduration {t3}\n")
-                f.write(f"file '{f3_path.replace(os.sep, '/')}'\n")
+        description = (
+            f"{topic}\n\n"
+            "Stuck on today's grid? Test associations without spoilers at https://connectionsassistant.com/\n\n"
+            "🟨 TIER 1 • EASIEST (Direct Synonyms)\n"
+            "🟩 TIER 2 • MODERATE (Contextual Link)\n"
+            "🟦 TIER 3 • CHALLENGING (Trivia & Patterns)\n"
+            "🟪 TIER 4 • TRICKIEST (Lateral Wordplay)\n\n"
+            "#NYTConnections #ConnectionsHints #WordPuzzle #BrainTeaser #Shorts"
+        )
 
-            # 4. FFmpeg Video Assembly
-            cmd = [
-                "ffmpeg", "-y",
-                "-f", "concat", "-safe", "0", "-i", str(concat_txt),
-                "-i", raw_audio_path,
-                "-c:v", "libx264", "-pix_fmt", "yuv420p", "-r", "30",
-                "-c:a", "aac", "-b:a", "192k",
-                "-shortest",
-                str(final_video)
-            ]
-            subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True)
-            print(f"[✓] Short successfully rendered: {final_video}")
+        print(f"\n[+] Uploading: {clean_title}")
+        print(f"[+] Scheduled for: {release_slot}")
 
-            if os.path.exists(raw_audio_path):
-                os.remove(raw_audio_path)
+        body = {
+            "snippet": {
+                "title": clean_title,
+                "description": description,
+                "tags": ["NYT Connections hints today", "Connections hints", "NYT Connections", "word puzzle", "Shorts"],
+                "categoryId": "27"
+            },
+            "status": {
+                "privacyStatus": "private",
+                "publishAt": release_slot,
+                "selfDeclaredMadeForKids": False
+            }
+        }
 
-            # 5. YouTube Upload & Staggered Scheduling
-            desc = (
-                f"Solve tricky NYT Connections boards and defeat decoy overlap traps daily!\n"
-                f"Analyze puzzle boards instantly at https://connectionsassistant.com/\n\n"
-                f"#NYTConnections #WordPuzzle #BrainTeaser #ConnectionsHints #Shorts"
-            )
-            slot_iso = schedule_times[(idx - 1) % len(schedule_times)]
-            upload_and_schedule(
-                video_path=final_video,
-                title=blueprint.video_title,
-                description=desc,
-                tags=blueprint.youtube_tags,
-                publish_iso=slot_iso,
-                thumbnail_path=Path(f3_path)
-            )
+        media = MediaFileUpload(str(output_mp4), chunksize=1024*1024*8, resumable=True, mimetype="video/mp4")
+        request = youtube.videos().insert(part="snippet,status", body=body, media_body=media)
+        
+        response = None
+        while response is None:
+            status, response = request.next_chunk()
 
-        await browser.close()
+        video_id = response.get("id")
+        print(f"[✓] Scheduled! Video ID: {video_id} (https://youtu.be/{video_id})")
+
+        thumb_path = frames[2]
+        try:
+            thumb_media = MediaFileUpload(thumb_path, mimetype="image/png", resumable=True)
+            youtube.thumbnails().set(videoId=video_id, media_body=thumb_media).execute()
+            print("[✓] Scene 3 thumbnail attached.")
+        except Exception as e:
+            print(f"[!] Thumbnail note: {e}")
+
+        add_to_playlist(youtube, video_id, PLAYLIST_NAME)
+
     print("\n[OK] Pipeline batch processing complete!")
 
 if __name__ == "__main__":
-    asyncio.run(process_pipeline())
+    asyncio.run(process_batch())
+
+# Harness2 & YouTube Ingest Pre-Upload SEO Optimization Hook
+def get_seo_video_filename(title: str, puzzle_id: str) -> str:
+    clean_title = re.sub(r'[^a-zA-Z0-9\s]', '', title).strip().lower()
+    keyword_slug = clean_title.replace(' ', '-')
+    return f"nyt-connections-hints-today-{keyword_slug}-puzzle-{puzzle_id}.mp4"

@@ -1,0 +1,70 @@
+{
+  "id": 1232,
+  "api_id": 1343,
+  "puzzle_number": 1232,
+  "date": "2026-10-25",
+  "starting_board": [
+    "GLOW STICK",
+    "WAGON WHEEL",
+    "POCKET",
+    "FOOTBALL",
+    "THUMB",
+    "ELBOW",
+    "SWIFT",
+    "FINGERS",
+    "SHELL",
+    "PALM",
+    "RUBBER BAND",
+    "BOW TIE",
+    "SAWYER",
+    "SWIPE",
+    "RIPLEY",
+    "BOOST"
+  ],
+  "categories": [
+    {
+      "tier": "Yellow",
+      "level": 0,
+      "title": "STEAL",
+      "words": [
+        "BOOST",
+        "PALM",
+        "POCKET",
+        "SWIPE"
+      ]
+    },
+    {
+      "tier": "Green",
+      "level": 1,
+      "title": "PASTA SHAPES",
+      "words": [
+        "BOW TIE",
+        "ELBOW",
+        "SHELL",
+        "WAGON WHEEL"
+      ]
+    },
+    {
+      "tier": "Blue",
+      "level": 2,
+      "title": "FICTIONAL TOMS",
+      "words": [
+        "RIPLEY",
+        "SAWYER",
+        "SWIFT",
+        "THUMB"
+      ]
+    },
+    {
+      "tier": "Purple",
+      "level": 3,
+      "title": "THINGS THAT CAN BE SNAPPED",
+      "words": [
+        "FINGERS",
+        "FOOTBALL",
+        "GLOW STICK",
+        "RUBBER BAND"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "id": 1236,
+  "api_id": 1340,
+  "puzzle_number": 1236,
+  "date": "2026-10-29",
+  "starting_board": [
+    "TUXEDO",
+    "TRAFFIC LIGHT",
+    "ROMAN",
+    "EMPEROR",
+    "PARKING METER",
+    "CANDY CORN",
+    "NEAPOLITAN",
+    "PIGGY BANK",
+    "TYPEWRITER",
+    "WISHING WELL",
+    "GOTHIC",
+    "ANTARCTICA",
+    "CALICO",
+    "WADDLE",
+    "SANS",
+    "PAYPHONE"
+  ],
+  "categories": [
+    {
+      "tier": "Yellow",
+      "level": 0,
+      "title": "THINGS YOU PUT COINS INTO",
+      "words": [
+        "PARKING METER",
+        "PAYPHONE",
+        "PIGGY BANK",
+        "WISHING WELL"
+      ]
+    },
+    {
+      "tier": "Green",
+      "level": 1,
+      "title": "ASSOCIATED WITH PENGUINS",
+      "words": [
+        "ANTARCTICA",
+        "EMPEROR",
+        "TUXEDO",
+        "WADDLE"
+      ]
+    },
+    {
+      "tier": "Blue",
+      "level": 2,
+      "title": "ENDS OF FAMOUS FONTS",
+      "words": [
+        "GOTHIC",
+        "ROMAN",
+        "SANS",
+        "TYPEWRITER"
+      ]
+    },
+    {
+      "tier": "Purple",
+      "level": 3,
+      "title": "THINGS THAT FEATURE THREE COLORS",
+      "words": [
+        "CALICO",
+        "CANDY CORN",
+        "NEAPOLITAN",
+        "TRAFFIC LIGHT"
+      ]
+    }
+  ]
+}

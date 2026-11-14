@@ -1,0 +1,70 @@
+{
+  "id": 1235,
+  "api_id": 1337,
+  "puzzle_number": 1235,
+  "date": "2026-10-28",
+  "starting_board": [
+    "CURIOSITY",
+    "ROUT",
+    "SUBJECT",
+    "ATTRACTION",
+    "ATTACHMENT",
+    "SPIRIT",
+    "BODY",
+    "COARSE",
+    "CRUSH",
+    "WEIGH",
+    "SIGNATURE",
+    "INTEREST",
+    "RODE",
+    "OPPORTUNITY",
+    "FEELINGS",
+    "PERSEVERANCE"
+  ],
+  "categories": [
+    {
+      "tier": "Yellow",
+      "level": 0,
+      "title": "ROMANTIC LIKING",
+      "words": [
+        "ATTRACTION",
+        "CRUSH",
+        "FEELINGS",
+        "INTEREST"
+      ]
+    },
+    {
+      "tier": "Green",
+      "level": 1,
+      "title": "COMPONENTS OF AN EMAIL",
+      "words": [
+        "ATTACHMENT",
+        "BODY",
+        "SIGNATURE",
+        "SUBJECT"
+      ]
+    },
+    {
+      "tier": "Blue",
+      "level": 2,
+      "title": "NASA MARS ROVERS",
+      "words": [
+        "CURIOSITY",
+        "OPPORTUNITY",
+        "PERSEVERANCE",
+        "SPIRIT"
+      ]
+    },
+    {
+      "tier": "Purple",
+      "level": 3,
+      "title": "HOMOPHONES OF PATHS",
+      "words": [
+        "COARSE",
+        "RODE",
+        "ROUT",
+        "WEIGH"
+      ]
+    }
+  ]
+}

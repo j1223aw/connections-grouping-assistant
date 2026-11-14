@@ -1,0 +1,70 @@
+{
+  "id": 1233,
+  "api_id": 1331,
+  "puzzle_number": 1233,
+  "date": "2026-10-26",
+  "starting_board": [
+    "WELCOME",
+    "HALLOWEEK",
+    "CHILLING",
+    "TOY",
+    "YOGA",
+    "JAWN",
+    "SPORTING",
+    "PRAYER",
+    "PSYCHS",
+    "HOUND",
+    "MANAGING",
+    "WRESTLING",
+    "SAME OLD",
+    "HOSTED",
+    "HERDING",
+    "NOT BAD"
+  ],
+  "categories": [
+    {
+      "tier": "Yellow",
+      "level": 0,
+      "title": "RESPONSES TO \"HOW ARE YOU?\"",
+      "words": [
+        "CHILLING",
+        "MANAGING",
+        "NOT BAD",
+        "SAME OLD"
+      ]
+    },
+    {
+      "tier": "Green",
+      "level": 1,
+      "title": "KINDS OF MATS",
+      "words": [
+        "PRAYER",
+        "WELCOME",
+        "WRESTLING",
+        "YOGA"
+      ]
+    },
+    {
+      "tier": "Blue",
+      "level": 2,
+      "title": "AKC DOG BREED GROUPS",
+      "words": [
+        "HERDING",
+        "HOUND",
+        "SPORTING",
+        "TOY"
+      ]
+    },
+    {
+      "tier": "Purple",
+      "level": 3,
+      "title": "HORROR MOVIES WITH LAST LETTER CHANGED",
+      "words": [
+        "HALLOWEEK",
+        "HOSTED",
+        "JAWN",
+        "PSYCHS"
+      ]
+    }
+  ]
+}

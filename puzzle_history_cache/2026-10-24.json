@@ -1,0 +1,70 @@
+{
+  "id": 1231,
+  "api_id": 1338,
+  "puzzle_number": 1231,
+  "date": "2026-10-24",
+  "starting_board": [
+    "COMIC",
+    "SALAD",
+    "BACON",
+    "SPARKLER",
+    "POPSICLE",
+    "POP-UP",
+    "CANDY",
+    "HOBBY HORSE",
+    "BANNER",
+    "PINWHEEL",
+    "SPACE",
+    "FILM",
+    "INTERSTITIAL",
+    "SPORTS",
+    "MÖBIUS",
+    "OVERLAY"
+  ],
+  "categories": [
+    {
+      "tier": "Yellow",
+      "level": 0,
+      "title": "KINDS OF STRIPS",
+      "words": [
+        "BACON",
+        "COMIC",
+        "FILM",
+        "MÖBIUS"
+      ]
+    },
+    {
+      "tier": "Green",
+      "level": 1,
+      "title": "THINGS ON STICKS",
+      "words": [
+        "HOBBY HORSE",
+        "PINWHEEL",
+        "POPSICLE",
+        "SPARKLER"
+      ]
+    },
+    {
+      "tier": "Blue",
+      "level": 2,
+      "title": "ONLINE AD FORMATS",
+      "words": [
+        "BANNER",
+        "INTERSTITIAL",
+        "OVERLAY",
+        "POP-UP"
+      ]
+    },
+    {
+      "tier": "Purple",
+      "level": 3,
+      "title": "___ BAR",
+      "words": [
+        "CANDY",
+        "SALAD",
+        "SPACE",
+        "SPORTS"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "id": 1246,
+  "api_id": 1351,
+  "puzzle_number": 1246,
+  "date": "2026-11-08",
+  "starting_board": [
+    "CUT",
+    "LEAK",
+    "CONTEXT",
+    "CARAT",
+    "BUILT",
+    "BLOWOUT",
+    "CLARITY",
+    "CHARRED",
+    "COLOR",
+    "KORN",
+    "INSIGHT",
+    "EXTENSIONS",
+    "RIPPED",
+    "TRIM",
+    "JACKED",
+    "PERSPECTIVE"
+  ],
+  "categories": [
+    {
+      "tier": "Yellow",
+      "level": 0,
+      "title": "MUSCULAR",
+      "words": [
+        "BUILT",
+        "CUT",
+        "JACKED",
+        "RIPPED"
+      ]
+    },
+    {
+      "tier": "Green",
+      "level": 1,
+      "title": "HAIR SALON SERVICES",
+      "words": [
+        "BLOWOUT",
+        "COLOR",
+        "EXTENSIONS",
+        "TRIM"
+      ]
+    },
+    {
+      "tier": "Blue",
+      "level": 2,
+      "title": "THINGS THAT HELP MAKE SENSE OF A SITUATION",
+      "words": [
+        "CLARITY",
+        "CONTEXT",
+        "INSIGHT",
+        "PERSPECTIVE"
+      ]
+    },
+    {
+      "tier": "Purple",
+      "level": 3,
+      "title": "VEGETABLE HOMOPHONES",
+      "words": [
+        "CARAT",
+        "CHARRED",
+        "KORN",
+        "LEAK"
+      ]
+    }
+  ]
+}

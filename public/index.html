@@ -12,7 +12,7 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="The ultimate semantic word puzzle solver & strategy companion. Analyze daily word grids, discover lateral associations, and master NYT Connections color tiers.">
+    <meta name="description" content="Free NYT Connections puzzle companion and scratchboard. Test candidate word groups, explore category connections, and avoid decoy traps.">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232d3436'/%3E%3Crect x='4' y='4' width='10' height='10' rx='2.5' fill='%23f9ca24'/%3E%3Crect x='18' y='4' width='10' height='10' rx='2.5' fill='%236ab04c'/%3E%3Crect x='4' y='18' width='10' height='10' rx='2.5' fill='%234834d4'/%3E%3Crect x='18' y='18' width='10' height='10' rx='2.5' fill='%23be2edd'/%3E%3C/svg%3E">
     <title>Connections Grouping Assistant | Word Puzzle Strategy & Solver</title>
     
@@ -596,6 +596,197 @@
             font-weight: 600;
         }
 
+        /* Today's Board Words & Scratchboard Module */
+        .today-board-deck {
+            background: #FAF8F5;
+            border: 2px solid var(--border-lip);
+            border-radius: 14px;
+            box-shadow: 3px 3px 0 var(--border-lip);
+            padding: 16px 18px;
+            margin-bottom: 20px;
+        }
+        .today-board-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1.5px solid var(--stone-border);
+        }
+        .today-header-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .today-live-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            font-weight: 800;
+            background: #141413;
+            color: #FFFFFF;
+            padding: 3px 8px;
+            border-radius: 4px;
+            letter-spacing: 0.05em;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .today-live-tag .pulse-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #10B981;
+            display: inline-block;
+            box-shadow: 0 0 6px #10B981;
+            animation: livePulse 2s infinite;
+        }
+        @keyframes livePulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.35; transform: scale(0.8); }
+        }
+        .today-title-text {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--ink);
+            margin: 0;
+            letter-spacing: -0.01em;
+        }
+        .today-spoiler-pill {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            color: #047857;
+            background: #ECFDF5;
+            border: 1.5px solid #10B981;
+            border-radius: 6px;
+            padding: 3px 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .today-board-subtext {
+            font-size: 13px;
+            color: var(--ink-muted);
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+        .today-chips-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 6px;
+            margin-bottom: 14px;
+        }
+        .today-word-chip {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            font-weight: 800;
+            background: #FFFFFF;
+            border: 1.5px solid var(--border-lip);
+            border-radius: 6px;
+            padding: 9px 4px;
+            text-align: center;
+            color: var(--ink);
+            box-shadow: 0 2px 0 var(--border-lip);
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            user-select: none;
+            transition: all 0.12s ease;
+        }
+        .today-word-chip:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 3px 0 var(--border-lip);
+            background: #FDFCF9;
+        }
+        .today-deck-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
+        }
+        .btn-deck-load {
+            background: #F9DF6D;
+            color: #141413;
+            font-weight: 800;
+        }
+        .btn-deck-load:hover {
+            background: #F8D849;
+        }
+        .btn-deck-copy {
+            background: #FFFFFF;
+            color: var(--ink);
+            font-weight: 800;
+        }
+        .btn-deck-copy:hover {
+            background: #F3F1EC;
+        }
+        .btn-deck-clear {
+            background: #EFECE6;
+            color: var(--ink-muted);
+            font-weight: 700;
+        }
+        .today-breakdown-callout {
+            background: #F3EFF9;
+            border: 1.5px dashed var(--tier-purple);
+            border-radius: 8px;
+            padding: 9px 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            font-size: 12px;
+        }
+        .today-breakdown-callout a {
+            color: #523ee8;
+            font-weight: 800;
+            text-decoration: underline;
+        }
+        .today-breakdown-callout a:hover {
+            color: #3f2ec4;
+        }
+
+        /* Toast Notification */
+        .ca-toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: #141413;
+            color: #FFFFFF;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 12px 18px;
+            border-radius: 8px;
+            border: 2px solid #FFFFFF;
+            box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.35);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transform: translateY(120px);
+            opacity: 0;
+            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            pointer-events: none;
+        }
+        .ca-toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Tile Load Animation */
+        @keyframes tilePop {
+            0% { transform: scale(0.95); background: #FEF08A; }
+            50% { transform: scale(1.02); background: #FEF08A; }
+            100% { transform: scale(1); background: #FFFFFF; }
+        }
+        .tile-pop {
+            animation: tilePop 0.35s ease forwards;
+        }
+
         /* Mobile Adjustments */
         @media (max-width: 600px) {
             .container { padding: 10px; }
@@ -606,6 +797,11 @@
             .tier-pill { padding: 5px 2px; font-size: 9px; }
             .action-row { flex-direction: column; }
             .btn-tactile { width: 100%; }
+            .today-chips-container { gap: 4px; }
+            .today-word-chip { font-size: 10px; padding: 6px 2px; letter-spacing: 0.01em; }
+            .today-deck-actions { flex-direction: column; }
+            .today-deck-actions .btn-tactile { width: 100%; }
+            .ca-toast { bottom: 16px; right: 16px; left: 16px; text-align: center; justify-content: center; }
         }
     </style>
 </head>
@@ -638,26 +834,81 @@
             <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
                 <span class="tier-badge badge-purple" style="margin: 0; font-size: 10px; padding: 2px 7px;">DAILY WALKTHROUGH</span>
                 <span style="font-size: 13px; font-weight: 700; color: var(--ink);">
-                    Stuck on today's bridge words? Watch how SWIFT & FLEET were untangled.
+                    Stuck on today's cutting-edge decoy or baby gear with first letter changed? Watch Saturday's breakdown &rarr;
                 </span>
             </div>
-            <a href="breakdowns.html" class="btn-tactile btn-primary" style="padding: 6px 12px; font-size: 11px; white-space: nowrap; text-decoration: none;">
+            <a href="breakdowns.html#today" class="btn-tactile btn-primary" style="padding: 6px 12px; font-size: 11px; white-space: nowrap; text-decoration: none;">
                 Watch Breakdown &rarr;
             </a>
         </aside>
 
         <!-- Daily Warmup Purple Teaser -->
         <div class="warmup-drawer">
-            <span><strong>Brain Warmup:</strong> Spot today's lateral wordplay trick?</span>
-            <button class="warmup-btn" onclick="revealWarmup()">✨ Test Purple Sense</button>
+            <span><strong>Brain Warmup:</strong> Want to practice spotting today's tricky wordplay?</span>
+            <button class="warmup-btn" onclick="revealWarmup()">✨ Practice Purple Hint</button>
         </div>
 
         <!-- Main Solver Bento Box -->
         <main class="solver-bento">
             <div class="hero-text">
-                <h1>Master the Grid</h1>
-                <p>Untangle lateral links, semantic overlap, and four-tier category traps.</p>
+                <h1>Your Daily Word Helper & Puzzle Companion</h1>
+                <p>Simple hints, clear explanations, and gentle guidance to keep your mind sharp and protect your streak.</p>
             </div>
+
+            <!-- Today's Board Words & Scratchboard Deck (Zero-Spoiler) -->
+            <section class="today-board-deck" id="todayBoardDeck">
+                <div class="today-board-header">
+                    <div class="today-header-left">
+                        <span class="today-live-tag"><span class="pulse-dot"></span> TODAY'S PUZZLE</span>
+                        <h2 class="today-title-text" id="todayTitleText">Saturday, Nov 14, 2026 &bull; Puzzle #1252</h2>
+                    </div>
+                    <span class="today-spoiler-pill">🛡️ 100% Spoiler-Free Practice</span>
+                </div>
+
+                <p class="today-board-subtext">
+                    Practice today's 16 official words risk-free on the scratchboard below without burning your 4 NYT guesses. Click <strong>Copy 16 Words</strong> then <strong>Quick Paste</strong> into the board (or click <strong>Fill Board</strong> to load them directly):
+                </p>
+
+                <!-- 16 Word Chips (Starting Board Order - Zero Spoilers) -->
+                <div class="today-chips-container" id="todayChipsContainer">
+                    <div class="today-word-chip">COMPLEX</div>
+                    <div class="today-word-chip">CHESS</div>
+                    <div class="today-word-chip">BATTLE</div>
+                    <div class="today-word-chip">ADVANCED</div>
+                    <div class="today-word-chip">MARRIAGE</div>
+                    <div class="today-word-chip">PROGRESSIVE</div>
+                    <div class="today-word-chip">CENTER</div>
+                    <div class="today-word-chip">MOTTLE</div>
+                    <div class="today-word-chip">GO</div>
+                    <div class="today-word-chip">FACILITY</div>
+                    <div class="today-word-chip">MODERN</div>
+                    <div class="today-word-chip">OTHELLO</div>
+                    <div class="today-word-chip">TRIB</div>
+                    <div class="today-word-chip">STRATEGO</div>
+                    <div class="today-word-chip">CAMPUS</div>
+                    <div class="today-word-chip">FOREMOST</div>
+                </div>
+<!-- Deck Actions -->
+                <div class="today-deck-actions">
+                    <button id="fillTodayBtn" class="btn-tactile btn-deck-load" onclick="fillBoardWithTodayWords()">
+                        ⚡ Fill Board with Today's Words
+                    </button>
+                    <button id="copyTodayBtn" class="btn-tactile btn-deck-copy" onclick="copyTodayWords()">
+                        📋 Copy 16 Words
+                    </button>
+                    <button class="btn-tactile btn-deck-clear" onclick="clearGrid()">
+                        🧹 Clear Board
+                    </button>
+                </div>
+
+                <!-- Spoilers & Breakdowns Re-direction -->
+                <div class="today-breakdown-callout">
+                    <span>💡 Looking for hints, decoy alerts, or word meanings?</span>
+                    <a href="breakdowns.html#today">
+                        Watch Friday's Breakdown &amp; Solution &rarr;
+                    </a>
+                </div>
+            </section>
 
             <!-- Cognitive Tier Spectrum (Interactive 4-Pill Legend) -->
             <div class="tier-spectrum-bar">
@@ -667,7 +918,7 @@
                 </div>
                 <div class="tier-pill tier-pill-green" onclick="showTierInfo('green')">
                     <span>🟩 GREEN</span>
-                    <span style="font-size: 8px; opacity: 0.85;">CONTEXT</span>
+                    <span style="font-size: 8px; opacity: 0.85;">THEMES</span>
                 </div>
                 <div class="tier-pill tier-pill-blue" onclick="showTierInfo('blue')">
                     <span>🟦 BLUE</span>
@@ -687,14 +938,20 @@
 
             <!-- Action Row -->
             <div class="action-row">
+                <button class="btn-tactile btn-deck-load" onclick="fillBoardWithTodayWords()">
+                    ⚡ Fill Today's Words
+                </button>
                 <button id="autoFillBtn" class="btn-tactile btn-secondary" onclick="autoFillGrid()">
                     📋 Quick Paste
                 </button>
                 <button class="btn-tactile btn-practice" onclick="loadSampleGrid()">
-                    🎲 Practice Grid
+                    🎲 Practice Past Grid
+                </button>
+                <button class="btn-tactile btn-deck-clear" onclick="clearGrid()">
+                    🧹 Clear
                 </button>
                 <button id="findBtn" class="btn-tactile btn-primary" onclick="findConnections()">
-                    Analyze Associations
+                    🔍 Find Groups & Gentle Hints
                 </button>
             </div>
 
@@ -709,8 +966,8 @@
 
         <!-- Contextual Support / Coffee Module -->
         <section class="support-container" id="tippingCard">
-            <h4>☕ Keep Our Neural Solver Fast & Ad-Light</h4>
-            <p>Every analysis runs server-side AI reasoning across lexical databases. If our hints saved your streak today, consider fueling the compute!</p>
+            <h4>☕ Support Connections Assistant</h4>
+            <p>Connections Assistant is 100% free and independent. If the tool helped you preserve your streak today, consider chipping in for a coffee to keep server hosting running smoothly.</p>
             <div class="support-btn-group">
                 <a href="https://ko-fi.com/connectionsassistant" target="_blank" rel="noopener noreferrer" class="btn-support btn-kofi">
                     ☕ Tip $3 on Ko-fi
@@ -723,16 +980,16 @@
 
         <!-- Editorial Discovery & Learning Hub (Crawl Depth & Content Quality for AdSense) -->
         <section class="article-section" style="margin-top: 24px;">
-            <h2>Connections Strategy & Linguistic Breakdowns</h2>
-            <p>Master daily 16-word grouping puzzles using pattern deduction, elimination logic, and difficulty tier breakdowns.</p>
+            <h2>Daily Guides, Strategy & Word Breakdowns</h2>
+            <p>Everything you need to analyze your daily 16-word puzzle, recognize decoy patterns, and master Connections strategy.</p>
             
             <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; margin-top: 18px;">
                 <!-- Card 1: Guide -->
                 <div class="tier-card-bento yellow">
                     <div>
                         <span class="tier-badge badge-yellow">COLOR TIERS</span>
-                        <h3 style="margin-top: 4px;">4-Tier Difficulty Guide</h3>
-                        <p style="font-size: 13px;">Understand Yellow, Green, Blue, and Purple category hierarchies and how puzzle editors construct daily difficulty.</p>
+                        <h3 style="margin-top: 4px;">4 Color Difficulty Guide</h3>
+                        <p style="font-size: 13px;">Understand what Yellow, Green, Blue, and Purple mean and how puzzle creators build daily challenges.</p>
                     </div>
                     <a href="nyt-connections-guide.html" style="font-weight: 700; color: var(--ink); text-decoration: underline; font-size: 13px; margin-top: 12px; display: inline-block;">Read Full Guide &rarr;</a>
                 </div>
@@ -740,9 +997,9 @@
                 <!-- Card 2: Breakdowns -->
                 <div class="tier-card-bento purple">
                     <div>
-                        <span class="tier-badge badge-purple">VIDEO WALKTHROUGHS</span>
+                        <span class="tier-badge badge-purple">DAILY WALKTHROUGHS</span>
                         <h3 style="margin-top: 4px;">Daily Board Breakdowns</h3>
-                        <p style="font-size: 13px;">Watch real-time video analyses untangling polysemic traps like DATE, CHECK, and BANK across board grids.</p>
+                        <p style="font-size: 13px;">Watch today's video walkthrough and explore simple explanations for all 16 words and their meanings.</p>
                     </div>
                     <a href="breakdowns.html" style="font-weight: 700; color: var(--ink); text-decoration: underline; font-size: 13px; margin-top: 12px; display: inline-block;">Watch Breakdowns &rarr;</a>
                 </div>
@@ -750,9 +1007,9 @@
                 <!-- Card 3: Strategy -->
                 <div class="tier-card-bento blue">
                     <div>
-                        <span class="tier-badge badge-blue">DEDUCTION</span>
-                        <h3 style="margin-top: 4px;">The 5-Word Trap & Rules</h3>
-                        <p style="font-size: 13px;">Learn systematic workflows to avoid red herrings, isolate anchor words, and prevent wasted guesses.</p>
+                        <span class="tier-badge badge-blue">HELPFUL TIPS</span>
+                        <h3 style="margin-top: 4px;">Avoid Sneaky 5-Word Traps</h3>
+                        <p style="font-size: 13px;">Learn simple, patient habits to avoid guessing too quickly, spot red herrings, and protect your streak.</p>
                     </div>
                     <a href="strategy.html" style="font-weight: 700; color: var(--ink); text-decoration: underline; font-size: 13px; margin-top: 12px; display: inline-block;">Explore Strategy &rarr;</a>
                 </div>
@@ -760,9 +1017,9 @@
                 <!-- Card 4: FAQ -->
                 <div class="tier-card-bento green">
                     <div>
-                        <span class="tier-badge badge-green">METHODOLOGY</span>
-                        <h3 style="margin-top: 4px;">Linguistic Engine & Hints</h3>
-                        <p style="font-size: 13px;">Discover how our semantic API performs pairwise word analysis and how progressive hints protect your streak.</p>
+                        <span class="tier-badge badge-green">EASY ANSWERS</span>
+                        <h3 style="margin-top: 4px;">How Hints Work & FAQ</h3>
+                        <p style="font-size: 13px;">Learn how our step-by-step hints give you just enough help without spoiling the fun of solving yourself.</p>
                     </div>
                     <a href="faq.html" style="font-weight: 700; color: var(--ink); text-decoration: underline; font-size: 13px; margin-top: 12px; display: inline-block;">View FAQ &rarr;</a>
                 </div>
@@ -772,45 +1029,45 @@
         <!-- SEO Editorial Content: Core Features -->
         <section id="features" class="article-section">
             <h2>Understanding the Core Features</h2>
-            <p>The Connections Grouping Assistant is designed for seamless, fast input and deep semantic analysis. Here is how our key features streamline your puzzle solving:</p>
+            <p>Connections Assistant is designed to be straightforward and distraction-free. Here is how each feature helps you solve at your own pace:</p>
 
             <h3>📋 Quick Paste Feature</h3>
-            <p>Manually typing 16 individual words into separate boxes can be slow and tedious. The <strong>Quick Paste</strong> tool allows you to copy an entire daily word list directly from your clipboard or text message and paste it all at once. Our system automatically parses comma-separated lists, line breaks, or spaces, placing each word neatly into its designated grid position instantly.</p>
+            <p>Typing 16 separate words on a phone or tablet can be slow and clumsy. The <strong>Quick Paste</strong> button lets you paste all 16 words from a text or webpage in one simple step. It automatically puts each word into its own box for you.</p>
 
-            <h3>🔍 Analyze Associations Feature</h3>
-            <p>Once your grid is populated, clicking <strong>Analyze Associations</strong> triggers our server-backed neural semantic partitioner. Rather than relying on rigid dictionary lookups, our backend evaluates every word in contextual relation to the other 15 inputs. It analyzes definitions, multi-tier wordplay, slang associations, and category sets to resolve the optimal 4-tier partition into Yellow, Green, Blue, and Purple groupings.</p>
+            <h3>🔍 Find Groups & Gentle Hints</h3>
+            <p>Once your words are in the grid, click <strong>Find Groups & Gentle Hints</strong>. Instead of just giving away the answers and ruining the fun, our helper looks at how words relate to each other—checking definitions, shared themes, and clever spelling tricks—and offers gentle nudges so you can solve it yourself.</p>
         </section>
 
         <!-- SEO Editorial Content: Gameplay Strategy -->
         <section id="guide" class="article-section">
             <h2>How to Master Word Grouping Puzzles</h2>
-            <p>Word grouping puzzles challenge players to look at a 16-word grid and identify four distinct categories. While the concept sounds simple, game creators use advanced linguistic tricks to confuse players. The <strong>Connections Grouping Assistant</strong> was engineered to help you break down these mental roadblocks.</p>
+            <p>Word grouping puzzles challenge you to look at 16 words and find four groups of four related words. While it sounds simple, puzzle creators love using sneaky tricks. Here are easy ways to stay one step ahead:</p>
             
-            <h3>Understanding Red Herrings</h3>
-            <p>A "red herring" in a word puzzle is a word that intentionally fits into multiple categories to throw you off. For example, the word "BARK" could belong to a category about "Trees," a category about "Dogs," or a category about "Things that are rough." Our semantic analysis tool cross-references these definitions in real-time, helping you visualize overlapping definitions so you can isolate the red herrings.</p>
+            <h3>Understanding Red Herrings (Decoy Words)</h3>
+            <p>A "red herring" is a word placed on the board to trick your eye because it seems to fit into two different groups. For example, the word "BARK" could be a tree, a dog sound, or rough texture. Always pause before guessing to make sure you see where all the words belong!</p>
             
-            <h3>The Four Common Grouping Strategies</h3>
-            <p>To successfully solve daily grids, train your brain to look for these specific linguistic patterns:</p>
+            <h3>The Four Common Ways Words Connect</h3>
+            <p>To solve daily puzzles easily, look for these common connections:</p>
             <ul>
-                <li><strong>Synonyms and Definitions:</strong> Words that mean the same thing (e.g., Leap, Jump, Bound, Spring).</li>
-                <li><strong>Fill-in-the-Blanks:</strong> Words that share a common prefix or suffix (e.g., words preceding "Board": Key, Snow, Surf, Dash).</li>
-                <li><strong>Homophones:</strong> Words that sound identical with different spellings and meanings (e.g., Bear, Bare).</li>
-                <li><strong>Trivia and Categorical Domains:</strong> Specific categories like "Oscar Winning Movies" or "European Capitals."</li>
+                <li><strong>Words That Mean the Same Thing (Synonyms):</strong> Words with shared definitions (like Leap, Jump, Bound, Spring).</li>
+                <li><strong>Words That Share a Theme:</strong> Words linked by a hobby, setting, or subject (like tools found in a garden).</li>
+                <li><strong>Words That Share a Common Word:</strong> Words that can come before or after another word (like Key, Snow, Surf, and Dash all pairing with "Board").</li>
+                <li><strong>Fun Facts & Categories:</strong> Specific groups like "State Capitals" or "Types of Birds."</li>
             </ul>
         </section>
 
         <!-- SEO Editorial Content: FAQ -->
         <section id="faq" class="article-section">
-            <h2>Frequently Asked Questions (FAQ)</h2>
+            <h2>Frequently Asked Questions</h2>
             
-            <h3>How does the semantic solver work?</h3>
-            <p>When you input your 16 words, our secure Cloud Function analyzes all possible four-word combinations using advanced semantic inference. It evaluates contextual associations, compound word patterns, homophones, and lateral traps to deliver structured hints and difficulty-ranked solutions without exposing game secrets early.</p>
+            <h3>How does this helper find connections?</h3>
+            <p>When you enter your 16 words, our system looks at word meanings, common topics, cultural trivia, and clever spelling tricks to organize the words into their four difficulty levels: Yellow (easiest), Green, Blue, and Purple (trickiest).</p>
 
-            <h3>Is this tool cheating?</h3>
-            <p>Not at all! We view the Connections Grouping Assistant as a learning utility and a hint system. Rather than giving you direct answers, it provides structural analysis and highlights potential relationships for when you are stuck.</p>
+            <h3>Is using this helper cheating?</h3>
+            <p>Not at all! Think of it like a helpful friend sitting across the breakfast table with you. Rather than blurting out the solutions, it gives gentle hints and small nudges so you still get the satisfaction of solving the puzzle yourself.</p>
 
-            <h3>Are you affiliated with the New York Times?</h3>
-            <p>No. This website is a completely independent, free-to-use utility created by word puzzle enthusiasts. We have no affiliation, endorsement, or sponsorship with The New York Times Company or their daily games.</p>
+            <h3>Is this affiliated with the New York Times?</h3>
+            <p>No. This website is a 100% free, independent helper created by word puzzle lovers for fellow puzzle fans. We have no affiliation with The New York Times Company.</p>
         </section>
     </div>
 
@@ -819,9 +1076,12 @@
         <p>&copy; 2026 Connections Grouping Assistant. All rights reserved.</p>
         <p style="margin: 4px 0 12px 0;">This independent helper utility is not affiliated with the New York Times Company.</p>
         <div class="footer-links">
+            <a href="about.html">About Us</a>
             <a href="privacy.html">Privacy Policy</a>
             <a href="terms.html">Terms of Service</a>
             <a href="contact.html">Contact Us</a>
+      <a href="https://www.reddit.com/user/ConnectionsCoach/" target="_blank" rel="noopener noreferrer">Reddit: u/ConnectionsCoach</a>
+      <a href="https://www.youtube.com/@ConnectionsAssistant" target="_blank" rel="noopener noreferrer">YouTube: @ConnectionsAssistant</a>
         </div>
     </footer>
 
@@ -871,10 +1131,10 @@
 
         // 3. Cognitive Tier Spectrum Dynamic Rules
         const tierDetails = {
-            yellow: "🟨 YELLOW TIER: Direct synonyms, identical categories, or immediate functional links (Easiest).",
-            green:  "🟩 GREEN TIER: Contextual relationships, shared environments, or secondary associations (Moderate).",
-            blue:   "🟦 BLUE TIER: Trivia, slang terms, phrases, or fill-in-the-blank structures (Challenging).",
-            purple: "🟪 PURPLE TIER: Lateral wordplay, homophones, palindromes, or hidden letter shifts (Trickiest ✨)."
+            yellow: "🟨 YELLOW (Level 1 • Easiest): Words that mean the same thing (like huge, giant, massive, and enormous).",
+            green:  "🟩 GREEN (Level 2 • Moderate): Words connected by a common subject, theme, or activity (like tools used in gardening).",
+            blue:   "🟦 BLUE (Level 3 • Challenging): Facts, trivia, sayings, or fun general knowledge categories (like words ending in 'BOARD').",
+            purple: "🟪 PURPLE (Level 4 • Trickiest): Letter and spelling tricks, sounds, or wordplay where you look at how words are written rather than what they mean."
         };
 
         function showTierInfo(tier) {
@@ -888,37 +1148,260 @@
             alert("✨ Purple Wordplay Teaser:\n\nWords: CRICKET, SQUASH, TENNIS, BADMINTON\nTrick: Remove the first letter to reveal common household items!");
         }
 
-        // 5. Practice Sample Grid Loader
+        // Embedded Today's Puzzle Data for Instant Zero-Latency Render
+        let currentTodayPuzzle = {
+    "id": 1252,
+    "api_id": 1348,
+    "puzzle_number": 1252,
+    "date": "2026-11-14",
+    "starting_board": [
+        "COMPLEX",
+        "CHESS",
+        "BATTLE",
+        "ADVANCED",
+        "MARRIAGE",
+        "PROGRESSIVE",
+        "CENTER",
+        "MOTTLE",
+        "GO",
+        "FACILITY",
+        "MODERN",
+        "OTHELLO",
+        "TRIB",
+        "STRATEGO",
+        "CAMPUS",
+        "FOREMOST"
+    ],
+    "categories": [
+        {
+            "tier": "Yellow",
+            "level": 0,
+            "title": "CUTTING-EDGE",
+            "words": [
+                "ADVANCED",
+                "FOREMOST",
+                "MODERN",
+                "PROGRESSIVE"
+            ]
+        },
+        {
+            "tier": "Green",
+            "level": 1,
+            "title": "LOCATIONS FOR AN INSTITUTION",
+            "words": [
+                "CAMPUS",
+                "CENTER",
+                "COMPLEX",
+                "FACILITY"
+            ]
+        },
+        {
+            "tier": "Blue",
+            "level": 2,
+            "title": "STRATEGY BOARD GAMES",
+            "words": [
+                "CHESS",
+                "GO",
+                "OTHELLO",
+                "STRATEGO"
+            ]
+        },
+        {
+            "tier": "Purple",
+            "level": 3,
+            "title": "BABY GEAR WITH FIRST LETTER CHANGED",
+            "words": [
+                "BATTLE",
+                "MARRIAGE",
+                "MOTTLE",
+                "TRIB"
+            ]
+        }
+    ]
+};
+
+        // Render Word Chips Dynamically
+        function renderTodayWordChips(puzzle) {
+            const container = document.getElementById('todayChipsContainer');
+            if (!container || !puzzle || !puzzle.starting_board) return;
+            container.innerHTML = puzzle.starting_board.map(w => `<div class="today-word-chip">${w}</div>`).join('');
+
+            const titleEl = document.getElementById('todayTitleText');
+            if (titleEl && puzzle.date) {
+                const pNum = puzzle.puzzle_number || puzzle.id || '';
+                try {
+                    const dt = new Date(puzzle.date + 'T00:00:00');
+                    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                    const dName = days[dt.getDay()];
+                    const mName = months[dt.getMonth()];
+                    titleEl.innerHTML = `${dName}, ${mName} ${dt.getDate()}, ${dt.getFullYear()} &bull; Puzzle #${pNum}`;
+                } catch (e) {
+                    titleEl.innerText = `${puzzle.date} • Puzzle #${pNum}`;
+                }
+            }
+        }
+
+        // Fetch latest daily_puzzle.json dynamically with cache-busting
+        fetch('daily_puzzle.json?v=' + Date.now())
+            .then(res => res.ok ? res.json() : null)
+            .then(data => {
+                if (data && data.starting_board && data.starting_board.length === 16) {
+                    currentTodayPuzzle = data;
+                    renderTodayWordChips(data);
+                }
+            })
+            .catch(() => { /* silent fallback to embedded */ });
+
+        // 5. Fill Board With Today's Words (One-Click Practice)
+        function fillBoardWithTodayWords() {
+            if (!currentTodayPuzzle || !currentTodayPuzzle.starting_board) return;
+            const words = currentTodayPuzzle.starting_board;
+            for (let i = 0; i < 16; i++) {
+                const input = document.getElementById(`word-${i+1}`);
+                if (input) {
+                    input.value = words[i].toUpperCase();
+                    input.classList.add('filled');
+                    input.classList.remove('tile-pop');
+                    void input.offsetWidth; // trigger reflow
+                    input.classList.add('tile-pop');
+                }
+            }
+            showToast("⚡ Today's 16 words loaded into your board! Test groupings risk-free.");
+        }
+
+        // 6. Copy Today's 16 Words to Clipboard
+        let lastCopiedWordsCache = '';
+
+        function copyTodayWords() {
+            if (!currentTodayPuzzle || !currentTodayPuzzle.starting_board) return;
+            const wordsList = currentTodayPuzzle.starting_board.join(', ');
+            lastCopiedWordsCache = wordsList;
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(wordsList).then(() => {
+                    const btn = document.getElementById('copyTodayBtn');
+                    if (btn) {
+                        const originalHTML = btn.innerHTML;
+                        btn.innerHTML = '✓ 16 Words Copied!';
+                        setTimeout(() => { btn.innerHTML = originalHTML; }, 2500);
+                    }
+                    showToast("📋 Copied today's 16 words! Click \"Quick Paste\" or paste them anywhere.");
+                }).catch(() => {
+                    prompt("Copy today's 16 words from here:", wordsList);
+                });
+            } else {
+                prompt("Copy today's 16 words from here:", wordsList);
+            }
+        }
+
+        // 7. Clear Grid
+        function clearGrid() {
+            for (let i = 1; i <= 16; i++) {
+                const input = document.getElementById(`word-${i}`);
+                if (input) {
+                    input.value = '';
+                    input.classList.remove('filled', 'tile-pop');
+                }
+            }
+            const results = document.getElementById('results');
+            if (results) results.innerHTML = '';
+            const saveBtn = document.getElementById('saveBtn');
+            if (saveBtn) saveBtn.style.display = 'none';
+            showToast("🧹 Board cleared!");
+        }
+
+        // 8. Practice Sample Grid Loader
         function loadSampleGrid() {
             const sample = ["FLEET", "SWIFT", "PROMPT", "FAST", "SAILOR", "CAPTAIN", "CREW", "SKIPPER", "YACHT", "BARGE", "KAYAK", "CANOE", "TAYLOR", "NIMBLE", "CHUCK", "BALL"];
             for (let i = 0; i < 16; i++) {
                 const f = document.getElementById(`word-${i+1}`);
                 if (f) {
                     f.value = sample[i];
-                    f.classList.add('filled');
+                    f.classList.add('filled', 'tile-pop');
                 }
             }
+            showToast("🎲 Practice sample grid loaded!");
         }
 
-        // 6. Quick Paste Parser
-        function autoFillGrid() { 
-            const pastedText = prompt("Paste your 16 words here (separated by spaces, commas, or line breaks):");
+        // 9. Quick Paste Parser (Smart Comma / Newline / Multi-word aware)
+        function parseWordList(rawText) {
+            if (!rawText) return [];
+            let words = [];
+            if (rawText.includes(',')) {
+                words = rawText.split(',').map(w => w.trim()).filter(w => w.length > 0);
+            } else if (rawText.includes('\n')) {
+                words = rawText.split(/\r?\n/).map(w => w.trim()).filter(w => w.length > 0);
+            } else if (rawText.includes('\t')) {
+                words = rawText.split(/\t/).map(w => w.trim()).filter(w => w.length > 0);
+            } else {
+                words = rawText.split(/\s+/).map(w => w.trim()).filter(w => w.length > 0);
+            }
+            return words;
+        }
+
+        async function autoFillGrid() { 
+            let pastedText = '';
+            if (navigator.clipboard && navigator.clipboard.readText) {
+                try {
+                    const clipText = await navigator.clipboard.readText();
+                    if (clipText && clipText.trim().length > 0) {
+                        const wordsArray = parseWordList(clipText);
+                        if (wordsArray.length >= 4) {
+                            pastedText = clipText;
+                        }
+                    }
+                } catch (e) {
+                    // Clipboard permission not granted or unsupported
+                }
+            }
+            if (!pastedText && lastCopiedWordsCache) {
+                pastedText = lastCopiedWordsCache;
+            }
+            if (!pastedText) {
+                pastedText = prompt("Paste your 16 words here (separated by commas, line breaks, or spaces):");
+            }
             if (!pastedText) return;
-            const wordsArray = pastedText.split(/[\s,]+/).filter(w => w.trim().length > 0);
+            applyWordsToGrid(pastedText);
+            showToast("📋 16 Words pasted into board!");
+        }
+
+        function applyWordsToGrid(rawText) {
+            const wordsArray = parseWordList(rawText);
             for (let i = 0; i < 16; i++) {
                 const inputField = document.getElementById(`word-${i+1}`);
                 if (inputField) {
                     inputField.value = wordsArray[i] ? wordsArray[i].trim().toUpperCase() : '';
-                    if (inputField.value) inputField.classList.add('filled');
+                    if (inputField.value) {
+                        inputField.classList.add('filled', 'tile-pop');
+                    } else {
+                        inputField.classList.remove('filled', 'tile-pop');
+                    }
                 }
             }
+        }
+
+        // Toast Notification System
+        function showToast(message, duration = 3200) {
+            let toast = document.getElementById('caToast');
+            if (!toast) {
+                toast = document.createElement('div');
+                toast.id = 'caToast';
+                toast.className = 'ca-toast';
+                document.body.appendChild(toast);
+            }
+            toast.innerHTML = message;
+            toast.classList.add('show');
+            clearTimeout(window._toastTimeout);
+            window._toastTimeout = setTimeout(() => {
+                toast.classList.remove('show');
+            }, duration);
         }
 
         // Global State for Solution Cache
         let currentSolutionData = null;
         let hintsRevealedCount = 0;
 
-        // 7. Analyze Associations with Anti-Spoiler Progressive Disclosure
+        // 10. Analyze Associations with Anti-Spoiler Progressive Disclosure
         async function findConnections() {
             const findBtn = document.getElementById('findBtn');
             const resultsDiv = document.getElementById('results');
@@ -936,7 +1419,41 @@
             }
 
             findBtn.disabled = true;
-            resultsDiv.innerHTML = '<p style="text-align: center; color: var(--ink); font-weight: 700; padding: 20px;">🧩 Untangling lateral links & category traps...</p>';
+            resultsDiv.innerHTML = '<p style="text-align: center; color: var(--ink); font-weight: 700; padding: 20px;">🧩 Analyzing group connections...</p>';
+
+            // Instant 100% accurate resolver for today's verified puzzle
+            const enteredSet = new Set(words);
+            const isToday = currentTodayPuzzle && currentTodayPuzzle.categories &&
+                currentTodayPuzzle.starting_board &&
+                currentTodayPuzzle.starting_board.every(w => enteredSet.has(w.toUpperCase()));
+
+            if (isToday) {
+                const tierLabels = [
+                    "Yellow (Level 1 • Easiest)",
+                    "Green (Level 2 • Moderate)",
+                    "Blue (Level 3 • Challenging)",
+                    "Purple (Level 4 • Trickiest ✨)"
+                ];
+                const solutionData = {
+                    groups: currentTodayPuzzle.categories.map((c, idx) => ({
+                        theme: c.title,
+                        difficulty_tier: tierLabels[c.level !== undefined ? c.level : idx] || "Yellow (Straightforward)",
+                        confidence: 1.0,
+                        words: c.words.map(w => w.toUpperCase())
+                    }))
+                };
+                currentSolutionData = solutionData;
+                hintsRevealedCount = 0;
+
+                renderProgressiveResults(solutionData, true);
+                saveBtn.style.display = 'block';
+                updateSolverStreak();
+                findBtn.disabled = false;
+
+                // Smooth scroll to results
+                resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                return;
+            }
 
             try {
                 const response = await fetch('/api/solve', {
@@ -999,11 +1516,11 @@
                         </div>
                         <div class="card-body">
                             <div class="nudge-text" id="nudge-${idx}">
-                                <strong>Linguistic Category:</strong> ${isHintMode ? g.theme.replace(/[A-Za-z0-9]/g, (c, i) => i % 2 === 0 ? c : '•') : g.theme}
+                                <strong>Category Theme:</strong> ${isHintMode ? g.theme.replace(/[A-Za-z0-9]/g, (c, i) => i % 2 === 0 ? c : '•') : g.theme}
                             </div>
                             
                             <div class="anchor-words-reveal" id="anchor-${idx}" style="display: ${!isHintMode ? 'none' : 'none'};">
-                                💡 Anchor Clues: <strong>${anchorWords}</strong> + [2 hidden words]
+                                💡 Starter Hint: <strong>${anchorWords}</strong> + [2 words to find]
                             </div>
 
                             <div class="full-group-reveal" id="full-${idx}" style="display: ${!isHintMode ? 'block' : 'none'};">
@@ -1013,8 +1530,8 @@
 
                             ${isHintMode ? `
                                 <div class="card-action-bar" id="actions-${idx}">
-                                    <button class="btn-card-action" onclick="revealAnchor(${idx})">👀 Nudge Me (2 Words)</button>
-                                    <button class="btn-card-action" onclick="revealFull(${idx})">⚡ Reveal Group</button>
+                                    <button class="btn-card-action" onclick="revealAnchor(${idx})">👀 Give Me 2 Words</button>
+                                    <button class="btn-card-action" onclick="revealFull(${idx})">⚡ Reveal All 4 Words</button>
                                 </div>
                             ` : ''}
                         </div>
@@ -1026,7 +1543,7 @@
             html += `
                 <div class="red-herring-alert">
                     <span>⚠️</span>
-                    <span><strong>Red Herring Advisory:</strong> Be cautious of bridge words that share definitions across both the Green and Purple tiers.</span>
+                    <span><strong>Helpful Warning:</strong> Watch out for sneaky decoy words that look like they could fit into more than one group!</span>
                 </div>
             `;
 

@@ -1,0 +1,17 @@
+file 'C:/Users/Infinite/Documents/Connections Grouping Assistant/output_shorts/solution_frames/frame_1a_yellow_hl.png'
+duration 1.77
+file 'C:/Users/Infinite/Documents/Connections Grouping Assistant/output_shorts/solution_frames/frame_1b_yellow_solved.png'
+duration 4.54
+file 'C:/Users/Infinite/Documents/Connections Grouping Assistant/output_shorts/solution_frames/frame_2a_green_hl.png'
+duration 1.84
+file 'C:/Users/Infinite/Documents/Connections Grouping Assistant/output_shorts/solution_frames/frame_2b_green_solved.png'
+duration 4.73
+file 'C:/Users/Infinite/Documents/Connections Grouping Assistant/output_shorts/solution_frames/frame_3a_blue_hl.png'
+duration 1.75
+file 'C:/Users/Infinite/Documents/Connections Grouping Assistant/output_shorts/solution_frames/frame_3b_blue_solved.png'
+duration 4.49
+file 'C:/Users/Infinite/Documents/Connections Grouping Assistant/output_shorts/solution_frames/frame_4a_purple_hl.png'
+duration 2.40
+file 'C:/Users/Infinite/Documents/Connections Grouping Assistant/output_shorts/solution_frames/frame_4b_purple_solved.png'
+duration 8.38
+file 'C:/Users/Infinite/Documents/Connections Grouping Assistant/output_shorts/solution_frames/frame_4b_purple_solved.png'

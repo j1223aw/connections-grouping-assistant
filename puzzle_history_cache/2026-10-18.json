@@ -1,0 +1,70 @@
+{
+  "id": 1225,
+  "api_id": 1333,
+  "puzzle_number": 1225,
+  "date": "2026-10-18",
+  "starting_board": [
+    "ANGEL",
+    "BUTTER",
+    "HAZEL",
+    "DEODORANT",
+    "COCO",
+    "DYNAMITE",
+    "MISTER",
+    "FOGERTY",
+    "CHEST",
+    "INCENSE",
+    "VAPORETTO",
+    "BUREAU",
+    "OBSESSION",
+    "TRUNK",
+    "OPIUM",
+    "WARDROBE"
+  ],
+  "categories": [
+    {
+      "tier": "Yellow",
+      "level": 0,
+      "title": "PLACES TO STORE CLOTHES",
+      "words": [
+        "BUREAU",
+        "CHEST",
+        "TRUNK",
+        "WARDROBE"
+      ]
+    },
+    {
+      "tier": "Green",
+      "level": 1,
+      "title": "THINGS THAT COME IN STICKS",
+      "words": [
+        "BUTTER",
+        "DEODORANT",
+        "DYNAMITE",
+        "INCENSE"
+      ]
+    },
+    {
+      "tier": "Blue",
+      "level": 2,
+      "title": "FAMOUS PERFUMES",
+      "words": [
+        "ANGEL",
+        "COCO",
+        "OBSESSION",
+        "OPIUM"
+      ]
+    },
+    {
+      "tier": "Purple",
+      "level": 3,
+      "title": "STARTING WITH THINGS THAT CLOUD THE AIR",
+      "words": [
+        "FOGERTY",
+        "HAZEL",
+        "MISTER",
+        "VAPORETTO"
+      ]
+    }
+  ]
+}

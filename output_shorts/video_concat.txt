@@ -1,0 +1,7 @@
+file 'C:/Users/Infinite/Documents/Connections Grouping Assistant/output_shorts/frames/scene_1.png'
+duration 6.82
+file 'C:/Users/Infinite/Documents/Connections Grouping Assistant/output_shorts/frames/scene_2.png'
+duration 5.21
+file 'C:/Users/Infinite/Documents/Connections Grouping Assistant/output_shorts/frames/scene_3.png'
+duration 9.65
+file 'C:/Users/Infinite/Documents/Connections Grouping Assistant/output_shorts/frames/scene_3.png'

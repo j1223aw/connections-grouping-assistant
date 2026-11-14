@@ -1,0 +1,70 @@
+{
+  "id": 1220,
+  "api_id": 1321,
+  "puzzle_number": 1220,
+  "date": "2026-10-13",
+  "starting_board": [
+    "EYE",
+    "LASH",
+    "LIPS",
+    "JACKET",
+    "TIE",
+    "SENSE",
+    "CHANGE",
+    "BELT",
+    "RING",
+    "TASTE",
+    "CUP",
+    "HITCH",
+    "CANNON",
+    "TETHER",
+    "FLAIR",
+    "ENDS"
+  ],
+  "categories": [
+    {
+      "tier": "Yellow",
+      "level": 0,
+      "title": "DISCERNMENT",
+      "words": [
+        "EYE",
+        "FLAIR",
+        "SENSE",
+        "TASTE"
+      ]
+    },
+    {
+      "tier": "Green",
+      "level": 1,
+      "title": "FASTEN",
+      "words": [
+        "HITCH",
+        "LASH",
+        "TETHER",
+        "TIE"
+      ]
+    },
+    {
+      "tier": "Blue",
+      "level": 2,
+      "title": "SPORTS CHAMPIONSHIP PRIZES",
+      "words": [
+        "BELT",
+        "CUP",
+        "JACKET",
+        "RING"
+      ]
+    },
+    {
+      "tier": "Purple",
+      "level": 3,
+      "title": "LOOSE ___",
+      "words": [
+        "CANNON",
+        "CHANGE",
+        "ENDS",
+        "LIPS"
+      ]
+    }
+  ]
+}
